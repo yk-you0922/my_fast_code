@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :encrypted_password, null: false, default: ""
       t.string :name,               null: false, default: ""
       t.string :image_id,           null: false, default: ""
-      t.string :introdunction
+      t.string :introduction
       t.string :token
       t.string :meta
       t.boolean :is_sex_flag,       null: false, default: true

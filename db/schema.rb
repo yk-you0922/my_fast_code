@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_111508) do
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
     t.string "image_id", default: "", null: false
-    t.string "introdunction"
+    t.string "introduction"
     t.string "token"
     t.string "meta"
     t.boolean "is_sex_flag", default: true, null: false

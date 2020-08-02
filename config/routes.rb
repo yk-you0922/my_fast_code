@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'posts/index'
+    get 'posts/show'
+    get 'posts/destroy'
+  end
   devise_for :admins
   # ユーザーがgoogle認証するための記述
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -26,7 +31,8 @@ Rails.application.routes.draw do
   # 管理者が管理する画面のルーティング
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :contact, only: [:index, :show, :update]
-    resources :genre, except: [:new]
+    resources :posts, only: [:index, :show, :destroy]
+    resources :contacts, only: [:index, :show, :update]
+    resources :genres, except: [:new]
   end
 end

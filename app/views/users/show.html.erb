@@ -1,1 +1,8 @@
 <%# マイページ %>
+<h2><%= @user.name %>'s My Page</h2>
+<%= render "users/info", user: @user %>
+<div class="edit-user-button">
+<% if @user.id == current_user.id %>
+  <%= link_to 'ユーザー編集へ', edit_user_path %>
+<% end %>
+</div>
