@@ -1,1 +1,5 @@
 <%# ユーザー一覧（ユーザー目線） %>
+<h2>ユーザー一覧</h2>
+<% @users.each do |user| %>
+  <%= render "users/info" , user: user %>
+<% end %>

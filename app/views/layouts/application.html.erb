@@ -8,8 +8,35 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <% if user_signed_in? %>
+        <div class="logo">Logo</div>
+        <div class="header-contents"><%= link_to 'マイページ', user_path(current_user) %></div>
+        <div class="header-contents"><%= link_to '投稿一覧', posts_path %></div>
+        <div class="header-contents"><%= link_to 'ユーザー一覧', users_path %></div>
+        <div class="header-contents"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+      <% elsif admin_signed_in?%>
+        <div class="logo">Logo</div>
+        <div class="header-contents"><%= link_to '投稿一覧', admin_posts_path %></div>
+        <div class="header-contents"><%= link_to 'ジャンル一覧', admin_genres_path %></div>
+        <div class="header-contents"><%= link_to 'ユーザー一覧', admin_users_path %></div>
+        <div class="header-contents"><%= link_to 'お問い合わせ一覧', admin_contacts_path %></div>
+        <div class="header-contents"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></div>
+      <% else %>
+        <div class="logo">Logo</div>
+        <div class="header-contents"><%= link_to 'ABOUT', homes_about_path %></div>
+        <div class="header-contents"><%= link_to '投稿一覧', posts_path %></div>
+        <div class="header-contents"><%= link_to 'ユーザー一覧', users_path %></div>
+        <div class="header-contents"><%= link_to 'ログイン', new_user_session_path %></div>
+        <div class="header-contents"><%= link_to '新規登録', new_user_registration_path %></div>
+    <% end %>
+  </header>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <h3 class="footer-title">My Fast Code</h3>
+  </footer>
 </html>

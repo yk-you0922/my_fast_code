@@ -1,1 +1,7 @@
 <%# ユーザー退会確認ページ %>
+<h2>ユーザー退会ページ</h2>
+
+<p>アカウントの削除ページです。</p>
+
+<%= link_to '削除しない', user_path(current_user) %>
+<%= link_to '削除する', user_hide_path(current_user), method: :put %>
