@@ -1,2 +1,26 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<%# ユーザー 投稿詳細ページ %>
+<h2>
+  <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
+  <%= @post.user.name %>さんの投稿詳細
+</h2>
+<label>タイトル</label>
+  <%= @post.title %>
+<div>
+  <%= attachment_image_tag @post, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
+</div>
+<div>
+  <%= @post.body %>
+</div>
+<div>
+  <%= @remain %>
+</div>
+<div>
+  <% if @post.user_id == current_user.id %>
+    <%= link_to '編集する', edit_post_path %>
+    <%= link_to '削除する', post_path(@post.id), method: :delete %>
+  <% end %>
+</div>
+
+
+
+

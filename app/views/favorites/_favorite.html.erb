@@ -1,0 +1,53 @@
+<th>
+  <div>
+    <%= link_to post_path(post.id) do %>
+      <%= attachment_image_tag user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50'%>
+    <% end %>
+  </div>
+    <%= post.user.name %>
+ </th>
+
+  <td><%= link_to post.title, post_path(post.id) %></td>
+  <td><%= post.body %></td>
+
+<% if post.favorited_by?(current_user) %>
+  <td>
+    <%= link_to post_favorites_path(post.id), method: :delete, remote: true do %>
+      <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red"></span>
+      <%= post.favorites.count %>
+    <% end %>
+  </td>
+  <td><span>コメント数 :</span><%= post.post_comments.count %></td>
+  <%# 条件分岐 自分の投稿以外の時には編集、削除ボタンが出ないようにする %>
+  <% if post.user == current_user %>
+    <% if check_page('posts', 'show') %>
+      <td>
+      <%= link_to 'Edit', edit_post_path(post.id), class: "btn btn-success text-secondary", roll: "button" %>
+      </td>
+      <td>
+      <%= link_to 'Destroy', post_path(post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger text-secondary", roll: "button" %>
+      </td>
+    <% end %>
+  <% end %>
+<% else %>
+  <td>
+    <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
+    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+    <%= post.favorites.count %>
+    <% end %>
+  </td>
+    <td><span>コメント数 :</span><%= post.post_comments.count %></td>
+     <%# 条件分岐 自分の投稿以外の時には編集、削除ボタンが出ないようにする %>
+  <% if post.user == current_user %>
+    <% if check_page('posts', 'show') %>
+      <td>
+      <%= link_to 'Edit', edit_post_path(post.id), class: "btn btn-success text-secondary", roll: "button" %>
+      </td>
+      <td>
+      <%= link_to 'Destroy', post_path(post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger text-secondary", roll: "button" %>
+      </td>
+    <% end %>
+  <% end %>
+<% end %>
+
+
