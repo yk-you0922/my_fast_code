@@ -1,0 +1,32 @@
+  <table>
+    <thead>
+      <tr>
+        <td>アイコン</td>
+        <td>ユーザー名</td>
+        <td>投稿数</td>
+        <td>性別</td>
+        <td>ステータス</td>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+            <%= link_to admin_user_path(user) do %>
+              <%= attachment_image_tag user, :image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.jpg", size:'30x30', class: "user-icon" %>
+            <% end %>
+          </td>
+          <td><%= user.name %></td>
+          <td><%= user.posts.count %>件</td>
+          <% if user.is_sex_flag == true %>
+              <td>男性</td>
+            <% else %>
+              <td>女性</td>
+          <% end %>
+          <% if user.is_withdrawal_flag == true %>
+              <td>有効</td>
+            <% else %>
+              <td>退会済み</td>
+          <% end %>
+        </tr>
+    </tbody>
+  </table>

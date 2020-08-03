@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!, except: :index
+
   def index
     @users = User.all
   end
@@ -22,7 +24,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # ユーザーが退会したときの処理
   def hide
+    @user = User.find(params[:id])
+    @user.update(is_withdrawal_flag: false)
+    reset_session
+    redirect_to root_path
   end
 
   def follows
@@ -34,7 +41,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :image, :sex, :is_withdrawal_flag)
+    params.require(:user).permit(
+      :name, 
+      :introduction, 
+      :image, 
+      :is_sex_flag, 
+      :is_withdrawal_flag
+    )
   end
 
 end

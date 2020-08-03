@@ -4,5 +4,6 @@
 <div class="edit-user-button">
 <% if @user.id == current_user.id %>
   <%= link_to 'ユーザー編集へ', edit_user_path %>
+  <%= link_to 'アカウント削除', withdrawal_path %>
 <% end %>
 </div>

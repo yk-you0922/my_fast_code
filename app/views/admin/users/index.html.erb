@@ -1,2 +1,4 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<%# 管理者 ユーザー一覧ページ %>
+<% @users.each do |user| %>
+  <%= render 'admin/users/admin_user_info', user: user %>
+<% end %>

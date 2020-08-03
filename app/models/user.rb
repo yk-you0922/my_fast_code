@@ -25,6 +25,11 @@ class User < ApplicationRecord
     # 今自分（引数のuser)がフォローしようとしているユーザー（レシーバー）がフォローされているユーザーの中から自分がいるかどうかを調べる
     passive_relationships.find_by(following_id: user.id).present?
   end
+ 
+  # 退会済みステータスユーザーのログイン拒否
+  def active_for_authentication?
+    super && (self.is_withdrawal_flag == true )
+  end
 
 
   protected

@@ -1,17 +1,27 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/destroy'
-  end
   devise_for :admins
   # ユーザーがgoogle認証するための記述
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+  devise_for :users, controllers: { 
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+   }
+   
+   def devise_scope(scope)
+    constraint = lambda do |request|
+      request.env["devise.mapping"] = Devise.mappings[scope]
+      true
+    end
+ 
+    constraints(constraint) do
+      yield
+    end
+  end
 
+
+  # homes関連のルーティング
   root 'homes#top'
   get 'homes/about' => 'about'
+  get 'welcome' => 'homes#welcome', as: 'welcoming'
   
   # ユーザー関連のルーティング
   resources :users do
@@ -20,6 +30,9 @@ Rails.application.routes.draw do
     get :followers, on: :member
     get :ranking
   end
+  get 'withdrawal' => 'users#withdrawal'
+  put "/users/:id/hide" => "users#hide", as: 'user_hide'
+
 
   # 投稿関連のルーティング
   resources :posts do 
