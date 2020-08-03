@@ -21,7 +21,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    @time = (@post.time_up_at - @post.updated_at)
   end
 
   def edit
@@ -37,6 +36,12 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       render :show
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   def ranking
