@@ -1,6 +1,6 @@
 <%# ユーザー 投稿詳細ページ %>
 <h2>
-  <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
+  <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50',class: "user-icon" %>
   <%= @post.user.name %>さんの投稿詳細
 </h2>
 <label>タイトル</label>
@@ -45,7 +45,6 @@
 
 <%# 部分テンプレート コメント一覧 %>
 <h2>コメント一覧</h2>
-  <table id="comment_area_<%= @post.id %>">
+  <table id="comment_area">
     <%= render 'comments/comment', comments: @comments  %>
-    <%# binding.pry %>
   </table>

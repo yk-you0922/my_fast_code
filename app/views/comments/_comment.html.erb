@@ -3,13 +3,13 @@
   <tr>
     <td>投稿者名</td>
     <td>
-      <%= attachment_image_tag comment.user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
+      <%= attachment_image_tag comment.user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' ,class: "user-icon"%>
       <%= comment.user.name %>
     </td>
   </tr>
   <tr>
     <td>画像</td>
-    <td><%= attachment_image_tag comment, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %></td>
+    <td><%= attachment_image_tag comment, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'150x150' %></td>
   </tr>
   <tr>
     <td>本文</td>
