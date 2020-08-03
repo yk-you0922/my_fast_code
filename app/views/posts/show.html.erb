@@ -1,6 +1,6 @@
 <%# ユーザー 投稿詳細ページ %>
 <h2>
-  <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
+  <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50',class: "user-icon" %>
   <%= @post.user.name %>さんの投稿詳細
 </h2>
 <label>タイトル</label>
@@ -22,5 +22,29 @@
 </div>
 
 
+<%# コメント投稿フォーム（期限内のみ表示処理を後ほど） %>
+<h2>コメント</h2>
+<%= form_with model:[@post, @new_comment], data: {remote: true} do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <td>画像</td>
+        <td><%= f.attachment_field :image %></td>
+      </tr>
+      <tr>
+        <td>内容</td>
+        <td id="textarea"><%= f.text_area :body %></td>
+      </tr>
+      <tr>
+        <td><%= f.submit 'コメントする' %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
 
 
+<%# 部分テンプレート コメント一覧 %>
+<h2>コメント一覧</h2>
+  <table id="comment_area">
+    <%= render 'comments/comment', comments: @comments  %>
+  </table>

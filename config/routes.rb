@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   # 投稿関連のルーティング
   resources :posts do 
     resource :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resource :comments, only: [:create, :destroy]
     get :ranking
   end
 
