@@ -12,6 +12,12 @@
   <%= @post.body %>
 </div>
 <div>
+  <label>カテゴリー : </label>
+  <% @post.genres.each do |genre| %>
+    <%= genre.name %>
+  <% end %>
+</div>
+<div>
   <%= @remain %>
 </div>
 <div>

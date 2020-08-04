@@ -4,4 +4,5 @@ class CategoriesController < ApplicationController
 
   def ranking
   end
+
 end

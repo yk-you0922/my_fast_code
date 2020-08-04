@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'genres/index'
   devise_for :admins
   # ユーザーがgoogle認証するための記述
   devise_for :users, controllers: { 
@@ -40,6 +41,10 @@ Rails.application.routes.draw do
     resource :comments, only: [:create, :destroy]
     get :ranking
   end
+
+  resources :genres, only: [:index]
+  get '/genres' => 'genres#index'
+  get '/:genre_id/posts' => 'posts#category', as: 'category_posts'
 
   # 管理者が管理する画面のルーティング
   namespace :admin do

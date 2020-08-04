@@ -1,0 +1,6 @@
+<%# カテゴリーの中の投稿一覧 %>
+<h2>カテゴリー："<%= @genre.name %>" に関する投稿一覧</h2>
+
+<% @genre_posts.each do |post| %>
+  <%= render 'posts/list', post: post %>
+<% end %>
