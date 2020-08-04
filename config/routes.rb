@@ -33,7 +33,10 @@ Rails.application.routes.draw do
   end
   get 'withdrawal' => 'users#withdrawal'
   put "/users/:id/hide" => "users#hide", as: 'user_hide'
-
+  
+  resources :genres, only: [:index]
+  get '/genres' => 'genres#index'
+  get '/genres/:genre_id/posts' => 'posts#category', as: 'category_posts'
 
   # 投稿関連のルーティング
   resources :posts do 
@@ -42,9 +45,6 @@ Rails.application.routes.draw do
     get :ranking
   end
 
-  resources :genres, only: [:index]
-  get '/genres' => 'genres#index'
-  get '/:genre_id/posts' => 'posts#category', as: 'category_posts'
 
   # 管理者が管理する画面のルーティング
   namespace :admin do
