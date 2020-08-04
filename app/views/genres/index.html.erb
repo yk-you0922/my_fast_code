@@ -1,0 +1,21 @@
+<h2>カテゴリー一覧</h2>
+<% @genres.each do |genre| %>
+  <table>
+    <thead>
+      <tr>
+        <td>カテゴリー名</td>
+        <td>投稿数</td>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+      <%= link_to category_posts_path(genre.id) do %>
+          <%= genre.name %>
+      <% end %>
+          </td>
+          <td><%= genre.posts.count %></td>
+        </tr>
+    </tbody>
+  </table>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'genres/index'
   devise_for :admins
   # ユーザーがgoogle認証するための記述
   devise_for :users, controllers: { 
@@ -32,7 +33,10 @@ Rails.application.routes.draw do
   end
   get 'withdrawal' => 'users#withdrawal'
   put "/users/:id/hide" => "users#hide", as: 'user_hide'
-
+  
+  resources :genres, only: [:index]
+  get '/genres' => 'genres#index'
+  get '/genres/:genre_id/posts' => 'posts#category', as: 'category_posts'
 
   # 投稿関連のルーティング
   resources :posts do 
@@ -40,6 +44,7 @@ Rails.application.routes.draw do
     resource :comments, only: [:create, :destroy]
     get :ranking
   end
+
 
   # 管理者が管理する画面のルーティング
   namespace :admin do

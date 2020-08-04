@@ -1,34 +1,5 @@
 <%# ユーザー 投稿一覧ページ %>
 <h2>投稿一覧</h2>
 <% @posts.each do |post| %>
-  <table>
-    <thead>
-      <tr>
-        <td>ユーザー名</td>
-        <td>タイトル</td>
-        <td>画像</td>
-        <td>内容</td>
-        <td>コメント数</td>
-        <td>お気に入り数</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <%= link_to user_path(post.user_id) do %>
-            <%= post.user.name %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to post_path(post.id) do %>
-            <%= post.title %>
-          <% end %>
-        </td>
-        <td><%= attachment_image_tag post, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %></td>
-        <td><%= post.body %></td>
-        <td><%= post.comments.count %></td>
-        <td><%= post.favorites.count %></td>
-      </tr>
-    </tbody>
-  </table>
+  <%= render 'posts/list', post: post %>
 <% end %>

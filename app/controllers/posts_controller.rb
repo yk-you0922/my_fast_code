@@ -49,9 +49,14 @@ class PostsController < ApplicationController
   def ranking
   end
 
+  def category
+    @genre = Genre.find(params[:genre_id])
+    @genre_posts = @genre.posts
+  end
+
   private
   
   def post_params
-    params.require(:post).permit(:title, :body, :image, :time_up_at)
+    params.require(:post).permit(:title, :body, :image, :time_up_at, genre_ids: [])
   end
 end

@@ -6,13 +6,18 @@
     <thead>
       <tr>
         <td>ジャンル名</td>
-        <td></td>
+        <td>投稿数</td>
         <td></td>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><%= genre.name %></td>
+        <td>
+          <%= link_to category_posts_path(genre.id) do %>
+            <%= genre.name %>
+          <% end %>
+        </td>
+        <td><%= genre.posts.count %>件</td>
         <td><%= link_to 'ジャンル編集', edit_admin_genre_path(genre.id) %></td>
       </tr>
     </tbody>
