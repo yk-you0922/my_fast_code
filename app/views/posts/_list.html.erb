@@ -23,6 +23,11 @@
       </td>
       <td><%= attachment_image_tag post, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %></td>
       <td><%= post.body %></td>
+      <td>
+        <% post.genres.each do |genre| %>
+          <%= genre.name %>
+        <% end %>
+      </td>
       <td><%= post.comments.count %></td>
       <td><%= post.favorites.count %></td>
     </tr>
