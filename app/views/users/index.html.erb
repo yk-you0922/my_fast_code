@@ -2,4 +2,7 @@
 <h2>ユーザー一覧</h2>
 <% @users.each do |user| %>
   <%= render "users/info" , user: user %>
+  <div id="follow_button">
+    <%= render 'users/follow', user: user %>
+  </div>
 <% end %>
