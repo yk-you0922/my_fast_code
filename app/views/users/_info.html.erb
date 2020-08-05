@@ -5,8 +5,6 @@
       <td>ユーザー名</td>
       <td>投稿数</td>
       <td>性別</td>
-      <td>フォロー数</td>
-      <td>フォロワー数</td>
     </tr>
   </thead>
   <tbody>
@@ -23,16 +21,11 @@
           <% else %>
             <td>女性</td>
         <% end %>
-        <td>
-          <%= link_to follows_user_path(user) do %>
-            <%= user.followings.count %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to followers_user_path(user) do %>
-            <%= user.followers.count %>
-          <% end %>
-        </td>
       </tr>
   </tbody>
+</table>
+<table id="follow_button_<%= user.id %>">
+  <tr>
+    <%= render 'relationships/follow', user: user %>
+  </tr>
 </table>

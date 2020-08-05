@@ -11,14 +11,14 @@
   </thead>
   <tbody>
     <tr>
-      <td class="user-icon">
-        <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
-      </td>
       <td>
         <%= link_to admin_user_path(post.user_id) do %>
-          <%= post.user.name %>
-        <% end %>
+          <%= attachment_image_tag post.user, :image, :fill, 30, 30, fallback: "no_image.jpg" , size:'30x30' %>
       </td>
+      <td>
+          <%= post.user.name %>
+      </td>
+        <% end %>
       <td>
         <%= link_to admin_post_path(post.id) do %>
           <%= post.title %>

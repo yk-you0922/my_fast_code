@@ -1,1 +1,8 @@
 <%# ユーザーのフォロー一覧画面 %>
+<h2>
+  "<%= @user.name %>" さんのフォロー一覧
+  全<%= @users.count %> 件
+</h2>
+<% @users.each do |user| %>
+  <%= render "users/info" , user: user %>
+<% end %>
