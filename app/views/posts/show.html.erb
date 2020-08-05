@@ -3,31 +3,14 @@
   <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50',class: "user-icon" %>
   <%= @post.user.name %>さんの投稿詳細
 </h2>
-<label>タイトル</label>
-  <%= @post.title %>
-<div>
-  <%= attachment_image_tag @post, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
-</div>
-<div>
-  <%= @post.body %>
-</div>
-<div>
-  <label>カテゴリー : </label>
-  <% @post.genres.each do |genre| %>
-    <%= genre.name %>
-  <% end %>
-</div>
-<div>
-  <%= @remain %>
-</div>
+<%= render 'posts/list', post: @post %>
+
 <div>
   <% if @post.user_id == current_user.id %>
     <%= link_to '編集する', edit_post_path %>
     <%= link_to '削除する', post_path(@post.id), method: :delete %>
   <% end %>
 </div>
-
-
 <%# コメント投稿フォーム（期限内のみ表示処理を後ほど） %>
 <h2>コメント</h2>
 <%= form_with model:[@post, @new_comment], data: {remote: true} do |f| %>

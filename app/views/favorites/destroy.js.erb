@@ -1,0 +1,2 @@
+<%# お気に入り機能のAjax化 %>
+$('#fav_list_<%= @post.id %>').html("<%= j(render partial: 'favorites/favorites', locals: {post: @post}) %>");
