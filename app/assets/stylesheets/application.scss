@@ -14,6 +14,9 @@
  *= require_self
  */
 
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
 //  リセットCSS
 * {
   padding: 0;
@@ -25,6 +28,15 @@
 .user-icon {
   border-radius: 50%;
   border: 1px solid #6495ed;
+}
+
+// お気に入り
+.red_heart {
+  color: red;
+}
+
+.no_heart {
+  color: blue;
 }
 
 //  HEADER

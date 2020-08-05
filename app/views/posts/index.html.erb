@@ -2,4 +2,7 @@
 <h2>投稿一覧</h2>
 <% @posts.each do |post| %>
   <%= render 'posts/list', post: post %>
+  <div id="fav_list_<%= post.id %>">
+      <%= render 'favorites/favorites', post: post %>
+  </div>
 <% end %>

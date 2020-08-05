@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <td>投稿者名</td>
+      <td>投稿タイトル</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= post.user.name %></td>
+      <td>
+        <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %>
+          <%= post.title %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,3 +1,4 @@
 <%# コメントのAjax化 %>
 $("#comment_area").html("<%= j(render(partial: 'comments/comment', locals: {comments: @new_comment.post.comments} )) %>");
 $("#textarea").val("");
+
