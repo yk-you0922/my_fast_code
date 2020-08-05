@@ -4,6 +4,9 @@
   <%= @post.user.name %>さんの投稿詳細
 </h2>
 <%= render 'posts/list', post: @post %>
+  <div id="fav_list_<%= @post.id %>">
+      <%= render 'favorites/favorites', post: @post %>
+  </div>
 
 <div>
   <% if @post.user_id == current_user.id %>
