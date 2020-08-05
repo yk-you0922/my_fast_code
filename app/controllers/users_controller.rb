@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
     @favorite_posts = @user.favorites.map{|favorite| favorite.post}
+    # 自分がお気に入りした数
+    # @favorites_count = @user.favorites_posts.map{|favorite| favorite}
   end
 
   def edit
