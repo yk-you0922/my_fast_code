@@ -26,8 +26,10 @@
           </td>
         </tr>
         <tr>
-          <td>コメント受付期限</td>
-          <td><%= f.date_select :time_up_at %></td>
+          <td>コメント<br>受付期限</td>
+          <td>
+          <%= f.datetime_field :closed_on %>
+          </td>
         </tr>
         <tr>
           <td><%= f.submit '投稿する' %></td>

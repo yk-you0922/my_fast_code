@@ -1,9 +1,6 @@
 <%# マイページ %>
 <h2><%= @user.name %>'s My Page</h2>
 <%= render "users/info", user: @user %>
-<%# <div id="follow_button"> %>
-  <%#= render 'relationships/follow', user: @user %>
-<%# </div> %>
 <h2><%= @user.name %>さんのお気に入り投稿 : <%= @favorite_posts.count %>件</h2>
 <% @favorite_posts.each do |post| %>
   <%= render 'users/favorites_list', post: post %>

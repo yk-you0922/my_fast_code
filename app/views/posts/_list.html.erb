@@ -33,3 +33,9 @@
      <% end %>
   </tr>
 </table>
+<div>
+  <h4>コメント受付期間</h4>
+  <%#= post.closed_on.strftime("%Y-%m-%d %H : %m") %>
+  <%= l post.closed_on %>
+  <span>まで</span>
+</div>
