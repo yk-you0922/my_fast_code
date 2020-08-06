@@ -66,14 +66,12 @@ header div:first-child {
   height: 30px;
   width:140px;
   font-weight:bold;
-  text-decoration:none;
   display:block;
   text-align:center;
   color:#333;
   border:1px solid #333;
   border-radius: 5px;
   background-color: #98fb98;
-  text-decoration: none;
 }
 
 .header-contents a {
@@ -101,8 +99,31 @@ footer{
   height: 150px;
   border-top: 3px outset orange;
   background: #fffaf0;
+  display: flex;
 }
 
 .footer-title {
-  text-align: center;
+  margin-right: auto;
+}
+
+.footer-contents {
+  margin-left: 20px;
+  margin-top: 70px;
+  height: 30px;
+  width:140px;
+  font-weight:bold;
+  display:inline-block;
+  text-align:center;
+  color:#333;
+  border:1px solid #333;
+  border-radius: 5px;
+  background-color: #98fb98;
+}
+
+.footer-contents a {
+  text-decoration: none;
+}
+
+.footer-contents:last-child{
+  margin-right: 30px;
 }

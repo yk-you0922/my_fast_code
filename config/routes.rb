@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get :follows, on: :member
     get :followers, on: :member
     get :ranking
+    resources :contacts, only: [:new, :index, :show, :create]
   end
   get 'withdrawal' => 'users#withdrawal'
   put "/users/:id/hide" => "users#hide", as: 'user_hide'

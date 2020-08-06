@@ -1,4 +1,4 @@
-<h2><%= @contact.user.name %>さんのお問い合わせ詳細</h2>
+<%# ユーザー お問い合わせ %>
   <table>
     <thead>
       <tr>
@@ -18,12 +18,7 @@
         <td><%= @contact.user.name %></td>
         <td><%= @contact.user.email %></td>
         <td><%= @contact.title %></td>
-          <td>
-             <%= form_for @contact, url: admin_contact_path do |f| %>
-                <%= f.select :is_support_status, [:"対応待ち", :"対応中", :"対応済み"] %>
-                <%= f.submit '更新' %>
-              <% end %>
-          </td>
+        <td><%= @contact.is_support_status %></td>
       </tr>
     </tbody>
   </table>
