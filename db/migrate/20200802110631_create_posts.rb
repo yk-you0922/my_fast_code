@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.text :body, null: false
       t.string :image_id, null: false
-      t.datetime :time_up_at, null: false, default: ""
+      t.datetime :closed_on, null: false
 
       t.timestamps
     end

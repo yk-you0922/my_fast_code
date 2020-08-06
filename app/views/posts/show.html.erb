@@ -14,24 +14,26 @@
     <%= link_to '削除する', post_path(@post.id), method: :delete %>
   <% end %>
 </div>
-<%# コメント投稿フォーム（期限内のみ表示処理を後ほど） %>
-<h2>コメント</h2>
-<%= form_with model:[@post, @new_comment], data: {remote: true} do |f| %>
-  <table>
-    <tbody>
-      <tr>
-        <td>画像</td>
-        <td><%= f.attachment_field :image %></td>
-      </tr>
-      <tr>
-        <td>内容</td>
-        <td><%= f.text_area :body, id: "textarea" %></td>
-      </tr>
-      <tr>
-        <td><%= f.submit 'コメントする' %></td>
-      </tr>
-    </tbody>
-  </table>
+<%# コメント投稿フォーム %>
+<% if @post.closed_on.future? %>
+  <h2>コメント</h2>
+  <%= form_with model:[@post, @new_comment], data: {remote: true} do |f| %>
+    <table>
+      <tbody>
+        <tr>
+          <td>画像</td>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+        <tr>
+          <td>内容</td>
+          <td><%= f.text_area :body, id: "textarea" %></td>
+        </tr>
+        <tr>
+          <td><%= f.submit 'コメントする' %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
 <% end %>
 
 

@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_034425) do
     t.string "title", null: false
     t.text "body", null: false
     t.string "image_id", null: false
-    t.datetime "time_up_at", null: false
+    t.datetime "closed_on", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
