@@ -16,7 +16,6 @@
         <div class="header-contents"><%= link_to '投稿一覧', posts_path %></div>
         <div class="header-contents"><%= link_to 'ユーザー一覧', users_path %></div>
         <div class="header-contents"><%= link_to 'カテゴリー一覧', genres_path %></div>
-        <div class="header-contents"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
       <% elsif admin_signed_in?%>
         <div class="logo">Logo</div>
         <div class="header-contents"><%= link_to '投稿一覧', admin_posts_path %></div>
@@ -40,5 +39,12 @@
 
   <footer>
     <h3 class="footer-title">My Fast Code</h3>
+    <div >
+      <% if user_signed_in? %>
+        <div class="footer-contents"><%= link_to 'ABOUT', homes_about_path %></div>
+        <div class="footer-contents"><%= link_to 'お問い合わせ', user_contacts_path(current_user) %></div>
+        <div class="footer-contents"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+      <% end %>
+    </div>
   </footer>
 </html>

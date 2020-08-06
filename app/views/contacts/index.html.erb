@@ -1,5 +1,7 @@
-<%# 管理者 お問い合わせ一覧 %>
 <h2>お問い合わせ一覧</h2>
+<div>
+  <%= button_to '新規お問い合わせへ', new_user_contact_path(current_user.id), method: :get %>
+</div>
 
 <% @contacts.each do |contact| %>
   <table>
@@ -23,7 +25,7 @@
         <td><%= contact.title %></td>
         <td><%= contact.is_support_status %></td>
         <td>
-          <%= link_to '詳細へ', admin_contact_path(contact.id) %>
+          <%= link_to '詳細へ', user_contact_path(contact.user_id, contact.id) %>
         </td>
       </tr>
     </tbody>
