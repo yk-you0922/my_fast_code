@@ -4,6 +4,7 @@
 </h2>
 
 <%= form_for @new_contact, url: user_contacts_path do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <label>ユーザー名</label>
   <%= f.text_field :name %>
   <label>メールアドレス</label>

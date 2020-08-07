@@ -20,9 +20,10 @@ class ContactsController < ApplicationController
      if @new_contact.save(contact_params)
       redirect_to user_contacts_path
      else
-      @contact = Contact.find(params[:id])
+      @user = User.find(params[:user_id])
+      @new_contact = Contact.new(contact_params)
       flash[:error] = "お問い合わせに失敗しました。もう一度お試しください。"
-      render :show
+      render :new
      end
   end
 
