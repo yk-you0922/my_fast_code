@@ -1,17 +1,7 @@
 <%# 管理者 ユーザー編集画面 %>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2 style="color: red;"><%= @user.errors.count %>件のエラーが発生しました</h2>
-    <ul style="color: red;">
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <h2><%= @user.name %>さんの登録情報編集</h2>
 <%= form_for(@user, url: admin_user_path) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <table>
     <tbody>
       <tr>

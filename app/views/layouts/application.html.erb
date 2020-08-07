@@ -10,13 +10,15 @@
   </head>
   <header>
     <h2 class="logo-title">
-      <i class="fas fa-tshirt"></i>
-      <%= link_to 'My Fast Code', root_path %>
-      <i class="fas fa-tshirt"></i>
+      <%= link_to root_path do %>
+        <i class="fas fa-tshirt"></i>
+        My Fast Code
+        <i class="fas fa-tshirt"></i>
+      <% end %>
     </h2>
   </header>
 
-  <div class="contents-space"></div>
+  <%# <div class="contents-space"></div> %>
 
    <div class="body-wrap">
     <div class="side-bar">

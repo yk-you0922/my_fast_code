@@ -1,5 +1,6 @@
 <%= form_for(genre, url: admin_genres_path) do |f| %>
-  <label>Genre Name</label>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <label>新規カテゴリー</label>
   <%= f.text_field :name %>
   <%= f.submit 'ジャンル追加' %>
 <% end %>

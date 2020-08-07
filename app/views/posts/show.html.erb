@@ -19,7 +19,7 @@
 <h2>コメント</h2>
 
 <% if @post.closed_on.future? %>
-  <%= form_with model:[@post, @new_comment], data: {remote: true} do |f| %>
+  <%= form_with model:[@post, @new_comment], data: {remote: true}, method: :post do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
     <table>
       <tbody>

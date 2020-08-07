@@ -6,11 +6,9 @@ class CommentsController < ApplicationController
     @new_comment.user_id = current_user.id
     if @new_comment.save
     else
-      @new_comment = Comment.new
+      render "posts/show" 
       @post = Post.find(params[:post_id])
-      @user = @post.user
       @comments = @post.comments
-      render 'posts/show'
     end
   end
 

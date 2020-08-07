@@ -55,10 +55,16 @@ header {
   font-size: 60px;
   margin: 0.5em auto;
   font-family: 'Lobster', cursive;
+  color: #fff;
 }
 
 .logo-title a {
+  color: #fff;
   text-decoration: none;
+}
+
+.logo-title a:hover {
+  opacity: 0.5;
 }
 
 
@@ -68,7 +74,6 @@ header {
 
 // コンテンツ内
 .contents-space {
-  background: #333;
   width: 100%;
   height: 1em;
 }
@@ -90,10 +95,10 @@ header {
   font-weight:bold;
   display:block;
   text-align:center;
-  color:#333;
-  border:3px solid #595959;
-  border-radius: 5px;
-  background-color: #660000;
+  // color:#333;
+  // border:3px solid #595959;
+  // border-radius: 5px;
+  // background-color: #660000;
 }
 
 .side-bar-contents:first-child {
@@ -101,30 +106,40 @@ header {
 }
 
 .side-bar-contents a {
+  color: #ddd;
   text-decoration: none;
+}
+
+.side-bar-contents a:hover {
+  color: #87cefa;
+  opacity: 0.5;
 }
 
 // headerのposition:fixedで被らないように
 .body-wrap {
   padding-top: 8em;
-  // padding-bottom: 13em;
+  background: #333;
+  // background-image: url('backimage.jpg');
+  // background-color:rgba(255,255,255,0.1);
+  // background-blend-mode:lighten;
 }
 
 body {
   width: 100%;
   margin: 0 auto;
   background: #333;
-  color: #ddd;
+  // color: #ddd;
 }
 
 body a {
-  color: #ddd;
+  color: #000;
 }
 
 .main {
   width: 70%;
+  margin-top: 20px;
   margin-left: 16em;
-  background: #444;
+  background: #ddd;
   padding: 30px;
   min-height: 600px;
 }
@@ -152,26 +167,9 @@ footer{
   margin-right: auto;
   margin-left: auto;
   font-family: 'Lobster', cursive;
-
+  color: #fff;
 }
 
-.footer-contents {
-  margin-left: 20px;
-  margin-top: 70px;
-  height: 30px;
-  width:140px;
-  font-weight:bold;
-  display:inline-block;
-  text-align:center;
-  color:#333;
-  border:3px solid #595959;
-  border-radius: 5px;
-  background-color: #660000;
-}
-
-.footer-contents a {
-  text-decoration: none;
-}
 
 .footer-contents:last-child{
   margin-right: 30px;

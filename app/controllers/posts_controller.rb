@@ -37,8 +37,8 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to posts_path
     else
+      render :edit
       @post = Post.find(params[:id])
-      render :show
     end
   end
 

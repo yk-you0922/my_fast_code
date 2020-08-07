@@ -20,7 +20,7 @@ ja:
         name: ユーザー名
         image: アイコン
         introduction: 自己紹介
-        
+        password_confirmation: パスワード（再入力）
 
       post: 
         title: タイトル
@@ -28,4 +28,13 @@ ja:
         body: 内容
         genres: カテゴリー
         closed_on: コメント受付期限
+
+      genre:
+        name: カテゴリー名
+
+      contact:
+        name: お問い合わせユーザー名
+        email: 連絡の着くメールアドレス
+        title: タイトル
+        body: お問い合わせ内容
 
