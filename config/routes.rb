@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'homes/about' => 'about'
   get 'welcome' => 'homes#welcome', as: 'welcoming'
+  get 'redirect' => 'homes#redirect'
   
   # ユーザー関連のルーティング
   resources :users do

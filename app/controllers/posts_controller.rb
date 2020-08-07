@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def new
     @new_post = Post.new
   end
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@new_post.id)
     else
       @posts = Post.all
-      render :index
+      render :new
     end 
   end
 

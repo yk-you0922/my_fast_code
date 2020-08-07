@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
+  before_action :current_user?, only: [:edit, :update, :hide]
 
   def index
     @users = User.all
@@ -10,8 +11,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
     @favorite_posts = @user.favorites.map{|favorite| favorite.post}
-    # 自分がお気に入りした数
-    # @favorites_count = @user.favorites_posts.map{|favorite| favorite}
   end
 
   def edit
@@ -23,8 +22,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path
     else
-      @user = User.find(params[:id])
-      render :show
+      render :edit
     end
   end
 

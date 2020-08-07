@@ -1,3 +1,93 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// HOMES CONTROLLER
+
+// homes-top
+
+
+// homes-welcoming
+.homes-welcoming-title {
+  font-size: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #660000;
+  text-align: center;
+}
+
+.homes-welcoming-text {
+  text-align: center;
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 50px;
+}
+
+.homes-welcoming-arrow-down {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.homes-welcoming-edit {
+  border: 2px solid #660000;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.homes-welcoming-edit p {
+  font-size: 13px;
+}
+
+.homes-welcoming-arrow-right {
+  font-size: 30px;
+  margin-right: auto;
+}
+
+.homes-welcoming-edit-button {
+  margin-left: 300px;
+}
+
+
+
+// homes-about
+.homes-about-title {
+  border-bottom: 1px solid #660000;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.homes-about-main {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.homes-about-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.homes-about-arrow-down {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.homes-about-links {
+  text-align: center;
+  border: 2px solid #660000;
+  padding: 10px 0px 10px 10px;
+}
+
+@media (min-width: 1024px) {
+  // homes-top
+
+
+  // homes-welcoming
+
+
+
+
+  // homes-about
+}

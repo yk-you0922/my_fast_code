@@ -1,3 +1,9 @@
+<%# 新規投稿 部分テンプレート %>
+<% if post.errors.any? %>
+  <% post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+<% end %>
 <%= form_for post do |f| %>
   <div id="comment_body">
     <table>
@@ -17,7 +23,7 @@
         <tr>
           <td>カテゴリー</td>
           <td>
-            <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name ) do |genre| %>
+            <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name ) do |genre|%>
               <%= genre.label do %>
                 <%= genre.check_box %>
                 <%= genre.text %>

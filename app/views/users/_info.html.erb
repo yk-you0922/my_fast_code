@@ -4,6 +4,7 @@
       <td>アイコン</td>
       <td>ユーザー名</td>
       <td>投稿数</td>
+      <td>プロフィール</td>
       <td>性別</td>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
           <% end %>
         </td>
         <td><%= user.name %></td>
+        <td><%= user.introduction %></td>
         <td><%= user.posts.count %>件</td>
         <% if user.is_sex_flag == true %>
             <td>男性</td>

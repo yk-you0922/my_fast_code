@@ -2,7 +2,7 @@
 <h2>ユーザー情報編集</h2>
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2 style="color: red;"><%= @user.errors.count %> errors prohibited this obj from being saved:</h2>
+    <h2 style="color: red;"><%= @user.errors.count %> 件のエラーが発生しました。</h2>
     <ul style="color: red;">
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,22 +10,32 @@
       </ul>
     </div>
 <% end %>
+
 <%= form_for @user do |f| %>
-  <label>ユーザー名</label>
-  <%= f.text_field :name  %>
-
-  <label>Image</label>
-  <%= f.attachment_field :image %>
-
-  <label>自己紹介</label>
-  <%= f.text_area :introduction %>
-
-  <label>性別</label>
-  <%= f.radio_button :is_sex_flag, :true, checked: true %>
-  <%= f.label :is_sex_flag, "男性", {value: :true} %>
-  <%= f.radio_button :is_sex_flag, :false %>
-  <%= f.label :is_sex_flag, "女性", {value: :false} %>
-
-  <%= f.submit "Update" %>
-
+  <table>
+    <tr>
+      <td>ユーザー名</td>
+      <td><%= f.text_field :name  %></td>
+    </tr>
+    <tr>
+      <td>画像</td>
+      <td><%= f.attachment_field :image %></td>
+    </tr>
+    <tr>
+      <td>プロフィール<br>＊200文字以内</td>
+      <td><%= f.text_area :introduction %></td>
+    </tr>
+    <tr>
+      <td>性別</td>
+      <td>
+        <%= f.radio_button :is_sex_flag, :true, checked: true %>
+        <%= f.label :is_sex_flag, "男性", {value: :true} %>
+        <%= f.radio_button :is_sex_flag, :false %>
+        <%= f.label :is_sex_flag, "女性", {value: :false} %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.submit "Update" %></td>
+    </tr>
+  </table>
 <% end %>
