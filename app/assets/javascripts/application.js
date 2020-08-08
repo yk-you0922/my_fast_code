@@ -13,4 +13,27 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
+//= require turbolinks
 //= require_tree .
+
+// jscroll 無限スクロール
+// $(function() {
+//   $('.jscroll').jscroll({
+//     contentSelector: '.post-list',
+//     nextSelector: 'span.next a'
+//   });
+// });
+$(document).on("turbolinks:load", function() {
+  if ($("nav.pagination a[rel=next]").length){
+    $(".post-list").jscroll({
+      contentSelector: '.post-list',
+      path: "nav.pagination a[rel=next]",
+      append: ".post-list",
+      elementScroll: true,
+      history: true,
+      prefill: false,
+      status: ".page-load-status",
+      hideNav: ".pagination"
+    })
+  }
+})

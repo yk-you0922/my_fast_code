@@ -1,5 +1,8 @@
 <%# 管理者 投稿一覧ページ %>
-<h2>投稿一覧管理</h2>
+<h2>
+  投稿一覧管理
+  全" <%= @posts.count %> " 件
+</h2>
 <% @posts.each do |post| %>
   <%= render 'admin/posts/list', post: post %>
 <% end %>
