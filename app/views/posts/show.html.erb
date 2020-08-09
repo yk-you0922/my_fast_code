@@ -15,7 +15,7 @@
 
 <%# コメント投稿フォーム %>
 <div class="posts-show-comment-wrapper">
-  <h2>コメント</h2>
+  <h2>コメントをする</h2>
 
   <% if @post.closed_on.future? %>
     <%= form_with model:[@post, @new_comment], data: {remote: true}, method: :post do |f| %>
@@ -23,19 +23,22 @@
       <table class="comment-form">
         <tbody>
           <tr>
-            <td>画像</td>
-            <td><%= f.attachment_field :image %></td>
+            <td>イメージ</td>
+            <td><%= f.attachment_field :image, id: "file" %></td>
           </tr>
           <tr>
-            <td>プレビュー</td>
             <td></td>
+            <td><%= f.text_area :body, autofocus: true, size: "50x5" %></td>
           </tr>
           <tr>
-            <td>内容</td>
-            <td><%= f.text_area :body, size: "50x5" %></td>
+            <td></td>
+            <td id="result" class="comment-preview">
+              イメージプレビュー
+            </td>
           </tr>
           <tr>
-            <td><%= f.submit 'コメントする' %></td>
+            <td></td>
+            <td><%= f.submit 'コメントする', class: "comment-submit-button" %></td>
           </tr>
         </tbody>
       </table>

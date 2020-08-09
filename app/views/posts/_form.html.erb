@@ -4,47 +4,41 @@
     <li><%= message %></li>
   <% end %>
 <% end %>
+
 <%= form_for post do |f| %>
-  <div id="comment_body">
-    <table>
-      <tbody>
-        <tr>
-          <td>画像</td>
-          <td><%= f.attachment_field :image %></td>
-        </tr>
-        <tr>
-          <td>画像プレビュー</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>タイトル</td>
-          <td><%= f.text_field :title %></td>
-        </tr>
-        <tr>
-          <td>内容</td>
-          <td><%= f.text_area :body %></td>
-        </tr>
-        <tr>
-          <td>カテゴリー</td>
-          <td>
-            <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name ) do |genre|%>
-              <%= genre.label do %>
-                <%= genre.check_box %>
-                <%= genre.text %>
-              <% end %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td>コメント<br>受付期限</td>
-          <td>
-          <%= f.datetime_field :closed_on %>
-          </td>
-        </tr>
-        <tr>
-          <td><%= f.submit '投稿する' %></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="new-post-wrapper">
+    <div class="new-post-image">
+      <p>画像</p>
+      <%= f.attachment_field :image, id: "file" %>
+    </div>
+      <div id="result" class="new-post-preview">
+        <p>イメージプレビュー</p>
+      </div>
+    <div class="new-post-title">
+      <p>タイトル</p>
+      <%= f.text_field :title, size: '50x10' %>
+    </div>
+    <div class="new-post-body">
+      <p>内容</p>
+      <%= f.text_area :body, size: '50x20'  %>
+    </div>
+    <div class="new-post-genre">
+      <p>カテゴリー</p>
+    </div>
+      <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name ) do |genre|%>
+        <%= genre.label do %>
+          <%= genre.check_box %>
+          <%= genre.text %>
+        <% end %>
+      <% end %>
+    <div class="new-post-closed-on">
+      <p>コメント受付期間</p>
+       <%= f.datetime_field :closed_on, class: "new-post-date" %>
+    </div>
+    <div class="new-post-submit">
+      <%= f.submit '投稿する', class: "new-post-submit-button" %>
+    </div>
+    
+
   </div>
 <% end %>

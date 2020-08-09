@@ -24,19 +24,18 @@ $(function() {
   });
 });
 
-// jscroll なんかバグるのでコメントアウト 
-// $(document).on("turbolinks:load", function() {
-//   if ($("nav.pagination a[rel=next]").length){
-//     $(".post-list").jscroll({
-//       contentSelector: '.post-list',
-//       path: "nav.pagination a[rel=next]",
-//       append: ".post-list",
-//       elementScroll: true,
-//       history: true,
-//       prefill: false,
-//       status: ".page-load-status",
-//       hideNav: ".pagination"
-//     })
-//   }
-// })
+// 画像プレビュー
+$(function(){
+  $('#file').change(function(){
+    var file = $(this).prop('files')[0];
+    if(!file.type.match('image.*')){
+      return;
+    }
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      $('#result').html('<img src="' + fileReader.result + '" width="100%" height="100%">');
+    }
+    fileReader.readAsDataURL(file);
+  });
+});
 

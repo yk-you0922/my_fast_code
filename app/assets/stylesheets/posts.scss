@@ -121,5 +121,63 @@
   padding: 10px;
 }
 
+// new & _form.html.erb
+.new-post-wrapper {
+  width: 80%;
+  margin: 30px auto;
+  // background: white;
+}
+
+.new-post-image {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.new-post-preview {
+  width: 20em;
+  height: 15em;
+  margin: 0 auto;
+  border: dashed;
+  line-height: 15em;
+}
+
+#result {
+  text-align: center;
+}
+
+.new-post-title {
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.new-post-body {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.new-post-genre {
+  text-align: center;
+  margin-bottom: 2em;
+
+}
+
+.new-post-closed-on {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.new-post-date {
+  width: 28em;
+}
+
+.new-post-submit {
+  text-align: center;
+}
+
+.new-post-submit-button {
+  width: 28em;
+  background: rgb(248, 106, 106);
+}
 
 
