@@ -1,22 +1,29 @@
 <%# 投稿されたコメントがおかれる場所 %>
 <% comments.each do |comment| %>
-  <tr>
-    <td>投稿者名</td>
+  <tr class="comment-area">
     <td>
       <%= attachment_image_tag comment.user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' ,class: "user-icon"%>
-      <%= comment.user.name %>
+    </td>
+    <td>投稿者  :  <%= comment.user.name %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <%= attachment_image_tag comment, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'200x200' %>
     </td>
   </tr>
   <tr>
-    <td>画像</td>
-    <td><%= attachment_image_tag comment, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'150x150' %></td>
+    <td>本文</td>
+    <td>
+      <%= safe_join(comment.body.split("\n"), tag(:br)) %>
+    </td>
   </tr>
   <tr>
-    <td>本文</td>
-    <td><%= comment.body %></td>
-     <% if comment.user == current_user %>
-       <td><%= link_to 'コメントを削除する', post_comments_path(comment), method: :delete, remote: true %></td>
-     <% end %>
+    <% if comment.user == current_user %>
+      <td>
+        <%= link_to '削除', post_comments_path(comment), method: :delete, remote: true %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 
