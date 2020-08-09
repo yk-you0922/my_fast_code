@@ -1,3 +1,13 @@
 <%# 管理者 投稿詳細ページ %>
 <h2>投稿詳細管理</h2>
-<%= render 'admin/posts/list', post: @post %>
+<h2>
+  <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50',class: "user-icon" %>
+  <%= @post.user.name %>さんの投稿詳細
+  <i class="fas fa-mail-bulk"></i>
+</h2>
+<%= render 'posts/list', post: @post %>
+
+<div class="admin-posts-delete-button">
+    <%= link_to 'DELETE', admin_post_path(@post.id), method: :delete %>
+</div>
+

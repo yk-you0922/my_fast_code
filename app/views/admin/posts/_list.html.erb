@@ -1,34 +1,25 @@
-<table>
-  <thead>
-    <tr>
-      <td>ユーザー名</td>
-      <td>タイトル</td>
-      <td>画像</td>
-      <td>内容</td>
-      <td>コメント数</td>
-      <td>お気に入り数</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <%= link_to admin_user_path(post.user_id) do %>
-          <%= attachment_image_tag post.user, :image, :fill, 30, 30, fallback: "no_image.jpg" , size:'30x30' %>
-      </td>
-      <td>
-          <%= post.user.name %>
-      </td>
-        <% end %>
-      <td>
-        <%= link_to admin_post_path(post.id) do %>
-          <%= post.title %>
-        <% end %>
-      </td>
-      <td><%= attachment_image_tag post, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' %></td>
-      <td><%= post.body %></td>
-      <td><%= post.comments.count %></td>
-      <td><%= post.favorites.count %></td>
-      <td><%= button_to 'DELETE', admin_post_path(post), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
-    </tr>
-  </tbody>
-</table>
+<%# 管理者用 投稿一覧部分テンプレート %>
+  <div class="admin-posts-index-container">
+    <div class="admin-posts-index-cell">
+      <p>ユーザー名</p>
+      <%= post.user.name %>
+    </div>
+    <div class="admin-posts-index-cell">
+      <p>ユーザーID</p>
+      <%= post.user.id %>
+    </div>
+    <div class="admin-posts-index-cell">
+      <p>タイトル</p>
+      <%= post.title %>
+    </div>
+    <div class="admin-posts-index-cell">
+      <p>投稿日時</p>
+      <%= l post.created_at %>
+    </div>
+    <div class="admin-posts-index-link">
+      <%= link_to '詳細を見る', admin_post_path(post.id) %>
+    </div>
+    <div class="admin-posts-delete-button">
+      <%= link_to 'DELETE', admin_post_path(post.id), method: :delete %>
+    </div>
+  </div>

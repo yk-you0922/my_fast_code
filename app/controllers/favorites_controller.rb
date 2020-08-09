@@ -1,6 +1,11 @@
 class FavoritesController < ApplicationController
-  before_action :set_post
-  
+  before_action :set_post, except: :index
+
+  def index
+    @user = User.find(params[:id])
+    @favorite_posts = @user.favorites.order(created_at: "DESC").collect{|favorite| favorite.post}
+  end
+
   def create
     favorite = current_user.favorites.build(post_id: params[:post_id])
     favorite.save

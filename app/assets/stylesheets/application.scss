@@ -35,7 +35,6 @@
   border: 1px solid #6495ed;
 }
 
-
 // お気に入り
 .fav-count a {
   text-decoration: none;
@@ -118,6 +117,65 @@ header {
   color: #87cefa;
   opacity: 0.5;
 }
+
+// サイドバー カテゴリーの開閉
+.side-bar-contents-genre {
+  margin-left: 1em;
+  margin-top: 1em;
+  height: 2em;
+  width: 10em;
+  font-weight:bold;
+  display:block;
+  text-align:center;
+}
+
+.side-bar-contents-genre p {
+  color: #ddd;
+}
+
+.side-bar-contents-genre p:hover {
+  cursor: pointer;
+  color: #87cefa;
+  opacity: 0.5;
+}
+
+.side-bar-contents-genre a {
+  text-decoration: none;
+  list-style: none;
+}
+
+.side-bar-contents-genre-list {
+  background: #333;
+  width: 16em;
+  position: absolute;
+  left: -500px;
+  // top: 1em;
+  // left: 14em;
+}
+
+.side-bar-contents-genre-list-title {
+  list-style: none;
+  color: #87cefa;
+}
+
+.side-bar-contents-genre-list li:hover {
+  color: #87cefa;
+  opacity: 0.5;
+}
+
+// #aside_buttonがクリックされたら、side-bar-contents-genre-listをこの位置へ動かすopenクラス
+.open {
+  position: absolute;
+  left: 14em;
+  top: 0em;
+}
+
+.side-bar-contents-genre-list li {
+  margin-top: 0.5em;
+  color: #ddd;
+}
+
+
 
 // headerのposition:fixedで被らないように
 .body-wrap {

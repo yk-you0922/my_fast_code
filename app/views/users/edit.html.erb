@@ -1,5 +1,4 @@
 <%# ユーザー情報編集画面 %>
-<h2>ユーザー情報編集</h2>
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2 style="color: red;"><%= @user.errors.count %> 件のエラーが発生しました。</h2>
@@ -11,31 +10,36 @@
     </div>
 <% end %>
 
-<%= form_for @user do |f| %>
-  <table>
-    <tr>
-      <td>ユーザー名</td>
-      <td><%= f.text_field :name  %></td>
-    </tr>
-    <tr>
-      <td>画像</td>
-      <td><%= f.attachment_field :image %></td>
-    </tr>
-    <tr>
-      <td>プロフィール<br>＊200文字以内</td>
-      <td><%= f.text_area :introduction %></td>
-    </tr>
-    <tr>
-      <td>性別</td>
-      <td>
-        <%= f.radio_button :is_sex_flag, :true, checked: true %>
-        <%= f.label :is_sex_flag, "男性", {value: :true} %>
-        <%= f.radio_button :is_sex_flag, :false %>
-        <%= f.label :is_sex_flag, "女性", {value: :false} %>
-      </td>
-    </tr>
-    <tr>
-      <td><%= f.submit "Update" %></td>
-    </tr>
-  </table>
-<% end %>
+<div class="users-edit-wrapper">
+  <h2>ユーザー情報編集</h2>
+  <%= form_for @user do |f| %>
+    <div class="users-edit-name">
+      <p>ユーザー名</p>
+      <%= f.text_field :name, size: "40x10" %>
+    </div>
+    <div class="users-edit-image">
+      <p>ユーザーアイコン</p>
+      <%= f.attachment_field :image, id: "file" %>
+    </div>
+    <div>
+    <div id="result" class="users-edit-prev">
+      イメージプレビュー
+    </div>
+    </div>
+    <div class="users-edit-introduction">
+      <p>プロフィール</p>
+      <%= f.text_area :introduction, size: "40x10" %>
+    </div>
+    <div class="users-edit-sex">
+      <p>性別</p>
+          <%= f.radio_button :is_sex_flag, :true, checked: true %>
+          <%= f.label :is_sex_flag, "男性", {value: :true} %>
+          <%= f.radio_button :is_sex_flag, :false %>
+          <%= f.label :is_sex_flag, "女性", {value: :false} %>
+    </div>
+    <div class="user-edit-submit-button">
+      <%= f.submit "ユーザー情報を更新する" %>
+    </div>
+  <% end %>
+</div>
+

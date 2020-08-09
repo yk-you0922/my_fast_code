@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!,:configure_permitted_parameters,
   if: :devise_controller?
+  
+  # サイドバー カテゴリーを展開するための変数
+  before_action :get_genres
+  def get_genres
+    @get_genres = Genre.all
+  end
+  
 
   # 違うIDへの進入対策
   def current_user?

@@ -27,6 +27,13 @@
         <% if user_signed_in? %>
           <tr>
             <td class="side-bar-contents">
+              <%= link_to '#' do %>
+                <i class="fas fa-arrow-circle-up"></i>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
               <%= link_to 'ABOUT', homes_about_path %>
             </td>
           </tr>
@@ -51,8 +58,22 @@
             </td>
           </tr>
           <tr>
-            <td class="side-bar-contents">
-              <%= link_to 'カテゴリー一覧', genres_path %>
+            <td class="side-bar-contents-genre">
+              <p id="aside_button">
+                カテゴリー一覧
+                <i class="fas fa-caret-right"></i>
+                </button>
+              </p>
+                <ul class="side-bar-contents-genre-list">
+                  <li class="side-bar-contents-genre-list-title">↓カテゴリー一覧↓</li>
+                  <% @get_genres.each do |genre| %>
+                    <%= link_to category_posts_path(genre.id) do %>
+                      <li>
+                        <%= genre.name %>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
             </td>
           </tr>
           <tr>
@@ -66,6 +87,13 @@
             </td>
           </tr>
         <% elsif admin_signed_in? %>
+        <tr>
+          <td class="side-bar-contents">
+            <%= link_to '#' do %>
+              <i class="fas fa-arrow-circle-up"></i>
+            <% end %>
+          </td>
+        </tr>
           <tr>
             <td class="side-bar-contents">
               <%= link_to '投稿一覧', admin_posts_path %>
@@ -92,6 +120,13 @@
             </td>
           </tr>
         <% else %>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '#' do %>
+                <i class="fas fa-arrow-circle-up"></i>
+              <% end %>
+            </td>
+          </tr>
           <tr>
             <td class="side-bar-contents">
               <%= link_to 'ABOUT', homes_about_path %>

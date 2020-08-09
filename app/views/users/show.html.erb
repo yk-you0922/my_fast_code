@@ -1,16 +1,23 @@
 <%# マイページ %>
-<h2>
-  <%= @user.name %>'s My Page
+<h2 class="users-show-title">
+  <%= @user.name %>'s Page
   <i class="fas fa-user"></i>
 </h2>
 <%= render "users/info", user: @user %>
-<h2><%= @user.name %>さんのお気に入り投稿 : <%= @favorite_posts.count %>件</h2>
-<% @favorite_posts.each do |post| %>
-  <%= render 'users/favorites_list', post: post %>
-<% end %>
-<div class="edit-user-button">
-  <% if @user.id == current_user.id %>
-    <%= link_to 'ユーザー編集へ', edit_user_path %>
-    <%= link_to 'アカウント削除', withdrawal_path %>
-  <% end %>
+<div class="users-show-posts">
+  <h2>
+    <%= @user.name %>さんの投稿一覧
+  </h2>
 </div>
+<div class="jscroll post-list">
+  <% @posts.each do |post| %>
+    <%= render 'posts/list', post: post %>
+  <% end %>
+  <div class="hidden">
+    <%= paginate @posts, class: "paginate" %>
+  </div>
+  <div class="page-load-status">
+    <p class="infinite-scroll-request"></p>
+  </div>
+</div>
+

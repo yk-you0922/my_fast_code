@@ -23,4 +23,12 @@
         </tr>
     </tbody>
   </table>
+  <div>
+    <p>カテゴリー名</p>
+    <%= link_to category_posts_path(genre.id) do %>
+      <%= genre.name  %> 
+    <p>投稿数</p>
+    <%= ge %>
+    <% end %>
+  </div>
 <% end %>

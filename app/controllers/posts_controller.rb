@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   def category
     @genre = Genre.find(params[:genre_id])
-    @genre_posts = @genre.posts
+    @genre_posts = @genre.posts.order(created_at: "DESC").page(params[:page]).per(1)
   end
 
   private

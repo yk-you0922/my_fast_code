@@ -1,3 +1,60 @@
 // Place all the styles related to the admin/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 管理者 index
+.admin-posts-index-container {
+  background: #eee;
+  border-radius: 12px;
+  margin: 1em auto;
+  padding: 0 5px 5px 5px;
+}
+
+.admin-posts-index-cell {
+  margin-bottom: 1em;
+  margin-left: 3em;
+}
+
+.admin-posts-index-link {
+  border: 1px solid #1e90ff;
+  border-radius: 15px;
+  background: #6495ed;
+  padding: 4px;
+  width: 6em;
+  margin-left: 3em;
+  margin-bottom: 1em;
+}
+
+.admin-posts-index-link a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.admin-posts-index-link a:hover {
+  opacity: 0.6;
+}
+
+
+// 管理者 show
+.admin-posts-delete-button {
+  border: 1px solid #ff4500;
+  border-radius: 15px;
+  background: #ff4500;
+  padding: 4px;
+  width: 5em;
+  margin-left: 3em;
+  margin-bottom: 1em;
+  margin: 1em 0 3em 3em
+}
+
+.admin-posts-delete-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.admin-posts-delete-button a:hover {
+  opacity: 0.6;
+  
+}
+
+

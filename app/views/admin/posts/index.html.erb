@@ -1,8 +1,16 @@
 <%# 管理者 投稿一覧ページ %>
-<h2>
-  投稿一覧管理
-  全" <%= @posts.count %> " 件
-</h2>
-<% @posts.each do |post| %>
-  <%= render 'admin/posts/list', post: post %>
-<% end %>
+  <h2>
+    投稿一覧管理
+    全" <%= @all_posts.count %> " 件
+  </h2>
+<div class="jscroll post-list">
+  <% @posts.each do |post| %>
+    <%= render 'admin/posts/list', post: post %>
+  <% end %>
+  <div class="hidden">
+    <%= paginate @posts, class: "paginate" %>
+  </div>
+  <div class="page-load-status">
+    <p class="infinite-scroll-request"></p>
+  </div>
+</div>

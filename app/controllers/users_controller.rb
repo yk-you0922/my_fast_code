@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   before_action :current_user?, only: [:edit, :update, :hide]
 
   def index
-    @users = User.all
+    @users = User.order(created_at: "DESC").page(params[:page]).per(1)
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: "DESC").page(params[:page]).per(1)
     @favorite_posts = @user.favorites.map{|favorite| favorite.post}
   end
 

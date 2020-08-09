@@ -16,7 +16,7 @@
 // ターボリンク削除（Ajax不発原因のため）
 //= require_tree .
 
-// jscroll 無限スクロール（これが一番正常）
+// jscroll 無限スクロール
 $(function() {
   $('.jscroll').jscroll({
     contentSelector: '.post-list',
@@ -36,6 +36,15 @@ $(function(){
       $('#result').html('<img src="' + fileReader.result + '" width="100%" height="100%">');
     }
     fileReader.readAsDataURL(file);
+  });
+});
+
+// サイドバー カテゴリー一覧
+$(function () {
+  var duration = 300;
+  var $list = $('.side-bar-contents-genre-list');
+  var $asidButton = $('#aside_button').on('click', function() {
+    $list.toggleClass('open');
   });
 });
 

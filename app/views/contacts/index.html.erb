@@ -1,36 +1,51 @@
-<h2>
-  お問い合わせ一覧
-  <i class="fas fa-phone"></i>
-</h2>
-<div>
-  <%= button_to '新規お問い合わせへ', new_user_contact_path(current_user.id), method: :get %>
+<div class="user-contact-index-title-wrapper">
+  <h2>
+    お問い合わせ一覧
+    <i class="fas fa-phone"></i>
+  </h2>
+  <div>
+    <%= button_to '新規お問い合わせへ', new_user_contact_path(current_user.id), method: :get %>
+  </div>
 </div>
 
-<% @contacts.each do |contact| %>
-  <table>
-    <thead>
-      <tr>
-        <td>問い合わせID</td>
-        <td>ユーザーID</td>
-        <td>ユーザー名</td>
-        <td>メールアドレス</td>
-        <td>タイトル</td>
-        <td>画像</td>
-        <td>対応ステータス</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= contact.id %></td>
-        <td><%= contact.user.id %></td>
-        <td><%= contact.user.name %></td>
-        <td><%= contact.user.email %></td>
-        <td><%= contact.title %></td>
-        <td><%= contact.is_support_status %></td>
-        <td>
-          <%= link_to '詳細へ', user_contact_path(contact.user_id, contact.id) %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+  <div class="user-contact-index-contents-wrapper">
+    <% @contacts.each do |contact| %>
+      <% if contact.user.id == current_user.id %>
+        <div class="user-contact-index-contents">
+          <div class="user-contact-cell">
+            <p>問い合わせID</p>
+            <%= contact.id %>
+          </div>
+          <div class="user-contact-cell">
+            <p>ユーザーID</p>
+            <%= contact.user.id %>
+          </div>
+          <div class="user-contact-cell">
+            <p>ユーザー名</p>
+            <%= contact.user.name %>
+          </div>
+          <div class="user-contact-cell">
+            <p>メールアドレス</p>
+            <%= contact.user.email %>
+          </div>
+          <div class="user-contact-cell">
+            <p>対応状況</p>
+            <%= contact.is_support_status %>
+          </div>
+          <div class="user-contact-cell">
+            <p>タイトル</p>
+            <%= contact.title %>
+          </div>
+          <div class="user-contact-cell">
+            <p>問い合わせ日時</p>
+            <%= l contact.created_at %>
+          </div>
+          <div class="user-contact-show-link">
+            <%= link_to '詳細へ', user_contact_path(contact.user_id, contact.id) %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+

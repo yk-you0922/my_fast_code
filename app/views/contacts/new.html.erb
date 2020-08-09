@@ -1,19 +1,36 @@
-<h2>
-  新規お問い合わせ
-  <i class="fas fa-phone"></i>
-</h2>
+<div class="new-user-contact-form-wrapper">
+  <h2 class="new-user-contact-title">
+    新規お問い合わせ
+    <i class="fas fa-phone"></i>
+  </h2>
 
-<%= form_for @new_contact, url: user_contacts_path do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
-  <label>ユーザー名</label>
-  <%= f.text_field :name %>
-  <label>メールアドレス</label>
-  <%= f.text_field :email %>
-  <label>タイトル</label>
-  <%= f.text_field :title %>
-  <label>画像</label>
-  <%= f.attachment_field :image %>
-  <label>本文</label>
-  <%= f.text_area :body %>
-  <%= f.submit "お問い合わせする" %>
-<% end %>
+  <%= form_for @new_contact, url: user_contacts_path do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div class="new-user-contact-form">
+      <p>ユーザー名</p>
+      <%= f.text_field :name, size: "40x10" %>
+    </div>
+    <div class="new-user-contact-form">
+      <p>メールアドレス</p>
+      <%= f.text_field :email, size: "40x10" %>
+    </div>
+    <div class="new-user-contact-form">
+      <p>タイトル</p>
+      <%= f.text_field :title, size: "40x10" %>
+    </div>
+    <div class="new-user-contact-form">
+      <p>画像</p>
+      <%= f.attachment_field :image, id: "file" %>
+    </div>
+    <div id="result" class="new-user-contact-pre">
+      イメージプレビュー
+    </div>
+    <div class="new-user-contact-form">
+      <p>本文</p>
+      <%= f.text_area :body, size: "40x15" %>
+    </div>
+    <div class="new-user-contact-form">
+      <%= f.submit "お問い合わせする" %>
+    </div>
+  <% end %>
+</div>
