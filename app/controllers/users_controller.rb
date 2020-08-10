@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :current_user?, only: [:edit, :update, :hide]
 
   def index
-    @users = User.order(created_at: "DESC").page(params[:page]).per(1)
+    @users = User.all.order(created_at: "DESC").page(params[:page]).per(1)
   end
 
   def show
@@ -26,11 +26,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # ユーザーが退会したときの処理
-  def hide
+  def destroy
     @user = User.find(params[:id])
-    @user.update(is_withdrawal_flag: false)
-    reset_session
+    @user.destroy
     redirect_to root_path
   end
 

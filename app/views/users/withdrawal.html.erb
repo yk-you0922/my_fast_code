@@ -1,7 +1,15 @@
 <%# ユーザー退会確認ページ %>
-<h2>ユーザー退会ページ</h2>
+<div class="users-withdrawal-wrapper">
+  <h2>ユーザー退会ページ</h2>
 
-<p>アカウントの削除ページです。</p>
+  <p>アカウントの削除ページです。</p>
 
-<%= link_to '削除しない', user_path(current_user) %>
-<%= link_to '削除する', user_hide_path(current_user), method: :put %>
+  <div class="users-withdrawal-button">
+    <div class="users-not-delete-button">
+      <%= link_to '削除しない', user_path(current_user) %>
+    </div>
+    <div class="users-delete-button">
+      <%= link_to '削除する', user_path(current_user), method: :delete %>
+    </div>
+  </div>
+</div>

@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   # 管理者が管理する画面のルーティング
   namespace :admin do
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show, :destroy]
     resources :contacts, only: [:index, :show, :update]
     resources :genres, except: [:new]

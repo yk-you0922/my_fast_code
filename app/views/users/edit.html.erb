@@ -41,5 +41,8 @@
       <%= f.submit "ユーザー情報を更新する" %>
     </div>
   <% end %>
+  <div>
+    <%= link_to 'アカウントを削除', withdrawal_path(@user.id) %>
+  </div>
 </div>
 

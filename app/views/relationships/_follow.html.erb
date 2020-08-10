@@ -1,11 +1,15 @@
 <%# フォローボタン 部分テンプレート %>
 <td>
-  フォロー数 : 
-  <%= user.followings.count %>
+  <%= link_to follows_user_path(user.id) do %>
+    フォロー数 : 
+    <%= user.followings.count %>
+  <% end %>
 </td>
 <td>
-  フォロワー数 : 
-  <%= user.followers.count %>
+  <%= link_to followers_user_path(user.id) do %>
+    フォロワー数 : 
+    <%= user.followers.count %>
+  <% end %>
 </td>
 <% if user != current_user %>
   <% if user.followed_by?(current_user) %>

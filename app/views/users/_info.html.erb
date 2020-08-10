@@ -9,12 +9,16 @@
                 <%= link_to 'プロフィール編集する', edit_user_path(current_user) %>
               </div>
               <div class="user-info-follow-count">
-                フォロー数 : 
-                <%= user.followings.count %>
+                <%= link_to follows_user_path(user.id) do %>
+                  フォロー数 : 
+                  <%= user.followings.count %>
+                <% end %>
               </div>
               <div class="user-info-follow-count">
-                フォロワー数 : 
-                <%= user.followers.count %>
+                <%= link_to followers_user_path(user.id) do %>
+                  フォロワー数 : 
+                  <%= user.followers.count %>
+                <% end %>
               </div>
             <% end %>
           <% else %>
