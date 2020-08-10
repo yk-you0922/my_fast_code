@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :current_user?, only: [:edit, :update, :hide]
 
   def index
-    @users = User.order(created_at: "DESC").page(params[:page]).per(1)
+    @users = User.all.order(created_at: "DESC").page(params[:page]).per(1)
   end
 
   def show

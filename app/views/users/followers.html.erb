@@ -4,5 +4,9 @@
   全<%= @users.count %> 件
 </h2>
 <% @users.each do |user| %>
-  <%= render "users/info" , user: user %>
+  <%= link_to user_path(user.id) do %>
+    <div class="follow-user-wrapper">
+      <%= render "users/info" , user: user %>
+    </div>
+  <% end %>
 <% end %>
