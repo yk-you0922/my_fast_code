@@ -1,34 +1,50 @@
 <%# 管理者 お問い合わせ一覧 %>
-<h2>お問い合わせ一覧</h2>
-<div class="admin-contact-update-flash">
-  <%= flash[:contacts_update] %>
-</div>
+<div class="admin-contacts-index-wrapper">
+  <h2>お問い合わせ一覧</h2>
+  <div class="admin-contact-update-flash">
+    <%= flash[:contacts_update] %>
+  </div>
 
-<% @contacts.each do |contact| %>
-  <table>
-    <thead>
-      <tr>
-        <td>問い合わせID</td>
-        <td>ユーザーID</td>
-        <td>ユーザー名</td>
-        <td>メールアドレス</td>
-        <td>タイトル</td>
-        <td>画像</td>
-        <td>対応ステータス</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= contact.id %></td>
-        <td><%= contact.user.id %></td>
-        <td><%= contact.user.name %></td>
-        <td><%= contact.user.email %></td>
-        <td><%= contact.title %></td>
-        <td><%= contact.is_support_status %></td>
-        <td>
-          <%= link_to '詳細へ', admin_contact_path(contact.id) %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+  <% @contacts.each do |contact| %>
+    <table class="admin-contacts-table">
+      <thead>
+        <tr>
+          <td class="admin-contacts-cell">ID</td>
+          <td class="admin-contacts-cell">ユーザーID</td>
+          <td class="admin-contacts-cell">ユーザー名</td>
+          <td class="admin-contacts-cell">タイトル</td>
+          <td class="admin-contacts-cell">状態</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="admin-contacts-cell"><%= contact.id %></td>
+          <td class="admin-contacts-cell"><%= contact.user.id %></td>
+          <td class="admin-contacts-cell"><%= contact.user.name %></td>
+          <td class="admin-contacts-cell"><%= contact.title %></td>
+          <td class="admin-contacts-cell">
+            <% case contact.is_support_status %>
+              <% when "対応待ち" %>  
+                <div class="is_support_yet">
+                  <%= contact.is_support_status %>
+                </div>
+              <% when "対応中" %>  
+                <div class="is_support_doing">
+                  <%= contact.is_support_status %>
+                </div>
+              <% when "対応済み" %>  
+                <div class="is_support_done">
+                  <%= contact.is_support_status %>
+                </div>
+            <% end %>
+          </td>
+          <td class="admin-contacts-cell">
+            <div class="admin-contacts-show-link">
+              <%= link_to '詳細へ', admin_contact_path(contact.id) %>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

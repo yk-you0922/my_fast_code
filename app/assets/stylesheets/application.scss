@@ -35,6 +35,78 @@
   border: 1px solid #6495ed;
 }
 
+// ユーザー情報（性別、退会ステータス）
+.user-is-sex-flag-man {
+  border: 1px solid;
+  border-radius: 8px;
+  background: #0000cd;
+  width: 3em;
+  padding: 3px;
+  color: #eee;
+  text-align: center;
+}
+
+.user-is-sex-flag-woman {
+  border: 1px solid;
+  border-radius: 8px;
+  background: #dc143c;
+  width: 3em;
+  padding: 3px;
+  color: #eee;
+  text-align: center;
+}
+
+.user-withdrawal-flag-true {
+  border: 1px solid;
+  border-radius: 8px;
+  background: #4169e1;
+  width: 5em;
+  padding: 3px;
+  color: #eee;
+  text-align: center;
+}
+
+.user-withdrawal-flag-false {
+  border: 1px solid;
+  border-radius: 8px;
+  background: #ff6347;
+  width: 5em;
+  padding: 3px;
+  color: #eee;
+  text-align: center;
+}
+
+// お問い合わせステータス色付け管理
+.is_support_yet {
+  color: red;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #666;
+  width: 5em;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+}
+.is_support_doing {
+  color: yellow;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #666;
+  width: 5em;
+  padding: 3px;
+  text-align: center;
+}
+.is_support_done {
+ color: green;
+ border: 1px solid #000;
+ border-radius: 8px;
+ background: #eee;
+ width: 5em;
+ padding: 3px;
+ text-align: center;
+ font-weight: bold;
+}
+
 // お気に入り
 .fav-count a {
   text-decoration: none;
@@ -231,6 +303,86 @@ footer{
 
 .footer-contents:last-child{
   margin-right: 30px;
+}
+
+// devise
+.devise-wrapper {
+  margin: 2em auto;
+  padding: 3em;
+  border: 1px solid #000;
+  border-radius: 12px;
+  background: #eee;
+  text-align: center;
+  width: 60%;
+}
+
+.devise-email {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.devise-password {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.devise-submit {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+.devise-login-link {
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px solid #006400;
+  border-radius: 12px;
+  background: #008000;
+  width: 18em;
+  
+}
+.devise-login-link a {
+  color: #eee;
+  text-decoration: none;
+}
+.devise-login-link a:hover {
+  opacity: 0.6;
+}
+
+.devise-signup-link {
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px solid #00008b;
+  border-radius: 12px;
+  background: #0000ff;
+  width: 18em;
+}
+
+.devise-signup-link a {
+  color: #eee;
+  text-decoration: none;
+}
+
+.devise-signup-link a:hover {
+  opacity: 0.6;
+}
+
+.google-login {
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px solid #ff0000;
+  border-radius: 12px;
+  background: #ff4500;
+  width: 18em;
+}
+
+.google-login a {
+  color: #eee;
+  text-decoration: none;
+}
+
+.google-login a:hover {
+  opacity: 0.6;
 }
 
 @media (min-width: 1024px) {

@@ -30,7 +30,20 @@
           </div>
           <div class="user-contact-cell">
             <p>対応状況</p>
-            <%= contact.is_support_status %>
+            <% case contact.is_support_status %>
+              <% when "対応待ち" %>  
+                <div class="is_support_yet">
+                  <%= contact.is_support_status %>
+                </div>
+              <% when "対応中" %>  
+                <div class="is_support_doing">
+                  <%= contact.is_support_status %>
+                </div>
+              <% when "対応済み" %>  
+                <div class="is_support_done">
+                  <%= contact.is_support_status %>
+                </div>
+            <% end %>
           </div>
           <div class="user-contact-cell">
             <p>タイトル</p>

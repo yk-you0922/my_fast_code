@@ -1,25 +1,33 @@
-<h2>ジャンル一覧</h2>
-<%= render 'admin/genres/form', genre: @new_genre %>
+<div class="admin-genres-wrapper">
+  <h2>ジャンル一覧</h2>
+  <%= render 'admin/genres/form', genre: @new_genre %>
+</div>
 
-<% @genres.each do |genre| %>
-  <table>
-    <thead>
-      <tr>
-        <td>ジャンル名</td>
-        <td>投稿数</td>
-        <td></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <%= link_to category_posts_path(genre.id) do %>
-            <%= genre.name %>
-          <% end %>
-        </td>
-        <td><%= genre.posts.count %>件</td>
-        <td><%= link_to 'ジャンル編集', edit_admin_genre_path(genre.id) %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+<div class="admin-genres-container">
+  <% @genres.each do |genre| %>
+    <table class="admin-genres-index-table">
+      <thead>
+        <tr>
+          <td>ジャンル名</td>
+          <td>投稿数</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="admin-genres-container-link">
+            <%= link_to category_posts_path(genre.id) do %>
+              <%= genre.name %>
+            <% end %>
+          </td>
+          <td><%= genre.posts.count %>件</td>
+          <td>
+            <div class="admin-genre-edit-link">
+              <%= link_to 'ジャンル編集', edit_admin_genre_path(genre.id) %>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

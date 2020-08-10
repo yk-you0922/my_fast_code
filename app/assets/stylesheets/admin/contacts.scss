@@ -1,3 +1,43 @@
 // Place all the styles related to the admin/contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index
+.admin-contacts-index-wrapper {
+  border: 1px solid;
+  border-radius: 12px;
+  margin: 1em;
+  padding: 1em;
+  background: #eee;
+}
+
+.admin-contacts-table {
+  border-bottom: 1px dashed;
+  margin-bottom: 2em;
+}
+
+.admin-contacts-show-link {
+  border: 1px solid;
+  border-radius: 8px;
+  background: #228b22;
+  padding: 3px;
+  width: 5em;
+  text-align: center;
+}
+
+.admin-contacts-show-link a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.admin-contacts-show-link a:hover {
+  opacity: 0.6;
+}
+
+// show
+
+
+// cell
+.admin-contacts-cell {
+  width: 8em;
+}

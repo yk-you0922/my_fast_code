@@ -1,6 +1,10 @@
 <%# 管理者 ユーザー詳細ページ %>
-<h2><%= @user.name %>さんの詳細ページ</h2>
+<div class="admin-users-show-wrapper">
+  <h2><%= @user.name %>さんの詳細ページ</h2>
 
-<%= render 'admin/users/admin_user_info', user: @user %>
+  <%= render 'admin/users/admin_user_info', user: @user %>
 
-<%= link_to '編集する', edit_admin_user_path %>
+  <div class="admin-users-show-edit-link">
+    <%= link_to '編集する', edit_admin_user_path %>
+  </div>
+</div>
