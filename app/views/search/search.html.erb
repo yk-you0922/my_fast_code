@@ -2,18 +2,37 @@
 <h2>
   "<%= @content %>"の検索結果
 </h2>
-<% if @model == 'user' %>
+<% if user_signed_in? %>
+  <% if @model == 'user' %>
     <% @records.each do |user| %>
       <div class="users-index">
-          <%= link_to user_path(user.id) do %>
-            <%= render "users/info" , user: user %>
-          <% end %>
+        <%= link_to user_path(user.id) do %>
+          <%= render "users/info" , user: user %>
+        <% end %>
       </div>
     <% end %>
-  <% else %>
+    <% else %>
       <% @records.each do |post| %>
         <%= render 'posts/list', post: post %>
       <% end %>
+    <% end %>
+
+<% elsif admin_signed_in? %>
+
+    <% if @model == 'user' %>
+      <% @records.each do |user| %>
+        <div class="users-index">
+          <%= link_to admin_user_path(user.id) do %>
+            <%= render 'admin/users/admin_user_info', user: user %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <% @records.each do |post| %>
+        <%= render 'admin/posts/list', post: post %>
+      <% end %>
+  <% end %>
+
 <% end %>
 
 
