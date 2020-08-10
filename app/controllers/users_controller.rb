@@ -26,11 +26,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # ユーザーが退会したときの処理
-  def hide
+  def destroy
     @user = User.find(params[:id])
-    @user.update(is_withdrawal_flag: false)
-    reset_session
+    @user.destroy
     redirect_to root_path
   end
 

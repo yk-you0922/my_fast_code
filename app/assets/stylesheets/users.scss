@@ -114,6 +114,52 @@
   margin-bottom: 2em;
 }
 
+// withdrawal
+.users-withdrawal-wrapper {
+  margin: 1em auto;
+}
+
+.users-withdrawal-button {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.users-not-delete-button {
+  margin: 1em;
+  border: 1px solid;
+  border-radius: 12px;
+  background: #006400;
+  text-align: center;
+  width: 10em;
+}
+
+.users-not-delete-button a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.users-not-delete-button a:hover {
+  opacity: 0.6;
+}
+
+.users-delete-button {
+  margin: 1em;
+  border: 1px solid;
+  border-radius: 12px;
+  background: tomato;
+  text-align: center;
+  width: 10em;
+}
+
+.users-delete-button a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.users-delete-button a:hover {
+  opacity: 0.6;
+}
+
 // follows/followers
 .follow-user-wrapper {
   margin: 1em;

@@ -6,7 +6,6 @@
   </h2>
   <div class="jscroll post-list">
     <% @users.each do |user| %>
-      <% if user.is_withdrawal_flag == true %>
       <div class="hidden">
         <%= paginate @users, class: "paginate" %>
       </div>
@@ -19,6 +18,5 @@
       <div class="page-load-status">
          <p class="infinite-scroll-request"></p>
       </div>
-    <% end %>
   </div>
 </div>

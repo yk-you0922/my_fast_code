@@ -1,50 +1,46 @@
+<%= link_to admin_user_path(user) do %>
   <table>
-    <thead>
-      <tr>
-        <td class="admin-user-info-cell">アイコン</td>
-        <td class="admin-user-info-cell">ユーザー名</td>
-        <td class="admin-user-info-cell">ユーザーID</td>
-        <td class="admin-user-info-cell">投稿数</td>
-        <td class="admin-user-info-cell">性別</td>
-        <td class="admin-user-info-cell">ステータス</td>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
+    <tr>
+      <td class="admin-user-info-cell">アイコン</td>
+    </tr>
+    <tr>
+      <td class="admin-user-info-cell">ユーザー名</td>
+      <td class="admin-user-info-cell">
+        <%= user.name %>
+        <%= attachment_image_tag user, :image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.jpg", size:'30x30', class: "user-icon" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="admin-user-info-cell">メールアドレス</td>
+      <td class="admin-user-info-cell"><%= user.email %></td>
+    </tr>
+    <tr>
+      <td class="admin-user-info-cell">ユーザーID</td>
+      <td class="admin-user-info-cell"><%= user.id %></td>
+    </tr>
+    <tr>
+      <td class="admin-user-info-cell">投稿数</td>
+      <td class="admin-user-info-cell"><%= user.posts.count %>件</td>
+    </tr>
+    <tr>
+      <td class="admin-user-info-cell">性別</td>
+      <% if user.is_sex_flag == true %>
           <td class="admin-user-info-cell">
-            <%= link_to admin_user_path(user) do %>
-              <%= attachment_image_tag user, :image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.jpg", size:'30x30', class: "user-icon" %>
-            <% end %>
+          <div class="user-is-sex-flag-man">
+            男性
+          </div>
           </td>
-          <td class="admin-user-info-cell"><%= user.name %></td>
-          <td class="admin-user-info-cell"><%= user.id %></td>
-          <td class="admin-user-info-cell"><%= user.posts.count %>件</td>
-          <% if user.is_sex_flag == true %>
-              <td class="admin-user-info-cell">
-              <div class="user-is-sex-flag-man">
-                男性
-              </div>
-              </td>
-            <% else %>
-              <td class="admin-user-info-cell">
-              <div class="user-is-sex-flag-woman">
-                女性
-              </div>
-              </td>
-          <% end %>
-          <% if user.is_withdrawal_flag == true %>
-              <td class="admin-user-info-cell">
-              <div class="user-withdrawal-flag-true">
-                有効
-              </div>
-              </td>
-            <% else %>
-              <td class="admin-user-info-cell">
-              <div class="user-withdrawal-flag-false">
-                退会済み
-              </div>
-              </td>
-          <% end %>
-        </tr>
-    </tbody>
+        <% else %>
+          <td class="admin-user-info-cell">
+          <div class="user-is-sex-flag-woman">
+            女性
+          </div>
+          </td>
+      <% end %>
+    </tr>
+    <tr>
+      <td class="admin-user-info-cell">
+      </td>
+    </tr>
   </table>
+<% end %>
