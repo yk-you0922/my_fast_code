@@ -1,29 +1,52 @@
 <h2><%= @contact.user.name %>さんのお問い合わせ詳細</h2>
-  <table>
-    <thead>
-      <tr>
-        <td>問い合わせID</td>
-        <td>ユーザーID</td>
-        <td>ユーザー名</td>
-        <td>メールアドレス</td>
-        <td>タイトル</td>
-        <td>画像</td>
-        <td>対応ステータス</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @contact.id %></td>
-        <td><%= @contact.user.id %></td>
-        <td><%= @contact.user.name %></td>
-        <td><%= @contact.user.email %></td>
-        <td><%= @contact.title %></td>
-          <td>
-             <%= form_for @contact, url: admin_contact_path do |f| %>
-                <%= f.select :is_support_status, [:"対応待ち", :"対応中", :"対応済み"] %>
-                <%= f.submit '更新' %>
-              <% end %>
-          </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="user-contact-show-wrapper">
+    <div class="user-contact-index-contents">
+      <div class="user-contact-cell">
+        <p>問い合わせID</p>
+        <%= @contact.id %>
+      </div>
+      <div class="user-contact-cell">
+        <p>ユーザーID</p>
+        <%= @contact.user.id %>
+      </div>
+      <div class="user-contact-cell">
+        <p>ユーザー名</p>
+        <%= @contact.user.name %>
+      </div>
+      <div class="user-contact-cell">
+        <p>メールアドレス</p>
+        <%= @contact.user.email %>
+      </div>
+      <div class="user-contact-cell">
+        <p>対応状況</p>
+          <% case @contact.is_support_status %>
+            <% when "対応待ち" %>  
+              <div class="is_support_yet">
+               <%= @contact.is_support_status %>
+              </div>
+            <% when "対応中" %>  
+              <div class="is_support_doing">
+                <%= @contact.is_support_status %>
+              </div>
+            <% when "対応済み" %>  
+              <div class="is_support_done">
+                <%= @contact.is_support_status %>
+              </div>
+          <% end %>
+      </div>
+      <div class="user-contact-cell">
+        <p>タイトル</p>
+        <%= @contact.title %>
+      </div>
+      <p class="user-contact-show-body-text">お問い合わせ内容</p>
+      <div class="user-contact-show-body">
+        <%= @contact.body %>
+      </div>
+      <div class="user-contact-show-image">
+        <%= attachment_image_tag @contact, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg", size:'300, 200' %>
+      </div>
+      <div class="user-contact-back-link">
+        <%= link_to '一覧へ戻る', user_contacts_path(@contact.user.id) %>
+      </div>
+    </div>
+</div>

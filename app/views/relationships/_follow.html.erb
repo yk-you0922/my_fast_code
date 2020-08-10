@@ -9,12 +9,12 @@
 </td>
 <% if user != current_user %>
   <% if user.followed_by?(current_user) %>
-      <td>
-        <%= button_to 'フォロー解除', user_relationship_path(user.id), method: :delete, remote: true %>
+      <td class="unfollow-button">
+        <%= link_to 'フォロー済み', user_relationship_path(user.id), method: :delete, remote: true %>
       </td>
     <% else %>
-      <td>
-        <%= button_to 'フォローする', user_relationship_path(user.id), method: :post, remote: true %>
+      <td class="follow-button">
+        <%= link_to 'フォローする', user_relationship_path(user.id), method: :post, remote: true %>
       </td>
   <% end %>
 <% end %>

@@ -1,3 +1,30 @@
 // Place all the styles related to the comment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-preview {
+  width: 8em;
+  height: 15em;
+  border: dashed;
+}
+
+.comment-submit-button {
+  background: rgb(248, 106, 106);
+  width: 28em;
+}
+
+.comment-image {
+  width: 100%;
+  height: 100%;
+}
+
+.comment-delete-button a {
+  font-weight: bold;
+  text-decoration: none;
+  color: red;
+  margin-left: 70%;
+}
+
+.comment-delete-button a:hover {
+  opacity: 0.6;
+}

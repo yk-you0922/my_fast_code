@@ -1,4 +1,8 @@
 <%# コメントのAjax化 %>
 $("#comment_area").html("<%= j(render(partial: 'comments/comment', locals: {comments: @new_comment.post.comments} )) %>");
-$("#textarea").val("");
+$("#comment_body").val("");
+$("#comment_image").val("");
+$("#file").val("");
+$("#result").val("");
+
 

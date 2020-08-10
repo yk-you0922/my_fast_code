@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
     @new_comment.user_id = current_user.id
     if @new_comment.save
     else
-      redirect_to request.referer
+      render "posts/show" 
+      @post = Post.find(params[:post_id])
+      @comments = @post.comments
     end
   end
 

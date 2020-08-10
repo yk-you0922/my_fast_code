@@ -1,19 +1,30 @@
 <%# ユーザー新規登録後に遷移するページ %>
-
-<h2>WelCome to My Fast Code!!</h2>
+<div class="homes-welcoming-title">
+  <h2>WelCome to My Fast Code!!</h2>
+</div>
 
 <%# 箱型に文字を入れて、背景は服の画像 %>
-<div>
+<div class="homes-welcoming-text">
   <p>
-    My Fast Codeにご登録いただき、ありがとうございます！
+    My Fast Codeにご登録いただき、ありがとうございます！<br>
     まずは、ご自身のユーザー情報の編集を行いましょう！
     <br>
-    ユーザー名を好きな名前にし、他のユーザーに覚えてもらいやすくしていきましょう！！
+    ユーザー名を好きな名前にし、他のユーザーに覚えてもらいやすくしていきましょう！！<br>
     また、アイコンや性別を設定し、認知してもらいやすくしていきましょう！
   </p>
 </div>
 
+<div class="homes-welcoming-arrow-down">
+  <i class="fas fa-arrow-circle-down"></i>
+  <i class="fas fa-arrow-circle-down"></i>
+  <i class="fas fa-arrow-circle-down"></i>
+</div>
+
 <%# ボタンは大きめに作っておく %>
-<div>
-  <%= link_to '早速編集する', edit_user_path(current_user) %>
+<div class="homes-welcoming-edit">
+  <p>早速、ユーザー情報の更新をしにいきましょう！！</p>
+  <div class="homes-welcoming-edit-wrapper">
+    <i class="fas fa-arrow-right"></i>
+      <%= link_to 'ユーザー情報更新へ', edit_user_path(current_user), class: "homes-welicoming-edit-button" %>
+  </div>
 </div>

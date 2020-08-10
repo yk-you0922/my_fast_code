@@ -1,6 +1,18 @@
 <%# カテゴリーの中の投稿一覧 %>
-<h2>カテゴリー："<%= @genre.name %>" に関する投稿一覧</h2>
+<h2>
+<i class="fas fa-search-plus"></i>
+  カテゴリー："<%= @genre.name %>" に関する投稿一覧
+  <i class="fas fa-search-plus"></i>
+</h2>
 
-<% @genre_posts.each do |post| %>
-  <%= render 'posts/list', post: post %>
-<% end %>
+<div class="jscroll post-list">
+  <% @genre_posts.each do |post| %>
+    <%= render 'posts/list', post: post %>
+    <div class="hidden">
+      <%= paginate @genre_posts, class: "paginate" %>
+    </div>
+    <div class="page-load-status">
+      <p class="infinite-scroll-request"></p>
+    </div>
+  <% end %>
+</div>

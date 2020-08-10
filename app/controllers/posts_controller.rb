@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :category]
+
   def new
     @new_post = Post.new
   end
 
   def index
-    @posts = Post.all.order(created_at: "DESC")
+    @all_posts = Post.all
+    @posts = Post.order(created_at: "DESC").page(params[:page]).per(1)
   end
 
   def create
@@ -14,7 +17,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@new_post.id)
     else
       @posts = Post.all
-      render :index
+      render :new
     end 
   end
 
@@ -35,8 +38,8 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to posts_path
     else
+      render :edit
       @post = Post.find(params[:id])
-      render :show
     end
   end
 
@@ -51,7 +54,7 @@ class PostsController < ApplicationController
 
   def category
     @genre = Genre.find(params[:genre_id])
-    @genre_posts = @genre.posts
+    @genre_posts = @genre.posts.order(created_at: "DESC").page(params[:page]).per(1)
   end
 
   private

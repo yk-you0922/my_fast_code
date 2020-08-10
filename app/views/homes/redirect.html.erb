@@ -1,0 +1,11 @@
+<div class="redirect-contents">
+  <section class="homes-error">
+    <p class="redirect-message">
+      入力されたID"<%= @id %>"は無効です。<br>
+      IDをご確認の上、再度お試し下さい。
+    </p>
+  </section>
+  <section class="page-link">
+    <p>マイページは<%= link_to 'こちら' , user_path(current_user) %></p>
+  </section>
+</div>

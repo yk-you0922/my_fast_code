@@ -1,3 +1,132 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ユーザー
+// index
+.user-contact-index-title-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.user-contact-index-contents {
+  border: 1px solid;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  padding: 30px;
+  background: #eee;
+}
+
+.user-contact-index-contents-wrapper {
+  margin: 3em;
+}
+
+.user-contact-cell {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+}
+
+.user-contact-body-p {
+  text-align: center;
+}
+
+.user-contact-body {
+  margin: 1em auto;
+  width: 28em;
+  height: 10em;
+}
+
+.user-contact-image {
+  text-align: center;
+  width: 28em;
+  height: 14em;
+  margin: 1em auto;
+}
+
+.user-contact-show-link {
+  margin-top: 2em;
+  border: 1px solid #1e90ff;
+  border-radius: 3px;
+  width: 4em;
+  padding: 4px;
+  background: #6495ed;
+}
+.user-contact-show-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.user-contact-show-link a:hover {
+  opacity: 0.6;
+}
+
+// new
+.new-user-contact-form-wrapper {
+  padding: 30px;
+  text-align: center;
+}
+
+.new-user-contact-title {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.new-user-contact-form {
+  margin-bottom: 1em;
+}
+
+.new-user-contact-pre {
+  border: 1px dashed;
+  margin: 1em auto;
+  line-height: 10em;
+  width: 20em;
+  height: 10em;
+}
+
+// show
+.user-contact-show-body-text {
+  text-align: center;
+}
+
+.user-contact-show-body {
+  width: 28em;
+  height: 14em;
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px dashed;
+  border-radius: 8px;
+}
+
+.user-contact-show-image {
+  width: 28em;
+  height: 14em;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.user-contact-back-link {
+  border: 1px solid #1e90ff;
+  border-radius: 3px;
+  width: 6em;
+  padding: 3px;
+  background: #6495ed;
+}
+
+.user-contact-back-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.user-contact-back-link a:hover {
+  opacity: 0.6;
+}
+// 管理者
+// index
+.admin-contact-update-flash {
+  color: #2e8b57;
+}
+
+
+// show

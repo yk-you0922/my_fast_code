@@ -1,4 +1,9 @@
-<h2>カテゴリー一覧</h2>
+<h2>
+  カテゴリー一覧
+  <i class="fas fa-search-plus"></i>
+  <i class="fas fa-search-plus"></i>
+  <i class="fas fa-search-plus"></i>
+</h2>
 <% @genres.each do |genre| %>
   <table>
     <thead>
@@ -18,4 +23,12 @@
         </tr>
     </tbody>
   </table>
+  <div>
+    <p>カテゴリー名</p>
+    <%= link_to category_posts_path(genre.id) do %>
+      <%= genre.name  %> 
+    <p>投稿数</p>
+    <%= ge %>
+    <% end %>
+  </div>
 <% end %>

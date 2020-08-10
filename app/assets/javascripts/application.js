@@ -13,4 +13,38 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
+// ターボリンク削除（Ajax不発原因のため）
 //= require_tree .
+
+// jscroll 無限スクロール
+$(function() {
+  $('.jscroll').jscroll({
+    contentSelector: '.post-list',
+    nextSelector: 'span.next a'
+  });
+});
+
+// 画像プレビュー
+$(function(){
+  $('#file').change(function(){
+    var file = $(this).prop('files')[0];
+    if(!file.type.match('image.*')){
+      return;
+    }
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      $('#result').html('<img src="' + fileReader.result + '" width="100%" height="100%">');
+    }
+    fileReader.readAsDataURL(file);
+  });
+});
+
+// サイドバー カテゴリー一覧
+$(function () {
+  var duration = 300;
+  var $list = $('.side-bar-contents-genre-list');
+  var $asidButton = $('#aside_button').on('click', function() {
+    $list.toggleClass('open');
+  });
+});
+

@@ -7,44 +7,175 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
   </head>
   <header>
-    <% if user_signed_in? %>
-        <div class="logo">Logo</div>
-        <div class="header-contents"><%= link_to 'マイページ', user_path(current_user) %></div>
-        <div class="header-contents"><%= link_to '新規投稿', new_post_path %></div>
-        <div class="header-contents"><%= link_to '投稿一覧', posts_path %></div>
-        <div class="header-contents"><%= link_to 'ユーザー一覧', users_path %></div>
-        <div class="header-contents"><%= link_to 'カテゴリー一覧', genres_path %></div>
-      <% elsif admin_signed_in?%>
-        <div class="logo">Logo</div>
-        <div class="header-contents"><%= link_to '投稿一覧', admin_posts_path %></div>
-        <div class="header-contents"><%= link_to 'ジャンル一覧', admin_genres_path %></div>
-        <div class="header-contents"><%= link_to 'ユーザー一覧', admin_users_path %></div>
-        <div class="header-contents"><%= link_to 'お問い合わせ一覧', admin_contacts_path %></div>
-        <div class="header-contents"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></div>
-      <% else %>
-        <div class="logo">Logo</div>
-        <div class="header-contents"><%= link_to 'ABOUT', homes_about_path %></div>
-        <div class="header-contents"><%= link_to '投稿一覧', posts_path %></div>
-        <div class="header-contents"><%= link_to 'ユーザー一覧', users_path %></div>
-        <div class="header-contents"><%= link_to 'ログイン', new_user_session_path %></div>
-        <div class="header-contents"><%= link_to '新規登録', new_user_registration_path %></div>
-    <% end %>
+    <h2 class="logo-title">
+      <%= link_to root_path do %>
+        <i class="fas fa-tshirt"></i>
+        My Fast Code
+        <i class="fas fa-tshirt"></i>
+      <% end %>
+    </h2>
   </header>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%# <div class="contents-space"></div> %>
 
-  <footer>
-    <h3 class="footer-title">My Fast Code</h3>
-    <div >
-      <% if user_signed_in? %>
-        <div class="footer-contents"><%= link_to 'ABOUT', homes_about_path %></div>
-        <div class="footer-contents"><%= link_to 'お問い合わせ', user_contacts_path(current_user) %></div>
-        <div class="footer-contents"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
-      <% end %>
+   <div class="body-wrap">
+    <div class="side-bar">
+      <table>
+        <% if user_signed_in? %>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '#' do %>
+                <i class="fas fa-arrow-circle-up"></i>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ABOUT', homes_about_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'マイページ', user_path(current_user) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '新規投稿', new_post_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '投稿一覧', posts_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ユーザー一覧', users_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents-genre">
+              <p id="aside_button">
+                カテゴリー一覧
+                <i class="fas fa-caret-right"></i>
+                </button>
+              </p>
+                <ul class="side-bar-contents-genre-list">
+                  <li class="side-bar-contents-genre-list-title">↓カテゴリー一覧↓</li>
+                  <% @get_genres.each do |genre| %>
+                    <%= link_to category_posts_path(genre.id) do %>
+                      <li>
+                        <%= genre.name %>
+                        (<%= genre.posts.count %>)
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'お問い合わせ', user_contacts_path(current_user.id) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </td>
+          </tr>
+        <% elsif admin_signed_in? %>
+        <tr>
+          <td class="side-bar-contents">
+            <%= link_to '#' do %>
+              <i class="fas fa-arrow-circle-up"></i>
+            <% end %>
+          </td>
+        </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '投稿一覧', admin_posts_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ジャンル一覧', admin_genres_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ユーザー一覧', admin_users_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'お問い合わせ一覧', admin_contacts_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '#' do %>
+                <i class="fas fa-arrow-circle-up"></i>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ABOUT', homes_about_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '投稿一覧', posts_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to 'ログイン', new_user_session_path %>
+            </td>
+          </tr>
+          <tr>
+            <td class="side-bar-contents">
+              <%= link_to '新規登録', new_user_registration_path %>
+            </td>
+          </tr>
+          
+        <% end %>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
     </div>
-  </footer>
+
+      <body>
+        <div class="main">
+          <%= yield %>
+        </div>
+      </body>
+    </div>
+
+  </div>
+
+
+  <div class="contents-space"></div>
+
+  <div class="footer-bk">
+    <footer>
+
+      <h3 class="footer-title">
+        <i class="fas fa-tshirt"></i>
+        My Fast Code
+        <i class="fas fa-tshirt"></i>
+      </h3>
+    </footer>
+  </div>
 </html>

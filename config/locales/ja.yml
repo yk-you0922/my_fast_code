@@ -2,3 +2,39 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
+    
+  activerecord:
+    models:
+          user: ユーザー
+          post: 投稿
+          genre: ジャンル
+          comment: コメント
+          favorite: お気に入り
+          contact: お問い合わせ
+          category: カテゴリー
+
+    attributes:
+      user: 
+        email: メールアドレス
+        password: パスワード
+        name: ユーザー名
+        image: アイコン
+        introduction: 自己紹介
+        password_confirmation: パスワード（再入力）
+
+      post: 
+        title: タイトル
+        image: 画像
+        body: 内容
+        genres: カテゴリー
+        closed_on: コメント受付期限
+
+      genre:
+        name: カテゴリー名
+
+      contact:
+        name: お問い合わせユーザー名
+        email: 連絡の着くメールアドレス
+        title: タイトル
+        body: お問い合わせ内容
+

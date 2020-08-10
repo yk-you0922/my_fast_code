@@ -1,3 +1,252 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// HOMES CONTROLLER
+
+// homes-top
+.homes-top-title {
+  text-align: center;
+  border-bottom: 4px solid #000;
+}
+
+.homes-top-title h1 {
+  margin-bottom: 30px;
+}
+
+.homes-top-contents {
+  margin: 30px auto;
+  width: 80%;
+}
+
+.homes-top-row1 {
+  display: flex;
+}
+
+.homes-top-row2 {
+  display: flex;
+  margin-top: 20px;
+}
+
+.homes-top-row3 {
+  display: flex;
+  margin-top: 20px;
+}
+
+.homes-top-image1 {
+  background-image: url('image1.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 250px;
+  height: 150px;
+}
+
+.homes-top-row1-text {
+  width: 250px;
+  height: 150px;
+  font-size: 13px;
+  padding: 20px;
+}
+
+.homes-top-row2-text {
+  width: 250px;
+  height: 150px;
+  font-size: 13px;
+  padding: 15px;
+}
+
+.homes-top-row3-text {
+  width: 250px;
+  height: 150px;
+  font-size: 13px;
+  padding: 15px;
+}
+
+.homes-top-image2 {
+  background-image: url('image2.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 250px;
+  height: 150px;
+}
+
+.homes-top-image3 {
+  background-image: url('image3.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 250px;
+  height: 150px;
+}
+
+// homes-welcoming
+.homes-welcoming-title {
+  font-size: 20px;
+  margin-bottom: 30px;
+  border-bottom: 4px solid #000;
+  text-align: center;
+}
+
+.homes-welcoming-text {
+  text-align: center;
+  font-size: 15px;
+  line-height: 40px;
+  margin-bottom: 50px;
+}
+
+.homes-welcoming-arrow-down {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.homes-welcoming-edit {
+  border: 4px solid #000;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.homes-welcoming-edit p {
+  font-size: 13px;
+}
+
+.homes-welcoming-arrow-right {
+  font-size: 30px;
+  margin-right: auto;
+}
+
+.homes-welcoming-edit-button {
+  margin-left: 300px;
+}
+
+.homes-welcoming-edit-wrapper a {
+  color: blue;
+}
+
+.homes-welcoming-edit-wrapper a:hover {
+  opacity: 0.6;
+}
+
+
+
+// homes-about
+.homes-about-title {
+  border-bottom: 4px solid #000;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.homes-about-main {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.homes-about-text {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 13px;
+}
+
+.homes-about-arrow-down {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.homes-about-links {
+  text-align: center;
+  border: 4px solid #000;
+  padding: 10px 0px 10px 10px;
+}
+
+.homes-about-links a {
+  color: blue;
+}
+
+.homes-about-links a:hover {
+  opacity: 0.6;
+}
+
+@media (min-width: 1024px) {
+  // homes-top
+  .homes-top-contents {
+    margin-top: 30px;
+    text-align: center;
+    // width: 80%;
+  }
+
+  .homes-top-row1 {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .homes-top-row2 {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .homes-top-row3 {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .homes-top-row1-text {
+    width: 400px;
+    height: 150px;
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 30px;
+  }
+  
+  .homes-top-row2-text {
+    width: 400px;
+    height: 150px;
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 30px;
+  }
+  
+  .homes-top-row3-text {
+    width: 400px;
+    height: 150px;
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 30px;
+  }
+  
+  .homes-top-image1 {
+    background-image: url('image1.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    height: 250px;
+  }
+
+  .homes-top-image2 {
+    background-image: url('image2.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    height: 250px;
+  }
+  
+  .homes-top-image3 {
+    background-image: url('image3.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    height: 250px;
+  }
+
+
+  // homes-welcoming
+.homes-welcoming-text {
+  font-size: 23px;
+  line-height: 40px;
+}
+
+
+
+  // homes-about
+}

@@ -1,2 +1,32 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div class="homes-about-title">
+  <h1>ABOUT</h1>
+</div> 
+
+<div class="homes-about-main">
+  <h3>My fast code とは</h3>
+  <p class="homes-about-text">
+    自分の持っている服に何が似合うの？<br>
+    組み合わせや流行、情報はたくさんあるけれども、<br>
+    自分のアイテムに組み合わせられる情報は少ないです。<br>
+    そんな人達のためのSNS。<br>
+    自分の持っているアイテムに似合うものを探して、<br>
+    楽しいファッション生活を。
+  </p>
+</div>
+
+<div class="homes-about-arrow-down">
+  <i class="fas fa-arrow-circle-down"></i>
+  <i class="fas fa-arrow-circle-down"></i>
+  <i class="fas fa-arrow-circle-down"></i>
+</div>
+
+<div class="homes-about-links">
+  <p>
+    さっそく新規登録から始める
+    <%= link_to '新規登録へ', new_user_registration_path %>
+  </p>
+  <p>
+    既に会員登録済みの方は
+    <%= link_to '新規投稿画面へ', new_post_path %>
+  </p>
+</div>

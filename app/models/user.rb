@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   attachment :image
 
+  # バリデーション
+  validates :name, presence: true, length: {maximum: 20}
+  validates :introduction, length: {maximum: 200}
+
 
   # 自分がフォローしているユーザーとの関連
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id

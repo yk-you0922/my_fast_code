@@ -2,49 +2,62 @@
 <h2>
   <%= attachment_image_tag @user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50',class: "user-icon" %>
   <%= @post.user.name %>さんの投稿詳細
+  <i class="fas fa-mail-bulk"></i>
 </h2>
 <%= render 'posts/list', post: @post %>
-  <div id="fav_list_<%= @post.id %>">
-      <%= render 'favorites/favorites', post: @post %>
-  </div>
 
-<div>
+<div class="posts-show-button">
   <% if @post.user_id == current_user.id %>
-    <%= link_to '編集する', edit_post_path %>
+      <%= link_to '編集する', edit_post_path %>
     <%= link_to '削除する', post_path(@post.id), method: :delete %>
   <% end %>
 </div>
+
 <%# コメント投稿フォーム %>
-<% if @post.closed_on.future? %>
-  <h2>コメント</h2>
-  <%= form_with model:[@post, @new_comment], data: {remote: true} do |f| %>
-    <table>
-      <tbody>
-        <tr>
-          <td>画像</td>
-          <td><%= f.attachment_field :image %></td>
-        </tr>
-        <tr>
-          <td>内容</td>
-          <td><%= f.text_area :body, id: "textarea" %></td>
-        </tr>
-        <tr>
-          <td><%= f.submit 'コメントする' %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
-<% else %>
-<table>
-  <tr>
-    <td>この投稿のコメント受付期間は終了しました。</td>
-  </tr>
-</table>
-<% end %>
+<div class="posts-show-comment-wrapper">
+  <h2>コメントをする</h2>
 
-
-<%# 部分テンプレート コメント一覧 %>
-<h2>コメント一覧</h2>
-  <table id="comment_area">
-    <%= render 'comments/comment', comments: @comments  %>
+  <% if @post.closed_on.future? %>
+    <%= form_with model:[@post, @new_comment], data: {remote: true}, method: :post do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+      <table class="comment-form">
+        <tbody>
+          <tr>
+            <td>イメージ</td>
+            <td><%= f.attachment_field :image, id: "file" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.text_area :body, autofocus: true, size: "50x5" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td id="result" class="comment-preview">
+              イメージプレビュー
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit 'コメントする', class: "comment-submit-button" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  <% else %>
+  <table>
+    <tr>
+      <td>この投稿のコメント受付期間は終了しました。</td>
+    </tr>
   </table>
+  <% end %>
+
+
+  <%# 部分テンプレート コメント一覧 %>
+  <div class="posts-show-comments-area">
+    <h2>コメント一覧</h2>
+      <table id="comment_area">
+        <%= render 'comments/comment', comments: @comments  %>
+      </table>
+  </div>
+    
+</div>

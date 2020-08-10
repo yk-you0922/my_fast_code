@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
   <% if post.favorited_by?(current_user) %>
     <tr>
-      <td>
-        お気に入り解除
+      <td class="fav-count">
+        お気に入り
         <%= link_to post_favorites_path(post.id), method: :delete, remote: true do %>
           <i class="fas fa-heart red_heart"></i>
           <%= post.favorites.count %>
@@ -11,8 +11,8 @@
     </tr>
   <% else %>
     <tr>
-      <td>
-        お気に入り登録
+      <td class="fav-count">
+        お気に入り
         <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
           <i class="fas fa-heart no_heart"></i>
           <%= post.favorites.count %>

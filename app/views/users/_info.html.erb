@@ -1,31 +1,55 @@
-<table>
-  <thead>
-    <tr>
-      <td>アイコン</td>
-      <td>ユーザー名</td>
-      <td>投稿数</td>
-      <td>性別</td>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td>
-          <%= link_to user_path(user) do %>
-            <%= attachment_image_tag user, :image, :fill, 30, 30, format: 'jpeg', fallback: "no_image.jpg", size:'30x30', class: "user-icon" %>
-          <% end %>
-        </td>
-        <td><%= user.name %></td>
-        <td><%= user.posts.count %>件</td>
-        <% if user.is_sex_flag == true %>
-            <td>男性</td>
+<div class="user-info-wrapper">
+  <div>
+    <div class="user-info-container">
+        <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100', class: "user-icon" %>
+      <div class="user-info-button">
+        <% if user.id == current_user.id %>
+            <% if check_page('users', 'show') %>
+              <div class="user-info-edit-link">
+                <%= link_to 'プロフィール編集する', edit_user_path(current_user) %>
+              </div>
+              <div class="user-info-follow-count">
+                フォロー数 : 
+                <%= user.followings.count %>
+              </div>
+              <div class="user-info-follow-count">
+                フォロワー数 : 
+                <%= user.followers.count %>
+              </div>
+            <% end %>
           <% else %>
-            <td>女性</td>
+        <table id="follow_button_<%= user.id %>">
+          </tr>
+            <%= render 'relationships/follow', user: user %>
+          <tr>
+        </table>
         <% end %>
-      </tr>
-  </tbody>
-</table>
-<table id="follow_button_<%= user.id %>">
-  <tr>
-    <%= render 'relationships/follow', user: user %>
-  </tr>
-</table>
+    </div>
+    </div>
+  </div>
+  <div class="user-info-name">
+    <p>
+      <%= user.name %><br>
+    </p>
+  </div>
+  <div class="user-info-introduction">
+    <p>
+      <%= user.introduction %>
+    </p>
+  </div>
+      <div class="user-info-name-small">
+        <%= link_to user_favorites_path(user.id) do %>
+          お気に入り<%= user.favorites.count %> 件
+        <% end %>
+      </div>
+      <div class="user-info-name-small">
+        投稿<%= user.posts.count %>件
+      </div>
+      <div class="user-info-name-small">
+        コメント<%= user.comments.count %>件
+      </div>
+  <div class="user-info-favorites-count">
+
+  </div>
+
+</div>

@@ -2,4 +2,114 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// index
+.users-index-wrapper {
+  // background: #444;
+}
 
+.users-index {
+  margin-top: 3em;
+  padding: 3px;
+  background: #ddd;
+  border: solid;
+  border-radius: 12px;
+}
+
+.users-index a {
+  text-decoration: none;
+}
+
+
+// show
+.users-show-title {
+  margin-bottom: 1em;
+  font-size: 30px;
+}
+
+.users-show-posts {
+  margin-top: 2em;
+  margin-left: 3em;
+}
+
+.user-info-wrapper {
+  padding: 10px;
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-info-name {
+  font-size: 40px;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+.user-info-name-small {
+  font-size: 20px;
+  margin-top: 1em;
+  margin-left: 5em;
+}
+
+.user-info-introduction {
+  width: 70%;
+  height: 8em;
+  margin: 1em auto;
+  padding: 1em;
+  background: #ccc;
+  border-radius: 5px;
+}
+
+.user-info-follow-count {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.user-info-edit-link {
+  border: 1px solid #228b22;
+  border-radius: 12px;
+  background: #2e8b57;
+  padding: 3px;
+}
+
+.user-info-edit-link a {
+  text-decoration: none;
+  color: #98fb98;
+}
+
+.user-info-edit-link a:hover {
+  opacity: 0.6;
+}
+
+
+
+// edit
+.users-edit-wrapper {
+  text-align: center;
+}
+
+.users-edit-name {
+  margin-top: 2em;
+}
+
+.users-edit-image {
+  margin-top: 2em;
+}
+
+.users-edit-prev {
+  margin: 2em auto;
+  width: 10em;
+  height: 10em;
+  border: dashed;
+  line-height: 10em;
+}
+
+.users-edit-introduction {
+  margin-top: 2em;
+}
+
+.users-edit-sex {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
