@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/search'
   get 'genres/index'
   devise_for :admins
   # ユーザーがgoogle認証するための記述
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
       yield
     end
   end
-
 
   # homes関連のルーティング
   root 'homes#top'
@@ -56,4 +56,7 @@ Rails.application.routes.draw do
     resources :contacts, only: [:index, :show, :update]
     resources :genres, except: [:new]
   end
+
+  get 'search' => 'search#search'
+
 end

@@ -35,7 +35,7 @@
   border: 1px solid #6495ed;
 }
 
-// ユーザー情報（性別、退会ステータス）
+// ユーザー情報 性別
 .user-is-sex-flag-man {
   border: 1px solid;
   border-radius: 8px;
@@ -51,26 +51,6 @@
   border-radius: 8px;
   background: #dc143c;
   width: 3em;
-  padding: 3px;
-  color: #eee;
-  text-align: center;
-}
-
-.user-withdrawal-flag-true {
-  border: 1px solid;
-  border-radius: 8px;
-  background: #4169e1;
-  width: 5em;
-  padding: 3px;
-  color: #eee;
-  text-align: center;
-}
-
-.user-withdrawal-flag-false {
-  border: 1px solid;
-  border-radius: 8px;
-  background: #ff6347;
-  width: 5em;
   padding: 3px;
   color: #eee;
   text-align: center;
@@ -169,6 +149,16 @@ header {
 .side-bar-contents {
   margin-left: 1em;
   margin-top: 2.5em;
+  height: 2em;
+  width: 10em;
+  font-weight:bold;
+  display:block;
+  text-align:center;
+}
+
+.side-bar-contents-search {
+  margin-left: 1em;
+  margin-bottom: 2.5em;
   height: 2em;
   width: 10em;
   font-weight:bold;
@@ -283,7 +273,6 @@ footer{
   height: 8em;
   border-top: 3px outset #595959;
   display: flex;
-  z-index: 0;
 }
 
 .footer-bk {

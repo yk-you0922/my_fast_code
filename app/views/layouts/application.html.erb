@@ -33,6 +33,16 @@
             </td>
           </tr>
           <tr>
+            <td class="side-bar-contents-search">
+              <%= form_tag(search_path, method: :get) do %>
+                <%= text_field_tag 'search[content]' %>
+                <%= select_tag 'search[model]',options_for_select({"ユーザー" => "user", "投稿" => "post"}) %>
+                <%= select_tag 'search[method]',options_for_select({"部分一致" => "partial", "前方一致" => "forward", "後方一致" => "backward", " 完全一致" => "match"}) %>
+                <%= submit_tag 'SEARCH' %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
             <td class="side-bar-contents">
               <%= link_to 'ABOUT', homes_about_path %>
             </td>
@@ -168,14 +178,5 @@
 
   <div class="contents-space"></div>
 
-  <div class="footer-bk">
-    <footer>
 
-      <h3 class="footer-title">
-        <i class="fas fa-tshirt"></i>
-        My Fast Code
-        <i class="fas fa-tshirt"></i>
-      </h3>
-    </footer>
-  </div>
 </html>

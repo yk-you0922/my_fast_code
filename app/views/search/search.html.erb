@@ -1,0 +1,19 @@
+<%# 検索ページ %>
+<h2>
+  "<%= @content %>"の検索結果
+</h2>
+<% if @model == 'user' %>
+    <% @records.each do |user| %>
+      <div class="users-index">
+          <%= link_to user_path(user.id) do %>
+            <%= render "users/info" , user: user %>
+          <% end %>
+      </div>
+    <% end %>
+  <% else %>
+      <% @records.each do |post| %>
+        <%= render 'posts/list', post: post %>
+      <% end %>
+<% end %>
+
+
