@@ -70,6 +70,7 @@
                     <%= link_to category_posts_path(genre.id) do %>
                       <li>
                         <%= genre.name %>
+                        (<%= genre.posts.count %>)
                       </li>
                     <% end %>
                   <% end %>
