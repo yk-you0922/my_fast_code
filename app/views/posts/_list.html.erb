@@ -45,6 +45,7 @@
       <%= attachment_image_tag post, :image, :fill, 200, 200, fallback: "no_image.jpg" , size:'350x200' %>
     <% end %>
   </div>
+  <% if check_page('posts', 'index') %>
   <div class="posts-comments">
     <h4>
       コメント数  :  
@@ -53,6 +54,17 @@
       <% end %>
     </h4>
   </div>
+  <% end %>
+  <% if check_page('users', 'show') %>
+  <div class="posts-comments">
+    <h4>
+      コメント数  :  
+      <%= link_to post_path(post.id) do %>
+        <%= post.comments.count %>
+      <% end %>
+    </h4>
+  </div>
+  <% end %>
   <div class="posts-closed-on">
     <h3>
       コメント受付期間
