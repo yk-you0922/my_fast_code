@@ -15,7 +15,7 @@
   <tr>
     <td></td>
     <td class="comment-image">
-      <%= attachment_image_tag comment, :image, :fill, 200, 200, fallback: "no_image.jpg" , size:',200x200' %>
+      <%= attachment_image_tag comment, :image,  fallback: "no_image.jpg" , size:'100%, 100%', class: "comment-image" %>
     </td>
   </tr>
   <tr>
@@ -24,14 +24,19 @@
       <%= safe_join(comment.body.split("\n"), tag(:br)) %>
     </td>
   </tr>
-  <tr>
-    <% if comment.user == current_user %>
-      <td></td>
-      <td class="comment-delete-button">
+    <tr>
+      <% if comment.id.present? %>
+        <td></td>
+        <td class="comment-delete-button">
         <%= link_to '削除', post_comments_path(comment), method: :delete, remote: true %>
-      </td>
-    <% end %>
-  </tr>
-  <span class="comment-border-bottom"></span>
+        </td>
+        <% else %>
+        <td></td>
+        <td>この内容は保存に失敗しております。<br>
+            入力内容を確認後、再送信してください。
+        </td>
+      <% end %>
+    </tr>
 <% end %>
+
 

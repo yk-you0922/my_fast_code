@@ -1,0 +1,39 @@
+<div class="posts-show-comment-wrapper">
+  <% if post.closed_on.future? %>
+    <h2>コメントをする</h2>
+
+  <div id="error_explanation">
+    <%= render 'comments/error', comment: comment %>
+  </div>
+
+    <%= form_with model:[post, comment], data: {remote: true}, method: :post do |f| %>
+      <table class="comment-form">
+        <tbody>
+          <tr>
+            <td>イメージ</td>
+          </tr>
+          <tr>
+            <td><%= f.attachment_field :image, id: "file" %></td>
+          </tr>
+          <tr>
+            <td><%= f.text_area :body, autofocus: true, size: "50x5" %></td>
+          </tr>
+          <tr>
+            <td class="comment-preview-wrapper">
+              <div id="result" class="comment-preview">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.submit 'コメントする', class: "comment-submit-button" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  <% else %>
+  <table>
+    <tr>
+      <td>この投稿のコメント受付期間は終了しました。</td>
+    </tr>
+  </table>
+  <% end %>

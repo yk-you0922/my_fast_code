@@ -38,3 +38,7 @@ ja:
         title: タイトル
         body: お問い合わせ内容
 
+      comment:
+        body: コメント内容
+        image: コメント画像
+

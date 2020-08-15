@@ -7,13 +7,13 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
    }
-   
+
    def devise_scope(scope)
     constraint = lambda do |request|
       request.env["devise.mapping"] = Devise.mappings[scope]
       true
     end
- 
+
     constraints(constraint) do
       yield
     end
@@ -34,7 +34,6 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :index, :show, :create]
   end
   get 'withdrawal' => 'users#withdrawal'
-  put "/users/:id/hide" => "users#hide", as: 'user_hide'
   get '/users/:id/favorites' => 'favorites#index', as: 'user_favorites'
   
   resources :genres, only: [:index]

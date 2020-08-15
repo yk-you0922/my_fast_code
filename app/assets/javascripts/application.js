@@ -39,12 +39,19 @@ $(function(){
   });
 });
 
+$(function(){
+  $(".comment-submit-button").click(function(){
+    $('.comment-preview').remove();
+  });
+});
+
 // サイドバー カテゴリー一覧
 $(function () {
   var duration = 300;
   var $list = $('.side-bar-contents-genre-list');
-  var $asidButton = $('#aside_button').on('click', function() {
+  $('#aside_button').on('click', function() {
     $list.toggleClass('open');
   });
 });
+
 
