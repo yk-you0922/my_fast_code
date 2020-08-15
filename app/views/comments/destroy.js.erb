@@ -1,2 +1,2 @@
-$('#comment_area').html("<%= j(render 'comments/comment',{comments: @post.comments }) %>");
+$('#comment_area_<%= @post.id %>').html("<%= j(render 'comments/comment',{comments: @post.comments, post: @post }) %>");
 

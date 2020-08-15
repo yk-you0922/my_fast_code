@@ -1,8 +1,7 @@
 <%# コメントのAjax化 %>
-$("#comment_area").html("<%= j(render(partial: 'comments/comment', locals: {comments: @new_comment.post.comments})) %>");
+$("#comment_area_<%= @post.id %>").html("<%= j(render(partial: 'comments/comment', locals: {comments: @post.comments, post: @post, comment: @new_comment})) %>");
 $("#comment_body").val("");
-$("#comment_image").val("");
 $("#file").val("");
-$(".comment-preview").val("");
-
+<%# コメントエラーメッセージ  %>
+$("#error_explanation").html("<%= j(render(partial: 'comments/error', locals: {comment: @new_comment})) %>");
 

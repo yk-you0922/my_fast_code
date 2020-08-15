@@ -21,24 +21,26 @@
         <% end %>
       </div>
   </div>
+  <%# 投稿一覧画面の場合、投稿内容は一部だけ表示 %>
   <% if check_page('posts', 'index') %>
-  <div class="posts-body">
-    <p>
-      <% if post.body.length > 10 %>
-        <%= post.body.truncate(20) %>
-        <%= link_to '続きを見る', post_path(post.id) %>
-        <% else %>
-          <%= safe_join(post.body.split("\n"), tag(:br)) %>
-      <% end %>
-    </p>
-  </div>
-  <% end %>
-  <% if check_page('posts', 'show') %>
-    <div class="posts-body-show-wrap">
+    <div class="posts-body">
       <p>
-        <%= safe_join(post.body.split("\n"), tag(:br)) %>
+        <% if post.body.length > 10 %>
+          <%= post.body.truncate(20) %>
+          <%= link_to '続きを見る', post_path(post.id) %>
+          <% else %>
+            <%= safe_join(post.body.split("\n"), tag(:br)) %>
+        <% end %>
       </p>
     </div>
+  <% end %>
+  <%# 投稿詳細画面の場合、投稿内容の全てを表示 %>
+  <% if check_page('posts', 'show') %>
+      <div class="posts-body-show-wrap">
+        <p>
+          <%= safe_join(post.body.split("\n"), tag(:br)) %>
+        </p>
+      </div>
   <% end %>
   <div class="posts-img">
     <%= link_to post_path(post.id) do %>
@@ -46,24 +48,14 @@
     <% end %>
   </div>
   <% if check_page('posts', 'index') %>
-  <div class="posts-comments">
-    <h4>
-      コメント数  :  
-      <%= link_to post_path(post.id) do %>
-        <%= post.comments.count %>
-      <% end %>
-    </h4>
-  </div>
-  <% end %>
-  <% if check_page('users', 'show') %>
-  <div class="posts-comments">
-    <h4>
-      コメント数  :  
-      <%= link_to post_path(post.id) do %>
-        <%= post.comments.count %>
-      <% end %>
-    </h4>
-  </div>
+    <div class="posts-comments">
+      <h4>
+        コメント数  :  
+        <%= link_to post_path(post.id) do %>
+          <%= post.comments.count %>
+        <% end %>
+      </h4>
+    </div>
   <% end %>
   <div class="posts-closed-on">
     <h3>
@@ -83,3 +75,12 @@
     </tbody>
   </table>
 </div>
+<%# 投稿詳細画面のみ、削除、編集ボタンが表示 %>
+<% if check_page('posts', 'show') %>
+  <div class="posts-show-button">
+    <% if @post.user_id == current_user.id %>
+        <%= link_to '編集する', edit_post_path(@post) %>
+      <%= link_to '削除する', post_path(@post.id), method: :delete %>
+    <% end %>
+  </div>
+<% end %>

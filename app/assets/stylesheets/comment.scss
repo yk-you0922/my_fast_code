@@ -2,10 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.comment-preview {
-  width: 8em;
-  height: 14em;
+.comment-preview-wrapper {
+  width: 15em;
 }
+
+.comment-preview {
+  width: 23em;
+  // height: 14em;
+  // border: 1px solid;
+}
+
 
 .comment-submit-button {
   width: 28em;
@@ -23,8 +29,8 @@
 }
 
 .comment-image {
-  width: 100%;
-  height: 100%;
+  width: 23em;
+  height: 12em;
 }
 
 
