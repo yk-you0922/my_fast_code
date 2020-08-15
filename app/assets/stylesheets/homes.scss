@@ -16,29 +16,30 @@
 
 .homes-top-contents {
   margin: 3em auto;
-  width: 50em;
+  width: 95%;
+  background: #eee;
+  border-radius: 12px;
 }
 
 .homes-top-row1 {
   display: flex;
+  justify-content: space-evenly;
+  margin-left: none;
+  padding: 1em;
 }
 
 .homes-top-row2 {
   display: flex;
   margin-top: 20px;
+  justify-content: space-evenly;
+  padding: 1em;
 }
 
 .homes-top-row3 {
   display: flex;
   margin-top: 20px;
-}
-
-.homes-top-image1 {
-  background-image: image-url('image1.jpg');
-  background-position: center;
-  background-size: cover;
-  width: 250px;
-  height: 150px;
+  justify-content: space-evenly;
+  padding: 1em;
 }
 
 .homes-top-row1-text {
@@ -62,20 +63,28 @@
   padding: 15px;
 }
 
+.homes-top-image1 {
+  background-image: image-url('image1.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 20em;
+  height: 10em;
+}
+
 .homes-top-image2 {
   background-image: image-url('image2.jpg');
   background-position: center;
   background-size: cover;
-  width: 250px;
-  height: 150px;
+  width: 20em;
+  height: 10em;
 }
 
 .homes-top-image3 {
   background-image: image-url('image3.jpg');
   background-position: center;
   background-size: cover;
-  width: 250px;
-  height: 150px;
+  width: 20em;
+  height: 10em;
 }
 
 // homes-welcoming
@@ -173,7 +182,7 @@
   .homes-top-contents {
     margin-top: 30px;
     text-align: center;
-    // width: 80%;
+    padding: 2em;
   }
 
   .homes-top-row1 {
@@ -192,24 +201,24 @@
   }
   
   .homes-top-row1-text {
-    width: 400px;
-    height: 150px;
+    width: 20em;
+    height: 10em;
     font-size: 20px;
     padding: 15px;
     margin-top: 30px;
   }
   
   .homes-top-row2-text {
-    width: 400px;
-    height: 150px;
+    width: 20em;
+    height: 10em;
     font-size: 20px;
     padding: 15px;
     margin-top: 30px;
   }
   
   .homes-top-row3-text {
-    width: 400px;
-    height: 150px;
+    width: 20em;
+    height: 10em;
     font-size: 20px;
     padding: 15px;
     margin-top: 30px;
@@ -219,24 +228,24 @@
     background-image: url('image1.jpg');
     background-position: center;
     background-size: cover;
-    width: 350px;
-    height: 250px;
+    width: 20em;
+    height: 18em;
   }
 
   .homes-top-image2 {
     background-image: url('image2.jpg');
     background-position: center;
     background-size: cover;
-    width: 350px;
-    height: 250px;
+    width: 20em;
+    height: 18em;
   }
   
   .homes-top-image3 {
     background-image: url('image3.jpg');
     background-position: center;
     background-size: cover;
-    width: 350px;
-    height: 250px;
+    width: 20em;
+    height: 18em;
   }
 
 
@@ -249,4 +258,8 @@
 
 
   // homes-about
+}
+
+@media (min-width: 768px) {
+
 }

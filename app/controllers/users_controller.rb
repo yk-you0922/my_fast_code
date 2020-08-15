@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :current_user?, only: [:edit, :update, :hide]
+  before_action :current_user?, only: [:edit, :update]
 
   def index
     @users = User.all.order(created_at: "DESC").page(params[:page]).per(1)

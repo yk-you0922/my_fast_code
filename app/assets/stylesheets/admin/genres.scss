@@ -25,10 +25,16 @@
 }
 
 .admin-genres-index-table {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 1em;
   border-bottom: 1px dashed #000;
-  width: 90%;
+  width: 100%;
+  
+}
+
+.admin-genre-index-cell {
+  width: 8em;
+  text-align: center;
+  word-break: break-all;
 }
 
 .admin-genre-edit-link {

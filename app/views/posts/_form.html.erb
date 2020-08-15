@@ -1,12 +1,7 @@
 <%# 新規投稿 部分テンプレート %>
-<% if post.errors.any? %>
-  <% post.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-<% end %>
-
-<%= form_for post do |f| %>
-  <div class="new-post-wrapper">
+<div class="new-post-wrapper">
+  <%= form_for post do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="new-post-image">
       <p>画像</p>
       <%= f.attachment_field :image, id: "file" %>
@@ -38,7 +33,5 @@
     <div class="new-post-submit">
       <%= f.submit '投稿する', class: "new-post-submit-button" %>
     </div>
-    
-
-  </div>
-<% end %>
+  <% end %>
+</div>

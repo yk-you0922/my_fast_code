@@ -1,9 +1,6 @@
 <%# 管理者 お問い合わせ一覧 %>
 <div class="admin-contacts-index-wrapper">
   <h2>お問い合わせ一覧</h2>
-  <div class="admin-contact-update-flash">
-    <%= flash[:contacts_update] %>
-  </div>
 
   <% @contacts.each do |contact| %>
     <table class="admin-contacts-table">

@@ -8,20 +8,20 @@
     <table class="admin-genres-index-table">
       <thead>
         <tr>
-          <td>ジャンル名</td>
-          <td>投稿数</td>
-          <td></td>
+          <th class="admin-genre-index-cell">ジャンル名</th>
+          <th class="admin-genre-index-cell">投稿数</th>
+          <th class="admin-genre-index-cell"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="admin-genres-container-link">
+          <td class="admin-genres-container-link admin-genre-index-cell">
             <%= link_to category_posts_path(genre.id) do %>
               <%= genre.name %>
             <% end %>
           </td>
-          <td><%= genre.posts.count %>件</td>
-          <td>
+          <td class="admin-genre-index-cell"><%= genre.posts.count %>件</td>
+          <td class="admin-genre-index-cell">
             <div class="admin-genre-edit-link">
               <%= link_to 'ジャンル編集', edit_admin_genre_path(genre.id) %>
             </div>

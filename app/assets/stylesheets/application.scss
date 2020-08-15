@@ -66,6 +66,7 @@
   padding: 3px;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 0.5em;
 }
 .is_support_doing {
   color: yellow;
@@ -75,6 +76,7 @@
   width: 5em;
   padding: 3px;
   text-align: center;
+  margin-bottom: 0.5em;
 }
 .is_support_done {
  color: green;
@@ -85,7 +87,19 @@
  padding: 3px;
  text-align: center;
  font-weight: bold;
+ margin-bottom: 0.5em;
 }
+
+// エラーメッセージ 
+.alert-warning {
+  color: red;
+  margin-bottom: 2em;
+}
+
+.alert-warning  li {
+  list-style: none;
+}
+
 
 // お気に入り
 .fav-count a {

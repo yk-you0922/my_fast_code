@@ -7,14 +7,6 @@
   <%= form_for @new_contact, url: user_contacts_path do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <div class="new-user-contact-form">
-      <p>ユーザー名</p>
-      <%= f.text_field :name, size: "40x10" %>
-    </div>
-    <div class="new-user-contact-form">
-      <p>メールアドレス</p>
-      <%= f.text_field :email, size: "40x10" %>
-    </div>
-    <div class="new-user-contact-form">
       <p>タイトル</p>
       <%= f.text_field :title, size: "40x10" %>
     </div>
@@ -27,7 +19,7 @@
     </div>
     <div class="new-user-contact-form">
       <p>本文</p>
-      <%= f.text_area :body, size: "40x15" %>
+      <%= f.text_area :body, size: "60x15" %>
     </div>
     <div class="new-user-contact-form">
       <%= f.submit "お問い合わせする" %>
