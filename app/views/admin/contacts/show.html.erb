@@ -35,8 +35,11 @@
           <% end %>
       </div>
       <div class="user-contact-cell">
-        <p>タイトル</p>
-        <%= @contact.title %>
+        <p>対応ステータス変更</p>
+        <%= form_for @contact, url: admin_contact_path do |f| %>
+          <%= f.select :is_support_status, [:"対応待ち", :"対応中", :"対応済み"] %>
+          <%= f.submit "ステータス更新" %>
+        <% end %>
       </div>
       <p class="user-contact-show-body-text">お問い合わせ内容</p>
       <div class="user-contact-show-body">
@@ -46,7 +49,7 @@
         <%= attachment_image_tag @contact, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg", size:'300, 200' %>
       </div>
       <div class="user-contact-back-link">
-        <%= link_to '一覧へ戻る', user_contacts_path(@contact.user.id) %>
+        <%= link_to '一覧へ戻る', admin_contacts_path(@contact.user.id) %>
       </div>
     </div>
 </div>

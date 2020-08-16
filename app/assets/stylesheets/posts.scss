@@ -106,26 +106,32 @@
 }
 
 .comment-form {
-  width: 43em;
+  width: 30em;
   border: 1px solid;
   padding: 1em 1em 1em 3em;
+  margin: 1em auto;
 }
 
 .posts-show-comments-area {
-  margin-top: 2em;
+  margin: 2em auto;
   flex-wrap: wrap;
   overflow: scroll;
   width: 90%;
-  border: 1px dashed ;
+  border: 1px dashed;
   border-radius: 8px;
   padding: 2em;
 }
 
 // new & _form.html.erb
+.new-post-title {
+  text-align: center;
+}
+
 .new-post-wrapper {
   width: 80%;
   margin: 30px auto;
   // background: white;
+  text-align: center;
 }
 
 .new-post-image {

@@ -1,4 +1,6 @@
 class Admin::ContactsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @contacts = Contact.all.order(created_at: "DESC")
   end
@@ -10,11 +12,10 @@ class Admin::ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     if @contact.update(contact_params)
-      redirect_to admin_contacts_path
       flash[:contacts_update] = "対応ステータスの更新が完了しました。"
+      render :show
     else
       @contact = Contact.find(params[:id])
-      flash[:error] = "更新に失敗しました。もう一度お試しください。"
       render :show
     end
   end

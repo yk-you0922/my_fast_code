@@ -4,15 +4,15 @@
   <i class="fas fa-mail-bulk"></i>
   <i class="fas fa-mail-bulk"></i>
   <i class="fas fa-mail-bulk"></i>
-  全 "<%#= @all_posts.count %>" 件
+  全 "<%= @all_posts.count %>" 件
 </h2>
 
 <div class="jscroll post-list">
-  <%# @posts.each do |post| %>
-    <%#= render 'posts/list', post: post %>
-  <%# end %>
+  <% @posts.each do |post| %>
+    <%= render 'posts/list', post: post %>
+  <% end %>
   <div class="hidden">
-    <%#= paginate @posts, class: "paginate" %>
+    <%= paginate @posts, class: "paginate" %>
   </div>
   <div class="page-load-status">
     <p class="infinite-scroll-request"></p>
