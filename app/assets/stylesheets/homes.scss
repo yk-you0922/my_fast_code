@@ -225,7 +225,7 @@
   }
   
   .homes-top-image1 {
-    background-image: url('image1.jpg');
+    background-image: image-url('image1.jpg');
     background-position: center;
     background-size: cover;
     width: 20em;
@@ -233,7 +233,7 @@
   }
 
   .homes-top-image2 {
-    background-image: url('image2.jpg');
+    background-image: image-url('image2.jpg');
     background-position: center;
     background-size: cover;
     width: 20em;
@@ -241,7 +241,7 @@
   }
   
   .homes-top-image3 {
-    background-image: url('image3.jpg');
+    background-image: image-url('image3.jpg');
     background-position: center;
     background-size: cover;
     width: 20em;
