@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :category]
-  before_action :current_user?, only: [:edit, :update,]
 
   def new
     @new_post = Post.new
@@ -31,7 +30,9 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-
+    unless @post.user == current_user
+      redirect_to redirect_path
+    end
   end
 
   def update
