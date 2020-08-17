@@ -59,6 +59,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     bcrypt (3.1.15)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.4.7)
       msgpack (~> 1.0)
@@ -115,6 +116,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    ed25519 (1.2.4)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (1.0.1)
@@ -329,6 +331,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt_pbkdf
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -340,6 +343,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  ed25519
   font-awesome-sass (~> 5.4.1)
   jbuilder (~> 2.5)
   jquery-rails
