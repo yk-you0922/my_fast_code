@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_025429) do
+ActiveRecord::Schema.define(version: 2020_08_18_112906) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_025429) do
     t.string "image_id", default: "", null: false
     t.string "introduction"
     t.string "token"
-    t.string "meta"
+    t.text "meta"
     t.boolean "is_sex_flag", default: true, null: false
     t.boolean "is_withdrawal_flag", default: true, null: false
     t.string "reset_password_token"
