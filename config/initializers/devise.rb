@@ -277,8 +277,7 @@ Devise.setup do |config|
                   ENV['GOOGLE_APP_ID'], # 環境変数にクライアントIDを入れておく
                   ENV['GOOGLE_APP_SECRET'], # 環境変数にシークレットを入れておく
                   name: :google,
-                  # scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/plus.me https://www.google.com/m8/feeds'
-                  scope: %w(email) 
+                  scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/plus.me https://www.google.com/m8/feeds'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
