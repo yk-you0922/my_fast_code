@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "my_fast_code"
-set :repo_url, "git@github.com:yk-you0922/my_fast_code.git "
+set :repo_url, "git@github.com:yk-you0922/my_fast_code.git"
 
 set :deploy_to, "/home/ec2-user/my_fast_code"
 set :rbenv_ruby, '2.5.7'
