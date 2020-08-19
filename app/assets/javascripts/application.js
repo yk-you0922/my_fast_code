@@ -54,28 +54,28 @@ $(function () {
   });
 });
 
-// 画像クリックでプレビュー
-// $(function(){
-//   $(".posts-img img").click(function() {
-//     $(".graydisplay").html($(this).prop('outerHTML'));
-//     $(".graydisplay").fadeIn(200);
-//   });
-//   $(".graydisplay, .graydisplay img").click(function() {
-//     $(".graydisplay").fadeOut(200);
-//   });
-// });
+// サイドバー ページ上部へ移動
+$(function () {
+  $('.fa-arrow-circle-up').mouseover(function() {
+    $('#tips span').addClass('open-balloon')
+      $('.fa-arrow-circle-up').mouseout(function() {
+        $('#tips span').removeClass('open-balloon')
+    });
+  });
+});
 
-// jscorll対応、画像クリックでプレビュー
+// 画像クリックでプレビュー
 $(function(){
   $(document).on('click', '.posts-img img', function(){
       $(".graydisplay").html($(this).prop('outerHTML'));
       $(".graydisplay").fadeIn(200);
     });
-    
+
     $(".graydisplay, .graydisplay img").click(function() {
       $(".graydisplay").fadeOut(200);
   });
 });
+
 
 
 

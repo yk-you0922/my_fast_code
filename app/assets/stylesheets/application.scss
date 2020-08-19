@@ -200,6 +200,35 @@ header {
   margin-left: 20px;
 }
 
+.fa-arrow-circle-up {
+  font-size: 30px;
+}
+
+// サイドバー ページ上部へのツールチップ
+#tips {
+  position: relative;
+}
+
+.balloon {
+  position: absolute;
+  padding: 2px;
+  width: 10em;
+  left: 7em;
+  top: -20em;
+  font-size: 80%;
+  color: #eee;
+}
+
+.open-balloon {
+  position: absolute;
+  padding: 2px;
+  width: 10em;
+  left: 7em;
+  top: -2em;
+  font-size: 80%;
+  color: #eee;
+}
+
 .side-bar-contents {
   margin-left: 1em;
   margin-top: 2.5em;

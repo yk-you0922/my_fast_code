@@ -26,10 +26,13 @@
       <table>
         <% if user_signed_in? %>
           <tr>
-            <td class="side-bar-contents">
+            <td class="side-bar-contents page-up">
               <%= link_to '#' do %>
                 <i class="fas fa-arrow-circle-up"></i>
               <% end %>
+              <div id="tips">
+                <span class="balloon">ページ上部へ戻る</span>
+              </div>
             </td>
           </tr>
           <tr>
