@@ -54,4 +54,28 @@ $(function () {
   });
 });
 
+// 画像クリックでプレビュー
+// $(function(){
+//   $(".posts-img img").click(function() {
+//     $(".graydisplay").html($(this).prop('outerHTML'));
+//     $(".graydisplay").fadeIn(200);
+//   });
+//   $(".graydisplay, .graydisplay img").click(function() {
+//     $(".graydisplay").fadeOut(200);
+//   });
+// });
+
+// jscorll対応、画像クリックでプレビュー
+$(function(){
+  $(document).on('click', '.posts-img img', function(){
+      $(".graydisplay").html($(this).prop('outerHTML'));
+      $(".graydisplay").fadeIn(200);
+    });
+    
+    $(".graydisplay, .graydisplay img").click(function() {
+      $(".graydisplay").fadeOut(200);
+  });
+});
+
+
 

@@ -44,7 +44,8 @@
       </div>
       <p class="user-contact-show-body-text">お問い合わせ内容</p>
       <div class="user-contact-show-body">
-        <%= @contact.body %>
+        <%#= @contact.body %>
+        <%= safe_join(@contact.body.split("\n"), tag(:br)) %>
       </div>
       <div class="user-contact-show-image">
         <%= attachment_image_tag @contact, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg", size:'300, 200' %>

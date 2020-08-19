@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 2020_08_18_112906) do
     t.string "token"
     t.text "meta"
     t.boolean "is_sex_flag", default: true, null: false
-    t.boolean "is_withdrawal_flag", default: true, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

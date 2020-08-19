@@ -18,11 +18,23 @@
  @import 'font-awesome';
  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
-//  リセットCSS
+//  リセットCSS&全体につけるCSS
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration-line: underline;
+}
+
+img:hover {
+  cursor: pointer;
 }
 
 .hidden {
@@ -33,7 +45,34 @@
 .user-icon {
   border-radius: 50%;
   border: 1px solid #6495ed;
+  // background: #eee;
+  // background-color: #eee;
+}
+
+.user-icon img {
   background: #eee;
+}
+
+// 画像クリックでプレビュー
+.graydisplay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+}
+.graydisplay img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }
 
 // ユーザー情報 性別

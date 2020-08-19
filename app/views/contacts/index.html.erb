@@ -10,7 +10,7 @@
 
   <div class="user-contact-index-contents-wrapper">
     <% @contacts.each do |contact| %>
-      <% if contact.user.id == current_user.id %>
+      <% if contact.user == current_user %>
         <div class="user-contact-index-contents">
           <div class="user-contact-cell">
             <p>問い合わせID</p>

@@ -1,0 +1,12 @@
+$(function(){
+  /** not good */
+  $('.clickme_btn').on('click', function(){
+    alert('Button is clicked');
+  });
+  
+  $('#add_clickme_btn_btn').on('click', function(){
+    $('#btns_box').append(
+      '<button class="clickme_btn">Click Me</button>'
+    );
+  });
+});

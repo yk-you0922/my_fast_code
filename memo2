@@ -1,0 +1,6 @@
+$(function(){
+  /** GOOD */
+  $(document).on('click', '.clickme_btn', function(){
+    alert('Button is clicked');
+  });
+  

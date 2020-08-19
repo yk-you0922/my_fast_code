@@ -4,9 +4,7 @@
   <%= @post.user.name %>さんの投稿詳細
   <i class="fas fa-mail-bulk"></i>
 </h2>
-<div class="admin-contact-update-flash">
-  <%= flash[:contacts_update] %>
-</div>
+
 <%= render 'posts/list', post: @post %>
 
 <%# コメント投稿フォーム %>
