@@ -44,7 +44,6 @@
       </div>
       <p class="user-contact-show-body-text">お問い合わせ内容</p>
       <div class="user-contact-show-body">
-        <%#= @contact.body %>
         <%= safe_join(@contact.body.split("\n"), tag(:br)) %>
       </div>
       <div class="user-contact-show-image">

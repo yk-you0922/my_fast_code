@@ -185,12 +185,6 @@ header {
   margin-right: 30px;
 }
 
-// コンテンツ内
-.contents-space {
-  width: 100%;
-  height: 1em;
-}
-
 // サイドバー（メニューバー）
 .side-bar {
   position: fixed;
@@ -294,8 +288,6 @@ header {
   width: 16em;
   position: absolute;
   left: -500px;
-  // top: 1em;
-  // left: 14em;
 }
 
 .side-bar-contents-genre-list-title {
@@ -315,17 +307,24 @@ header {
   top: 0em;
 }
 
+.side-bar-contents-genre-list {
+  position: fixed;
+  width: 20em;
+  overflow-y: scroll;
+  top: 8em;
+  bottom: 0;
+}
 .side-bar-contents-genre-list li {
   margin-top: 0.5em;
   color: #ddd;
+  word-break: break-all;
 }
-
-
 
 // headerのposition:fixedで被らないように
 .body-wrap {
   padding-top: 8em;
   background: #333;
+  margin-bottom: 2em;
 }
 
 body {
