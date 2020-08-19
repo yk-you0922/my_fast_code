@@ -12,7 +12,7 @@
           <p>イメージ</p>
         </div>
         <div>
-          <%= f.attachment_field :image, id: "file" %>
+          <%= f.file_field :image, id: "file", accept: 'image/jpg,image/jpeg,image/png' %>
         </div>
         <div>
           <%= f.text_area :body, size: "50x5" %>

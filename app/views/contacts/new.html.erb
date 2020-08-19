@@ -12,7 +12,7 @@
     </div>
     <div class="new-user-contact-form">
       <p>画像</p>
-      <%= f.attachment_field :image, id: "file" %>
+      <%= f.file_field :image, id: "file", accept: 'image/jpg,image/jpeg,image/png' %>
     </div>
     <div id="result" class="new-user-contact-pre">
       イメージプレビュー
