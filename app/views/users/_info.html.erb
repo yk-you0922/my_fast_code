@@ -43,14 +43,17 @@
   </div>
       <div class="user-info-name-small">
         <%= link_to user_favorites_path(user.id) do %>
-          お気に入り<%= user.favorites.count %> 件
+          お気に入りした投稿  
+          ”<%= user.favorites.count %>”  件
         <% end %>
       </div>
       <div class="user-info-name-small">
-        投稿<%= user.posts.count %>件
+        投稿件数  
+        ”<%= user.posts.count %>”  件
       </div>
       <div class="user-info-name-small">
-        コメント<%= user.comments.count %>件
+        コメント回数  
+        ”<%= user.comments.count %>”  件
       </div>
   <div class="user-info-favorites-count">
 

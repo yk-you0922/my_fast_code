@@ -74,7 +74,32 @@ img:hover {
   height: 80%;
   object-fit: contain;
 }
-
+// ユーザーアイコン
+.graydisplay-icon {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  height: 98%;
+  background: rgba(0,0,0,0.45);
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.graydisplay-icon img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
 // ユーザー情報 性別
 .user-is-sex-flag-man {
   border: 1px solid;
@@ -310,7 +335,7 @@ header {
 .side-bar-contents-genre-list {
   position: fixed;
   width: 20em;
-  overflow-y: scroll;
+  overflow-y: scroll; //ジャンルが増えすぎて縦に溢れたらスクロール
   top: 8em;
   bottom: 0;
 }

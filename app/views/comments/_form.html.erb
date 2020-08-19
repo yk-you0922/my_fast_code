@@ -7,28 +7,22 @@
   </div>
 
     <%= form_with model:[post, comment], data: {remote: true}, method: :post do |f| %>
-      <table class="comment-form">
-        <tbody>
-          <tr>
-            <td>イメージ</td>
-          </tr>
-          <tr>
-            <td><%= f.attachment_field :image, id: "file" %></td>
-          </tr>
-          <tr>
-            <td><%= f.text_area :body, autofocus: true, size: "50x5" %></td>
-          </tr>
-          <tr>
-            <td class="comment-preview-wrapper">
-              <div id="result" class="comment-preview">
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.submit 'コメントする', class: "comment-submit-button" %></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="comment-form">
+        <div>
+          <p>イメージ</p>
+        </div>
+        <div>
+          <%= f.attachment_field :image, id: "file" %>
+        </div>
+        <div>
+          <%= f.text_area :body, size: "50x5" %>
+        </div>
+        <div id="result" class="comment-preview">
+        </div>
+        <div>
+          <%= f.submit 'コメントする', class: "comment-submit-button" %>
+        </div>
+      </div>
     <% end %>
   <% else %>
   <table>

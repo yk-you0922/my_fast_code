@@ -30,7 +30,6 @@ Rails.application.routes.draw do
     resource :relationship, only: [:create, :destroy]
     get :follows, on: :member
     get :followers, on: :member
-    get :ranking
     resources :contacts, only: [:new, :index, :show, :create]
   end
   get 'withdrawal' => 'users#withdrawal'
@@ -44,7 +43,6 @@ Rails.application.routes.draw do
   resources :posts do 
     resource :favorites, only: [:create, :destroy]
     resource :comments, only: [:create, :destroy]
-    get :ranking
   end
 
 
