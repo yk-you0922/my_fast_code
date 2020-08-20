@@ -58,7 +58,7 @@ Rails.application.routes.draw do
 
   # コメントのお気に入りルーティング
   resources :comments do 
-    resources :comment_favorites, only: [:create, :destroy]
+    resource :comment_favorites, only: [:create, :destroy]
   end
 
 end

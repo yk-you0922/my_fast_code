@@ -1,9 +1,10 @@
+<%# コメントお気に入り部分テンプレート %>
 <% if user_signed_in? %>
   <% if comment.comment_favorited_by?(current_user) %>
     <tr>
       <td class="fav-count">
         お気に入り
-        <%= link_to comment_comment_favorite_path(comment.id), method: :delete do %>
+        <%= link_to comment_comment_favorites_path(comment.id), method: :delete, remote:true do %>
           <i class="fas fa-heart red_heart"></i>
           <%= comment.comment_favorites.count %>
         <% end %>
@@ -13,7 +14,7 @@
     <tr>
       <td class="fav-count">
         お気に入り
-        <%= link_to comment_comment_favorites_path(comment.id), method: :post do %>
+        <%= link_to comment_comment_favorites_path(comment.id), method: :post, remote: true do %>
           <i class="fas fa-heart no_heart"></i>
           <%= comment.comment_favorites.count %>
         <% end %>

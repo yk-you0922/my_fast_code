@@ -20,12 +20,12 @@
   </tr>
   <tr>
     <td></td>
-    <td>
+    <td class="comment-body-area">
       <%= safe_join(comment.body.split("\n"), tag(:br)) %>
     </td>
   </tr>
   <tr>
-      <% if comment.id.present? %>
+    <% if comment.id.present? %>
         <td></td>
         <td class="comment-delete-button">
         <%= link_to '削除', post_comments_path(comment), method: :delete, remote: true %>
@@ -38,8 +38,8 @@
       <% end %>
     </tr>
   <%# コメントお気に入り機能 %>
-  <table>
-    <tbody>
+  <table class="comment-fav-list">
+    <tbody id="comment_fav_list_<%= comment.id %>">
       <%= render 'comment_favorites/favorites', comment: comment %>
     </tbody>
   </table>
