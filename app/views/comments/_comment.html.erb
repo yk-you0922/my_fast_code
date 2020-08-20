@@ -24,7 +24,7 @@
       <%= safe_join(comment.body.split("\n"), tag(:br)) %>
     </td>
   </tr>
-    <tr>
+  <tr>
       <% if comment.id.present? %>
         <td></td>
         <td class="comment-delete-button">
@@ -37,6 +37,12 @@
         </td>
       <% end %>
     </tr>
+  <%# コメントお気に入り機能 %>
+  <table>
+    <tbody>
+      <%= render 'comment_favorites/favorites', comment: comment %>
+    </tbody>
+  </table>
 <% end %>
 
 

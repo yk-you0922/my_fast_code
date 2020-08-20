@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+  <% if comment.comment_favorited_by?(current_user) %>
+    <tr>
+      <td class="fav-count">
+        お気に入り
+        <%= link_to comment_comment_favorite_path(comment.id), method: :delete do %>
+          <i class="fas fa-heart red_heart"></i>
+          <%= comment.comment_favorites.count %>
+        <% end %>
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td class="fav-count">
+        お気に入り
+        <%= link_to comment_comment_favorites_path(comment.id), method: :post do %>
+          <i class="fas fa-heart no_heart"></i>
+          <%= comment.comment_favorites.count %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+<% else %>
+  <tr>
+    <td>お気に入り数： <%= comment.comment_favorites.count %></td>
+  </tr>
+<% end %>
