@@ -13,7 +13,7 @@
 <%# 部分テンプレート コメント一覧 %>
 <div class="posts-show-comments-area">
   <h2>コメント一覧</h2>
-  <table id="comment_area_<%= @post.id %>">
+  <table id="comment_area_<%= @post.id %>" class="posts-show-comment-table">
     <%= render 'comments/comment', comments: @post.comments, post: @post%>
   </table>
 </div>

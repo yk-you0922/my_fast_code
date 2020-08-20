@@ -8,7 +8,7 @@
     </td>
     <td>
       <%= link_to user_path(comment.user.id) do %>
-       投稿者  :  <%= comment.user.name %>
+      投稿者  :  <%= comment.user.name %>
       <% end %>
     </td>
   </tr>
@@ -19,7 +19,7 @@
     </td>
   </tr>
   <tr>
-    <td></td>
+    <td>コメント</td>
     <td class="comment-body-area">
       <%= safe_join(comment.body.split("\n"), tag(:br)) %>
     </td>
@@ -38,11 +38,9 @@
       <% end %>
     </tr>
   <%# コメントお気に入り機能 %>
-  <table class="comment-fav-list">
-    <tbody id="comment_fav_list_<%= comment.id %>">
-      <%= render 'comment_favorites/favorites', comment: comment %>
-    </tbody>
-  </table>
+  <tr id="comment_fav_list_<%= comment.id %>">
+    <%= render 'comment_favorites/favorites', comment: comment %>
+  </tr>
 <% end %>
 
 
