@@ -51,9 +51,6 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def ranking
-  end
-
   def category
     @genre = Genre.find(params[:genre_id])
     @genre_posts = @genre.posts.order(created_at: "DESC").page(params[:page]).per(1)

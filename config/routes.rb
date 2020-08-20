@@ -56,4 +56,9 @@ Rails.application.routes.draw do
 
   get 'search' => 'search#search'
 
+  # コメントのお気に入りルーティング
+  resources :comments do 
+    resource :comment_favorites, only: [:create, :destroy]
+  end
+
 end

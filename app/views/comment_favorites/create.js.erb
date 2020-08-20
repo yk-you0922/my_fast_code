@@ -1,0 +1,2 @@
+<%# コメントのお気に入りAjax化 %>
+$('#comment_fav_list_<%= @comment.id %>').html("<%= j(render partial: 'comment_favorites/favorites', locals: {comment: @comment, comment_favorite: @comment_favorite}) %>");
