@@ -7,7 +7,14 @@ class PostsController < ApplicationController
 
   def index
     @all_posts = Post.all
+    comment_count = Comment.where(id: :post_id).count
+    favorite_count = Favorite.where(id: :post_id).count
     @posts = Post.order(created_at: "DESC").page(params[:page]).per(1)
+    unless request.post?
+      # @posts = Post.order(params[:keyword]).page(params[:page]).per(1)
+      selection = params[:keyword]
+      @posts = Post.sort(selection).page(params[:page]).per(1)
+    end
   end
 
   def create
