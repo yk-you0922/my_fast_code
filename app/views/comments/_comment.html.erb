@@ -28,7 +28,9 @@
     <% if comment.id.present? %>
         <td></td>
         <td class="comment-delete-button">
-        <%= link_to '削除', post_comments_path(comment), method: :delete, remote: true %>
+        <% if comment.user == current_user %>
+          <%= link_to '削除', post_comments_path(comment), method: :delete, remote: true %>
+        <% end %>
         </td>
         <% else %>
         <td></td>

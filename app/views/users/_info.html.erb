@@ -48,6 +48,12 @@
         <% end %>
       </div>
       <div class="user-info-name-small">
+        <%= link_to user_favorite_comments_path(user.id) do %>
+          お気に入りしたコメント  
+          ”<%= user.favorited_comments.count %>”  件
+        <% end %>
+      </div>
+      <div class="user-info-name-small">
         投稿件数  
         ”<%= user.posts.count %>”  件
       </div>

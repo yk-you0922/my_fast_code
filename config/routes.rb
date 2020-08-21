@@ -33,9 +33,12 @@ Rails.application.routes.draw do
     resources :contacts, only: [:new, :index, :show, :create]
   end
   get 'withdrawal' => 'users#withdrawal'
+
+  # ユーザーお気に入り関連のルーティング
   get '/users/:id/favorites' => 'favorites#index', as: 'user_favorites'
-  
-  resources :genres, only: [:index]
+  get '/users/:id/favorite_comments' => 'comment_favorites#index', as: 'user_favorite_comments'
+
+  # ジャンル関連のルーティング
   get '/genres' => 'genres#index'
   get '/genres/:genre_id/posts' => 'posts#category', as: 'category_posts'
 

@@ -1,0 +1,44 @@
+<%# お気に入りしたコメント一覧 %>
+<h2 class="comment-favorites-title">
+  "<%= @user.name %>"さんのお気に入りコメント一覧
+  全”<%= @comment_favorites.count %> "件
+</h2>
+
+<div class="comment-favorites-wrapper">
+  <% @comment_favorites.each do |comment| %>
+    <table>
+      <tr class="comment-area">
+        <td>
+          <%= link_to user_path(comment.user.id) do %>
+            <%= attachment_image_tag comment.user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' ,class: "user-icon"%>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to user_path(comment.user.id) do %>
+          投稿者  :  <%= comment.user.name %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="comment-image">
+          <%= attachment_image_tag comment, :image,  fallback: "no_image.jpg" , size:'100%, 100%', class: "comment-image" %>
+        </td>
+      </tr>
+      <tr>
+        <td>コメント</td>
+        <td class="comment-body-area">
+          <%= safe_join(comment.body.split("\n"), tag(:br)) %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="comment-favorites-link">
+          <%= link_to post_path(comment.post) do %>
+            この投稿ページへ行く
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
