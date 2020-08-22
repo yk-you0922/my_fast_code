@@ -30,9 +30,9 @@ class Post < ApplicationRecord
     when "commentable"
       return all.order(closed_on: :DESC)
     when "many_comment"
-      return where(id: Comment.group(:post_id).order(Arel.sql('count(post_id)desc')).pluck(:post_id))
+      return joins(:comments).group(:post_id).order('count(post_id) desc')
     when "many_favorite"
-      return where(id: Favorite.group(:post_id).order(Arel.sql'count(post_id) desc').pluck(:post_id))
+      return joins(:favorites).group(:post_id).order('count(post_id) desc')
     end
   end
 

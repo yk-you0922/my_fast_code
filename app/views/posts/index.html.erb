@@ -1,6 +1,6 @@
 <%# ユーザー 投稿一覧ページ %>
-<div>
-  <div>
+<div class="posts-index-title-container">
+  <div class="posts-index-title">
     <h2>
       投稿一覧
       <i class="fas fa-mail-bulk"></i>
@@ -9,7 +9,7 @@
       全 "<%= @all_posts.count %>" 件
     </h2>
   </div>
-  <div>
+  <div class="posts-index-sort">
     <%= form_tag(posts_path, method: :get) do %>
       <%= select_tag :keyword, options_for_select(
         "新しい投稿順": "new",
