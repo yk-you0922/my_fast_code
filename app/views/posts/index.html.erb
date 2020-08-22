@@ -16,14 +16,12 @@
         "古い投稿順": "old",
         "コメント受付期間の遠い順": "commentable",
         "コメントの多い順": "many_comment",
-        "コメントの少ない順": "less_comment",
         "お気に入り数順": "many_favorite"
       ) %>
       <%= submit_tag '並び替え' %>
     <% end %>
   </div>
 </div>
-
 <div class="jscroll post-list">
   <% @posts.each do |post| %>
     <%= render 'posts/list', post: post %>
