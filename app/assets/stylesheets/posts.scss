@@ -129,7 +129,6 @@
 .new-post-wrapper {
   width: 80%;
   margin: 30px auto;
-  // background: white;
   text-align: center;
 }
 
@@ -184,4 +183,13 @@
   background: rgb(248, 106, 106);
 }
 
+// index
+.posts-index-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts-index-sort {
+  margin-top: 1em;
+}
 

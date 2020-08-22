@@ -20,4 +20,20 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  # 投稿一覧のソート定義
+  def self.sort(selection)
+    case selection
+    when "new"
+      return all.order(created_at: :DESC)
+    when "old"
+      return all.order(created_at: :ASC)
+    when "commentable"
+      return all.order(closed_on: :DESC)
+    when "many_comment"
+      return joins(:comments).group(:post_id).order('count(post_id) desc')
+    when "many_favorite"
+      return joins(:favorites).group(:post_id).order('count(post_id) desc')
+    end
+  end
+
 end

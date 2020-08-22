@@ -6,8 +6,16 @@ class PostsController < ApplicationController
   end
 
   def index
+    # Post.rbにselection,sortのメソッド記述
     @all_posts = Post.all
-    @posts = Post.order(created_at: "DESC").page(params[:page]).per(1)
+    comment_count = Comment.where(id: :post_id).count
+    favorite_count = Favorite.where(id: :post_id).count
+    selection = params[:keyword]
+    if params[:keyword].presence
+      @posts = Post.sort(selection).page(params[:page]).per(1)
+    else
+      @posts = Post.order(created_at: "DESC").page(params[:page]).per(1)
+    end
   end
 
   def create
