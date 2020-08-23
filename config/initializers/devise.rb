@@ -282,7 +282,7 @@ Devise.setup do |config|
   config.omniauth :twitter,
                   ENV['TWITTER_API_KEY'],
                   ENV['TWITTER_API_SECRET'],
-                  callback_url: "https://my-fast-code.work/users/auth/twitter/callback"
+                  # callback_url: "https://my-fast-code.work/users/auth/twitter/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
