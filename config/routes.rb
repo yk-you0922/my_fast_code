@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'search/search'
   get 'genres/index'
   devise_for :admins
-  # ユーザーがgoogle認証するための記述
+  # ユーザーがSNS認証するための記述
   devise_for :users, controllers: { 
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'

@@ -278,6 +278,10 @@ Devise.setup do |config|
                   ENV['GOOGLE_APP_SECRET'], # 環境変数にシークレットを入れておく
                   name: :google,
                   scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/plus.me https://www.google.com/m8/feeds'
+  
+  config.omniauth :twitter,
+                  ENV['TWITTER_API_KEY'],
+                  ENV['TWITTER_API_SECRET']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
