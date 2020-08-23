@@ -283,7 +283,6 @@ Devise.setup do |config|
                   ENV['TWITTER_API_KEY'],
                   ENV['TWITTER_API_SECRET'],
                   scope: 'email',
-                  callback_url: "https://my-fast-code.work/users/auth/twitter/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
