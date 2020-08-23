@@ -282,6 +282,7 @@ Devise.setup do |config|
   config.omniauth :twitter,
                   ENV['TWITTER_API_KEY'],
                   ENV['TWITTER_API_SECRET'],
+                  scope: 'email', callback_url: 'example.com/auth/twitter/callback',
                   callback_url: "https://my-fast-code.work/users/auth/twitter/callback"
 
   # ==> Warden configuration
