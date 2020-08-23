@@ -473,12 +473,42 @@ footer{
   width: 18em;
 }
 
+.google-login i {
+  color: #fff;
+  margin-right: 1em;
+  font-size: 20px;
+}
+
 .google-login a {
   color: #eee;
   text-decoration: none;
 }
 
 .google-login a:hover {
+  opacity: 0.6;
+}
+
+.twitter-login {
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px solid #00bfff;
+  border-radius: 12px;
+  background: #00acee;
+  width: 18em;
+}
+
+.twitter-login i {
+  color: #fff;
+  margin-right: 1em;
+  font-size: 20px;
+}
+
+.twitter-login a {
+  color: #eee;
+  text-decoration: none;
+}
+
+.twitter-login a:hover {
   opacity: 0.6;
 }
 

@@ -15,7 +15,7 @@
       <% @records.each do |post| %>
         <%= render 'posts/list', post: post %>
       <% end %>
-    <% end %>
+  <% end %>
 
 <% elsif admin_signed_in? %>
 
@@ -27,12 +27,50 @@
           <% end %>
         </div>
       <% end %>
-    <% else %>
+    <% elsif @model == 'post' %>
       <% @records.each do |post| %>
         <%= render 'admin/posts/list', post: post %>
       <% end %>
+    <% else %>
+      <% @records.each do |comment| %>
+        <div class="comment-favorites-wrapper">
+          <table>
+            <tr class="comment-area">
+              <td>
+                <%= link_to user_path(comment.user.id) do %>
+                  <%= attachment_image_tag comment.user, :image, :fill, 50, 50, fallback: "no_image.jpg" , size:'50x50' ,class: "user-icon"%>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to user_path(comment.user.id) do %>
+                投稿者  :  <%= comment.user.name %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="comment-image">
+                <%= attachment_image_tag comment, :image,  fallback: "no_image.jpg" , size:'100%, 100%', class: "comment-image" %>
+              </td>
+            </tr>
+            <tr>
+              <td>コメント</td>
+              <td class="comment-body-area">
+                <%= safe_join(comment.body.split("\n"), tag(:br)) %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="comment-favorites-link">
+                <%= link_to admin_post_path(comment.post) do %>
+                  この投稿ページへ行く
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </div>
+    <% end %>
   <% end %>
-
 <% end %>
 
 

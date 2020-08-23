@@ -18,7 +18,7 @@ class SearchController < ApplicationController
       else
         User.where('name LIKE ?', '%'+content+'%')
       end
-    else
+    elsif model == "post"
       if method == 'perfect'
         Post.where(body: content)
       elsif method == 'forward'
@@ -27,6 +27,16 @@ class SearchController < ApplicationController
         Post.where('body LIKE ?', '%'+content)
       else
         Post.where('body LIKE ?', '%'+content+'%')
+      end
+    else
+      if method == 'perfect'
+        Comment.where(body: content)
+      elsif method == 'forward'
+        Comment.where('body LIKE ?', content+'%')
+      elsif method == 'backward'
+        Comment.where('body LIKE ?', '%'+content)
+      else
+        Comment.where('body LIKE ?', '%'+content+'%')
       end
     end
   end
