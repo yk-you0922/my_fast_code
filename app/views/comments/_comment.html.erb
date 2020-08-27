@@ -32,17 +32,20 @@
           <%= link_to '削除', post_comments_path(comment), method: :delete, remote: true %>
         <% end %>
         </td>
+        <%# コメントお気に入り機能 %>
+        <tr id="comment_fav_list_<%= comment.id %>">
+          <td></td>
+          <%= render 'comment_favorites/favorites', comment: comment %>
+        </tr>
         <% else %>
         <td></td>
-        <td>この内容は保存に失敗しております。<br>
-            入力内容を確認後、再送信してください。
+        <td class="comment-error-massage">
+          この内容は保存に失敗しております。<br>
+          入力内容を確認後、ページを更新し、<br>
+          再度送信してください。
         </td>
-      <% end %>
+    <% end %>
     </tr>
-  <%# コメントお気に入り機能 %>
-  <tr id="comment_fav_list_<%= comment.id %>">
-    <%= render 'comment_favorites/favorites', comment: comment %>
-  </tr>
 <% end %>
 
 
