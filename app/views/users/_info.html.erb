@@ -36,33 +36,43 @@
       <%= user.name %><br>
     </p>
   </div>
-  <div class="user-info-introduction">
-    <p>
-      <%= user.introduction %>
-    </p>
+  <% if check_page('users', 'index') %>
+    <div class="user-info-introduction">
+      <p>
+        <% if user.introduction.length > 10 %>
+          <%= user.introduction.truncate(30) %>
+        <% else %>
+          <%= safe_join(user.introduction.split("\n"), tag(:br)) %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+  <% if check_page('users', 'show') %>
+    <div class="user-info-introduction">
+      <p>
+        <%= safe_join(user.introduction.split("\n"), tag(:br)) %>
+      </p>
+    </div>
+  <% end %>
+  <div class="user-info-name-small">
+    <%= link_to user_favorites_path(user.id) do %>
+      お気に入りした投稿  
+      ”<%= user.favorites.count %>”  件
+    <% end %>
   </div>
-      <div class="user-info-name-small">
-        <%= link_to user_favorites_path(user.id) do %>
-          お気に入りした投稿  
-          ”<%= user.favorites.count %>”  件
-        <% end %>
-      </div>
-      <div class="user-info-name-small">
-        <%= link_to user_favorite_comments_path(user.id) do %>
-          お気に入りしたコメント  
-          ”<%= user.favorited_comments.count %>”  件
-        <% end %>
-      </div>
-      <div class="user-info-name-small">
-        投稿件数  
-        ”<%= user.posts.count %>”  件
-      </div>
-      <div class="user-info-name-small">
-        コメント回数  
-        ”<%= user.comments.count %>”  件
-      </div>
-  <div class="user-info-favorites-count">
-
+  <div class="user-info-name-small">
+    <%= link_to user_favorite_comments_path(user.id) do %>
+      お気に入りしたコメント  
+      ”<%= user.favorited_comments.count %>”  件
+    <% end %>
+  </div>
+  <div class="user-info-name-small">
+    投稿件数  
+    ”<%= user.posts.count %>”  件
+  </div>
+  <div class="user-info-name-small">
+    コメント回数  
+    ”<%= user.comments.count %>”  件
   </div>
 
 </div>
