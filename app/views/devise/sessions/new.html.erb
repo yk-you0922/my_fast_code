@@ -1,22 +1,22 @@
 <div class="devise-wrapper">
   <h2>ログイン</h2>
-  <%= flash[:error] %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
+    <%#= flash[:alert] %>
+    <%#= render "devise/shared/error_messages", resource: resource %>
     <div class="devise-email">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x10" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x10", required: true %>
     </div>
 
     <div class="devise-password">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password", size: "40x10" %>
+      <%= f.label :password %>
+      <p>（６文字以上）</p>
+      <%= f.password_field :password, autocomplete: "current-password", size: "40x10", required: true  %>
     </div>
 
-    <div class="devise-submit">
-      <%= f.submit "ログイン", size: "40x10", class: "btn" %>
+    <div>
+      <%= f.submit "ログイン" %>
     </div>
   <% end %>
-  
   <%= render "devise/shared/links" %>
 </div>

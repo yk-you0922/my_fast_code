@@ -42,6 +42,12 @@ img:hover {
   visibility: hidden;
 }
 
+// エラーメッセージ 
+#error_explanation li {
+  list-style: none;
+  color: red;
+}
+
 // アイコン
 .user-icon {
   border-radius: 50%;
@@ -423,12 +429,6 @@ footer{
   margin-bottom: 1em;
 }
 
-.devise-submit {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-
 .devise-login-link {
   margin: 1em auto;
   padding: 1em;
@@ -464,13 +464,21 @@ footer{
   opacity: 0.6;
 }
 
+.sns-login-container {
+  border: 1px solid;
+  border-radius: 8px;
+  width: 18em;
+  margin: 1em auto;
+  padding: 1em;
+}
+
 .google-login {
   margin: 1em auto;
   padding: 1em;
   border: 1px solid #ff0000;
   border-radius: 12px;
   background: #ff4500;
-  width: 18em;
+  width: 15em;
 }
 
 .google-login i {
@@ -494,7 +502,7 @@ footer{
   border: 1px solid #00bfff;
   border-radius: 12px;
   background: #00acee;
-  width: 18em;
+  width: 15em;
 }
 
 .twitter-login i {

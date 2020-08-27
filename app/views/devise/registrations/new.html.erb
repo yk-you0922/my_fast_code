@@ -6,7 +6,7 @@
 
     <div class="devise-email">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x10" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x10", required: true  %>
     </div>
 
     <div class="devise-password">
@@ -14,15 +14,15 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", size: "40x10" %>
+      <%= f.password_field :password, autocomplete: "new-password", size: "40x10", required: true  %>
     </div>
 
     <div class="devise-password">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "40x10" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "40x10", required: true  %>
     </div>
 
-    <div class="devise-submit">
+    <div>
       <%= f.submit "新規登録" %>
     </div>
   <% end %>
