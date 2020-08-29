@@ -37,22 +37,34 @@
     </p>
   </div>
   <% if check_page('users', 'index') %>
-    <div class="user-info-introduction">
-      <p>
-        <% if user.introduction.length > 10 %>
-          <%= user.introduction.truncate(30) %>
-        <% else %>
-          <%= safe_join(user.introduction.split("\n"), tag(:br)) %>
-        <% end %>
-      </p>
-    </div>
+    <% if user.introduction.present? %>
+      <div class="user-info-introduction">
+        <p>
+          <% if user.introduction.length > 10 %>
+            <%= user.introduction.truncate(30) %>
+          <% else %>
+            <%= safe_join(user.introduction.split("\n"), tag(:br)) %>
+          <% end %>
+        </p>
+      </div>
+    <% else %>
+      <div class="user-info-introduction">
+        <p>まだ自己紹介はありません</p>
+      </div>
+    <% end %>
   <% end %>
   <% if check_page('users', 'show') %>
-    <div class="user-info-introduction">
-      <p>
-        <%= safe_join(user.introduction.split("\n"), tag(:br)) %>
-      </p>
-    </div>
+    <% if user.introduction.present? %>
+      <div class="user-info-introduction">
+        <p>
+          <%= safe_join(user.introduction.split("\n"), tag(:br)) %>
+        </p>
+      </div>
+      <% else %>
+        <div class="user-info-introduction">
+          <p>まだ、自己紹介はありません</p>
+        </div>
+    <% end %>
   <% end %>
   <div class="user-info-name-small">
     <%= link_to user_favorites_path(user.id) do %>
@@ -74,5 +86,4 @@
     コメント回数  
     ”<%= user.comments.count %>”  件
   </div>
-
 </div>

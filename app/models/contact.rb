@@ -5,7 +5,7 @@ class Contact < ApplicationRecord
 
   enum is_support_status: [:"対応待ち", :"対応中", :"対応済み"]
 
-  # バリデーション
+  # :バリデーション
   validates :title, presence: true
   validates :body, presence: true
 
