@@ -48,9 +48,7 @@
         </p>
       </div>
     <% else %>
-      <div class="user-info-introduction">
-        <p>まだ自己紹介はありません</p>
-      </div>
+      <div class="user-info-introduction"></div>
     <% end %>
   <% end %>
   <% if check_page('users', 'show') %>
@@ -61,9 +59,13 @@
         </p>
       </div>
       <% else %>
-        <div class="user-info-introduction">
-          <p>まだ、自己紹介はありません</p>
-        </div>
+        <% if user == current_user %>
+          <div class="user-info-introduction">
+            <%= link_to '自己紹介を追加する', edit_user_path(current_user) %>
+          </div>
+        <% else %>
+          <div class="user-info-introduction"></div>
+        <% end %>
     <% end %>
   <% end %>
   <div class="user-info-name-small">
