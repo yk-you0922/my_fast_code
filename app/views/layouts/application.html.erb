@@ -27,9 +27,7 @@
         <% if user_signed_in? %>
           <tr>
             <td class="side-bar-contents page-up">
-              <%= link_to '#' do %>
-                <i class="fas fa-arrow-circle-up"></i>
-              <% end %>
+                <i class="fas fa-arrow-circle-up" id="pagetop"></i>
               <div id="tips">
                 <span class="balloon">ページ上部へ戻る</span>
               </div>
@@ -102,9 +100,7 @@
         <% elsif admin_signed_in? %>
         <tr>
           <td class="side-bar-contents page-up">
-            <%= link_to '#' do %>
-              <i class="fas fa-arrow-circle-up"></i>
-            <% end %>
+              <i class="fas fa-arrow-circle-up" id="pagetop"></i>
             <div id="tips">
               <span class="balloon">ページ上部へ戻る</span>
             </div>
@@ -148,9 +144,7 @@
         <% else %>
           <tr>
             <td class="side-bar-contents page-up">
-              <%= link_to '#' do %>
-                <i class="fas fa-arrow-circle-up"></i>
-              <% end %>
+                <i class="fas fa-arrow-circle-up" id="pagetop"></i>
               <div id="tips">
                 <span class="balloon">ページ上部へ戻る</span>
               </div>
@@ -176,7 +170,7 @@
               <%= link_to '新規登録', new_user_registration_path %>
             </td>
           </tr>
-          
+
         <% end %>
         <tr>
           <td></td>
