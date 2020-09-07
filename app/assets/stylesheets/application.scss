@@ -42,7 +42,7 @@ img:hover {
   visibility: hidden;
 }
 
-// エラーメッセージ 
+// エラーメッセージ
 #error_explanation li {
   list-style: none;
   color: red;
@@ -69,6 +69,7 @@ img:hover {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.45);
+  object-fit: contain;
 }
 .graydisplay img {
   position: absolute;
@@ -77,8 +78,8 @@ img:hover {
   left: 0;
   right: 0;
   margin: auto;
-  width: 80%;
-  height: 80%;
+  min-width: 40%;
+  min-height: 40%;
   object-fit: contain;
 }
 // ユーザーアイコン
@@ -162,7 +163,7 @@ img:hover {
  margin-bottom: 0.5em;
 }
 
-// エラーメッセージ 
+// エラーメッセージ
 .alert-warning {
   color: red;
   margin-bottom: 2em;
@@ -436,7 +437,7 @@ footer{
   border-radius: 12px;
   background: #008000;
   width: 18em;
-  
+
 }
 .devise-login-link a {
   color: #eee;
