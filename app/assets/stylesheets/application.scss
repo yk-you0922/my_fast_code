@@ -102,8 +102,8 @@ img:hover {
   left: 0;
   right: 0;
   margin: auto;
-  width: 60%;
-  height: 60%;
+  min-width: 20%;
+  min-height: 20%;
   border-radius: 0;
   border: none;
   object-fit: contain;
