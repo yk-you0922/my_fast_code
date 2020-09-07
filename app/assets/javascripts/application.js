@@ -24,6 +24,7 @@ $(function() {
   });
 });
 
+
 // 画像プレビュー
 $(function(){
   $('#file').change(function(){
@@ -45,6 +46,7 @@ $(function(){
   });
 });
 
+
 // サイドバー カテゴリー一覧
 $(function () {
   var duration = 300;
@@ -58,11 +60,23 @@ $(function () {
 $(function () {
   $('.fa-arrow-circle-up').mouseover(function() {
     $('#tips span').addClass('open-balloon')
-      $('.fa-arrow-circle-up').mouseout(function() {
+    $('.fa-arrow-circle-up').mouseout(function() {
+      // ページトップへ移動
+      // $(function() {
+        //   $('html,body').animate({ scrollTop: 0 }, '1');
+        // });
         $('#tips span').removeClass('open-balloon')
+      });
     });
   });
-});
+
+  // ページトップへ移動
+  $(function() {
+    $('#pagetop').click(function() {
+      $('html, body').animate({scrollTop: 0}, "200");
+    });
+  });
+
 
 // 画像クリックで投稿画像プレビュー
 $(function(){
@@ -75,6 +89,8 @@ $(function(){
       $(".graydisplay").fadeOut(200);
   });
 });
+
+
 // 画像クリックでコメント画像プレビュー
 $(function(){
   $(document).on('click', '.comment-image img', function(){
@@ -86,6 +102,8 @@ $(function(){
       $(".graydisplay").fadeOut(200);
   });
 });
+
+
 // 画像クリックで問い合わせ画像プレビュー
 $(function(){
   $(document).on('click', '.user-contact-show-image img', function(){
@@ -97,6 +115,8 @@ $(function(){
       $(".graydisplay").fadeOut(200);
   });
 });
+
+
 // 画像クリックでユーザーアイコン画像プレビュー(users/shownのみ)
 $(function(){
   $(document).on('click', '.users-show-wrapper img', function(){
@@ -109,10 +129,4 @@ $(function(){
   });
 });
 
-
-// ページを読み込んだときに、最上部へ移動
-// ただし、ぬるっと動くのでバグだと思われる可能性高い
-// $(function() {
-//   $('html,body').animate({ scrollTop: 0 }, '1');
-// });
 
