@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
     @user = User.find(params[:user_id])
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
     @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id))
-    redirect_to "/users/#{@user.id}/room/#{@room.id}"
+    redirect_to "/users/#{@user.id}/rooms/#{@room.id}"
   end
 
   def show
