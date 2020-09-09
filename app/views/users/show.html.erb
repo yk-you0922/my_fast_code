@@ -4,7 +4,7 @@
   <i class="fas fa-user"></i>
 </h2>
 <div class="users-show-wrapper">
-  <%= render "users/info", user: @user %>
+  <%= render "users/info", user: @user, room: @room, isRoom: @isRoom, roomId: @roomId, entry: @entry %>
 </div>
 
 <div class="users-show-posts">

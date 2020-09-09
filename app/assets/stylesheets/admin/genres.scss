@@ -1,0 +1,83 @@
+// Place all the styles related to the admin/genres controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index
+.admin-genres-wrapper {
+  margin: 1em auto;
+}
+
+.admin-genres-container{
+  border: 1px solid;
+  border-radius: 8px;
+  background: #eee;
+  margin: 1em auto;
+  padding: 20px;
+}
+
+.admin-genres-container-link a {
+  text-decoration: none;
+  color: #1e90ff;
+}
+
+.admin-genres-container-link a:hover {
+  opacity: 0.6;
+}
+
+.admin-genres-index-table {
+  margin: 1em;
+  border-bottom: 1px dashed #000;
+  width: 100%;
+  
+}
+
+.admin-genre-index-cell {
+  width: 8em;
+  text-align: center;
+  word-break: break-all;
+}
+
+.admin-genre-edit-link {
+  border: 1px solid #3cb371;
+  border-radius: 12px;
+  background: #008000;
+  width: 7em;
+  padding: 4px;
+}
+
+.admin-genre-edit-link a {
+  color: #eee;
+  text-decoration: none;
+}
+
+.admin-genre-edit-link a:hover {
+  opacity: 0.6;
+}
+
+// edit
+.admin-genres-edit-wrapper {
+  margin: 1em;
+  text-align: center;
+}
+
+.admin-genres-edit-form {
+  margin: 1em;
+}
+
+.admin-genres-delete-button {
+  border: 1px solid #ff6347;
+  border-radius: 13px;
+  background: #dc143c;
+  padding: 3px;
+  width: 4em;
+  margin: 0 auto;
+}
+
+.admin-genres-delete-button a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.admin-genres-delete-button a:hover {
+  opacity: 0.6;
+}
