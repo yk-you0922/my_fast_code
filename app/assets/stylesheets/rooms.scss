@@ -1,3 +1,65 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// show
+.dm-show-link {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+.dm-show-link a {
+  color: blue;
+  border-bottom: 1px solid;
+}
+
+.new-dm {
+  text-align: center;
+}
+
+.new-dm-area {
+  width: 30em;
+  min-height: 5em;
+}
+
+.dm-submit {
+  width: 15em;
+  font-size: 2em;
+}
+
+.user1-message {
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+.user2-message {
+  margin-bottom: 1em;
+}
+
+.user1-content {
+  text-align: center;
+  border: 1px solid #000;
+  background: #00bfff;
+  width: 30em;
+  min-height: 4em;
+  margin: 1em auto;
+  padding: 1em;
+}
+
+.user2-content {
+  text-align: center;
+  border: 1px solid #000;
+  background: #eee;
+  width: 30em;
+  min-height: 4em;
+  margin: 1em auto;
+  line-height: 4em;
+}
+
+
+.no-dm {
+  margin-top: 5em;
+  text-align: center;
+  padding: 8em;
+}
