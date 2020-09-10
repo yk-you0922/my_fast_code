@@ -195,6 +195,7 @@ header {
   display: flex;
   position: fixed;
   background: #333;
+  z-index: 9999;
 }
 
 .logo-title {

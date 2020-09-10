@@ -1,0 +1,65 @@
+<%# DM詳細ページ %>
+<h2>
+  <%= @user2.name %>さんとのチャットルーム
+</h2>
+
+<div class="dm-show-link">
+  <%= link_to 'ユーザー一覧へ戻る', users_path %>
+</div>
+
+<div class="new-dm">
+  <%= form_for(@new_message, url: user_messages_path) do |f| %>
+    <%= f.text_area :content, placeholder: "メッセージを入力してください", class:"new-dm-area" %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :user_id, value: @user2.id %>
+    <br>
+    <%= button_tag type: "submit" do %>
+      <i class="fas fa-arrow-down dm-submit"></i>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="dm-wrapper">
+  <% if @messages.present? %>
+    <% @messages.each do |msg| %>
+      <% if msg.user == @user1 %>
+        <div class="user1-message">
+          <div class="user1-image">
+              <%= attachment_image_tag @user1, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50', class: "user-icon" %>
+          </div>
+          <div class="user1-content">
+            <div class="message-ballon1">
+              <%= safe_join(msg.content.split("\n"), tag(:br)) %>
+            </div>
+            <div class="msg_created_at1">
+              <%= l msg.created_at %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="user2-message">
+          <div class="user2-image">
+            <%= attachment_image_tag @user2, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50', class: "user-icon" %>
+          <div class="user2-content">
+            <div class="message-ballon2">
+              <%= safe_join(msg.content.split("\n"), tag(:br)) %>
+              <div class="msg_created_at2">
+                <%= l msg.created_at %>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="no-dm">
+      <h3>
+        まだ<%= @user2.name  %>さんとのチャットは<br>
+        ありません。<br>
+        これから始めていきましょう！
+      </h3>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,156 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// show
+.dm-show-link {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+.dm-show-link a {
+  color: blue;
+  border-bottom: 1px solid;
+}
+
+.new-dm {
+  text-align: center;
+}
+
+.new-dm-area {
+  width: 30em;
+  min-height: 5em;
+}
+
+.dm-submit {
+  width: 15em;
+  font-size: 2em;
+}
+
+.dm-wrapper {
+  margin-top: 2em;
+}
+
+.user1-image {
+  text-align: right;
+}
+
+.user1-message {
+  margin-bottom: 1em;
+  // background: white;
+}
+
+.user2-message {
+  margin-bottom: 1em;
+}
+
+.user1-content {
+  text-align: center;
+  border-radius: 8px;
+  background: #00bfff;
+  width: 30em;
+  min-height: 4em;
+  margin: 1em auto;
+  padding: 1em;
+  position: relative;
+}
+
+.user2-content {
+  text-align: center;
+  border-radius: 8px;
+  background: #eee;
+  width: 30em;
+  min-height: 4em;
+  margin: 1em auto;
+  line-height: 4em;
+  position: relative;
+}
+
+.message-ballon1 {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.message-ballon1::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -30px;
+  border: 8px solid transparent;
+  border-left: 40px solid #00bfff;
+  -webkit-transform: rotate(-70deg);
+  transform: rotate(-40deg);
+}
+
+.message-ballon2 {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.message-ballon2::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: -30px;
+  border: 8px solid transparent;
+  border-left: 30px solid #eee;
+  -webkit-transform: rotate(210deg);
+  transform: rotate(210deg);
+}
+
+
+.msg_created_at1 {
+  font-size: 4px;
+}
+
+
+.msg_created_at2 {
+  font-size: 4px;
+}
+
+
+.no-dm {
+  margin-top: 5em;
+  text-align: center;
+  padding: 8em;
+}
+
+
+.dm-index-table {
+  width: 100%;
+  background: #eee;
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px solid;
+}
+
+.dm-index-cell {
+  min-width: 1em;
+  max-width: 2em;
+  text-align: center;
+}
+
+.word-break-cell {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dm-index-last {
+  width: 40px;
+}
+
+
+.dm-index-link {
+  font-size: 2em;
+  color: blue;
+}

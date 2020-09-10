@@ -85,11 +85,23 @@
   opacity: 0.6;
 }
 
+.dm-link {
+  font-size: 3em;
+  text-align: right;
+  color: blue;
+}
 
+.dm-link button {
+  border: none;
+  outline: none;
+  font-size: 1em;
+  text-align: right;
+  color: blue;
+}
 
 // edit
 .users-edit-wrapper {
-  text-align: center;
+  text-align: right;
 }
 
 .users-edit-name {

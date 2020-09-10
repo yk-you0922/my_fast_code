@@ -1,0 +1,25 @@
+<h2>DM一覧</h2>
+
+<% @another_entries.each do |entry| %>
+  <table class="dm-index-table">
+    <tbody>
+        <tr>
+          <td class="dm-index-cell word-break-cell">
+            <%= entry.user.name %>
+          </td>
+          <td class="dm-index-cell word-break-cell">
+            <%= Message.find_by(id: entry.room.message_ids.last)&.content %>
+          </td>
+          <td class="dm-index-cell">
+            <%#= l entry.created_at %>
+            <%= l Message.find_by(id: entry.room.message_ids.last).created_at %>
+          </td>
+          <td class="dm-index-cell dm-index-last">
+            <%= link_to user_room_path(entry.user, entry.room) do %>
+              <i class="far fa-envelope dm-index-link"></i>
+            <% end %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+<% end %>

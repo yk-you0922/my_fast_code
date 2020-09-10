@@ -10,13 +10,13 @@
               </div>
               <div class="user-info-follow-count">
                 <%= link_to follows_user_path(user.id) do %>
-                  フォロー数 : 
+                  フォロー数 :
                   <%= user.followings.count %>
                 <% end %>
               </div>
               <div class="user-info-follow-count">
                 <%= link_to followers_user_path(user.id) do %>
-                  フォロワー数 : 
+                  フォロワー数 :
                   <%= user.followers.count %>
                 <% end %>
               </div>
@@ -27,6 +27,30 @@
             <%= render 'relationships/follow', user: user %>
           <tr>
         </table>
+        <%# DMルームへのリンク %>
+          <% if check_page('users', 'show') %>
+            <% if (current_user.followed_by? user) && (user.followed_by? current_user) %>
+              <div>
+                <% if isRoom == true %>
+                  <%= link_to user_room_path(user, roomId) do %>
+                  <div class="dm-link">
+                    <i class="far fa-envelope"></i>
+                  </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(room, url: user_rooms_path(user, roomId)) do |f| %>
+                    <%= fields_for entry do |e| %>
+                      <%= e.hidden_field :user_id, value: user.id %>
+                    <% end %>
+                    <div class="dm-link">
+                      <%= button_tag sanitize('<i class="far fa-envelope"></i>', :type => "submit") %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        <%# DMルームへのリンク %>
         <% end %>
     </div>
     </div>
@@ -70,22 +94,23 @@
   <% end %>
   <div class="user-info-name-small">
     <%= link_to user_favorites_path(user.id) do %>
-      お気に入りした投稿  
+      お気に入りした投稿
       ”<%= user.favorites.count %>”  件
     <% end %>
   </div>
   <div class="user-info-name-small">
     <%= link_to user_favorite_comments_path(user.id) do %>
-      お気に入りしたコメント  
+      お気に入りしたコメント
       ”<%= user.favorited_comments.count %>”  件
     <% end %>
   </div>
   <div class="user-info-name-small">
-    投稿件数  
+    投稿件数
     ”<%= user.posts.count %>”  件
   </div>
   <div class="user-info-name-small">
-    コメント回数  
+    コメント回数
     ”<%= user.comments.count %>”  件
   </div>
+
 </div>

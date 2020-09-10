@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google, :twitter]
+         :recoverable, :rememberable, :validatable, :omniauthable
+        #  , omniauth_providers: [:google, :twitter]
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -11,6 +12,8 @@ class User < ApplicationRecord
   has_many :favorites_posts, through: :favorites, source: :post
   has_many :comment_favorites, dependent: :destroy
   has_many :favorited_comments, through: :comment_favorites, source: :comment
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
   attachment :image
 
@@ -33,7 +36,7 @@ class User < ApplicationRecord
   end
 
   protected
-  
+
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
 
@@ -66,6 +69,4 @@ class User < ApplicationRecord
     user
   end
 
-  
-  
 end

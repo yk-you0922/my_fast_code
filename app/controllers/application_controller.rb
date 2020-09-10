@@ -2,13 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!,:configure_permitted_parameters,
   if: :devise_controller?
-  
+
   # サイドバー カテゴリーを展開するための変数
   before_action :get_genres
   def get_genres
     @get_genres = Genre.all
   end
-  
+
 
   # 違うIDへの進入対策
   def current_user?
@@ -20,6 +20,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # 違うユーザー同士のDM進入対策
+    def dm_user?
+      @user1 = current_user
+      @user2 = User.find(params[:user_id])
+      
+      if
+        redirect_to user_path(current_user)
+      end
+    end
+
   # ログイン後の遷移先を管理者とユーザーで場合わけ
   def after_sign_in_path_for(resource)
     case resource
@@ -27,7 +37,6 @@ class ApplicationController < ActionController::Base
         admin_posts_path
       when User
         root_path
-
     end
   end
 
@@ -50,5 +59,5 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
   end
-  
+
 end
