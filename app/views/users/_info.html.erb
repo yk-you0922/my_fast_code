@@ -33,14 +33,18 @@
               <div>
                 <% if isRoom == true %>
                   <%= link_to user_room_path(user, roomId) do %>
+                  <div class="dm-link">
                     <i class="far fa-envelope"></i>
+                  </div>
                   <% end %>
                 <% else %>
                   <%= form_for(room, url: user_rooms_path(user, roomId)) do |f| %>
                     <%= fields_for entry do |e| %>
                       <%= e.hidden_field :user_id, value: user.id %>
                     <% end %>
-                    <%= f.submit 'DMを始める' %>
+                    <div class="dm-link">
+                      <%= button_tag sanitize('<i class="far fa-envelope"></i>', :type => "submit") %>
+                    </div>
                   <% end %>
                 <% end %>
               </div>

@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :dm_user?, only: :show
 
   def create
     @room = Room.create
@@ -14,11 +15,13 @@ class RoomsController < ApplicationController
     @user1 = current_user
     @user2 = User.find(params[:user_id])
     if Entry.where(user_id: current_user.id,room_id: @room.id).present?
-      @messages = @room.messages
+      @messages = @room.messages.order(created_at:"DESC")
       @new_message = Message.new
       @entries = @room.entries
     else
       redirect_back(fallback_location: root_path)
     end
   end
+
+
 end
