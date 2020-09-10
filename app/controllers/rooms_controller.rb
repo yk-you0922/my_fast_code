@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :dm_user?, only: :show
+  # before_action :dm_user?, only: :show
 
   def create
     @room = Room.create
@@ -21,6 +21,15 @@ class RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
+  end
+
+  def index
+    @currentEntries = current_user.entries
+    myRoomIds = []
+    @currentEntries.each do |entry|
+      myRoomIds << entry.room.id
+    end
+    @another_entries = Entry.where(room_id: myRoomIds).where.not(user_id: current_user.id)
   end
 
 

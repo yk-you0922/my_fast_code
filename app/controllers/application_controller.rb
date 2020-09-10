@@ -24,7 +24,8 @@ class ApplicationController < ActionController::Base
     def dm_user?
       @user1 = current_user
       @user2 = User.find(params[:user_id])
-      if @user1 != current_user && @user2 != current_user
+      
+      if
         redirect_to user_path(current_user)
       end
     end

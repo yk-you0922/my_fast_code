@@ -94,6 +94,10 @@
               <%= link_to 'お問い合わせ', user_contacts_path(current_user.id) %>
             </td>
           </tr>
+            <td class="side-bar-contents">
+              <%= link_to 'DM一覧', user_rooms_path(current_user.id) %>
+            </td>
+          </tr>
           <tr>
             <td class="side-bar-contents">
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
@@ -176,7 +180,7 @@
               <%= link_to '新規登録', new_user_registration_path %>
             </td>
           </tr>
-          
+
         <% end %>
         <tr>
           <td></td>
