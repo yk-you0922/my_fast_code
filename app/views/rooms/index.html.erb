@@ -1,9 +1,12 @@
-<h2>DM一覧</h2>
+<h2>ダイレクトメッセージ</h2>
 
 <% @another_entries.each do |entry| %>
   <table class="dm-index-table">
     <tbody>
         <tr>
+          <td class="dm-index-cell">
+            <%= attachment_image_tag entry.user, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50', class: "user-icon" %>
+          </td>
           <td class="dm-index-cell word-break-cell">
             <%= entry.user.name %>
           </td>
@@ -11,7 +14,6 @@
             <%= Message.find_by(id: entry.room.message_ids.last)&.content %>
           </td>
           <td class="dm-index-cell">
-            <%#= l entry.created_at %>
             <%= l Message.find_by(id: entry.room.message_ids.last).created_at %>
           </td>
           <td class="dm-index-cell dm-index-last">

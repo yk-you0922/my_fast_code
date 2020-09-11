@@ -8,7 +8,9 @@ class MessagesController < ApplicationController
       @room = @message.room.id
       redirect_to request.referer
     else
-      redirect_back(fallback_location: root_path)
+      # redirect_back(fallback_location: root_path)
+      render :show
+      # @message = Message.create(params.require(:message).permit(:user_id, :content, :room_id).merge(:user_id => current_user.id))
     end
   end
 end

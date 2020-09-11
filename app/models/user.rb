@@ -37,9 +37,10 @@ class User < ApplicationRecord
 
   protected
 
-  def self.find_for_google(auth)
+  def self.find_for(auth)
+    # userが登録されているか確認
     user = User.find_by(email: auth.info.email)
-
+    # なければ作るように処理
     unless user
       user = User.create(email: auth.info.email,
                          name:     auth.info.name,
@@ -50,23 +51,7 @@ class User < ApplicationRecord
                          meta:     auth.to_yaml
                         )
     end
-    user
+    # 作ったユーザーを返してログイン
+    return user
   end
-
-  def self.find_for_twitter(auth)
-    user = User.find_by(email: auth.info.email)
-
-    unless user
-      user = User.create(email: auth.info.email,
-                         name:     auth.info.name,
-                         provider: auth.provider,
-                         uid:      auth.uid,
-                         token:    auth.credentials.token,
-                         password: Devise.friendly_token[0, 20],
-                         meta:     auth.to_yaml
-                        )
-    end
-    user
-  end
-
 end

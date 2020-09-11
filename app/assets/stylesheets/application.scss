@@ -69,7 +69,7 @@ img:hover {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.45);
-  object-fit: contain;
+  object-fit: cover;
 }
 .graydisplay img {
   position: absolute;
@@ -289,6 +289,10 @@ header {
 .side-bar-contents a:hover {
   color: #87cefa;
   opacity: 0.5;
+}
+
+.side-bar-contents i {
+  font-size: 1.5em;
 }
 
 // サイドバー カテゴリーの開閉
