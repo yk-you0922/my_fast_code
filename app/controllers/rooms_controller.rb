@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :dm_user?, only: :show
+  before_action :dm_user?, only: :show
+  before_action :current_user?, only: :index
 
   def create
     @room = Room.create
@@ -18,6 +19,7 @@ class RoomsController < ApplicationController
       @messages = @room.messages.order(created_at:"DESC")
       @new_message = Message.new
       @entries = @room.entries
+      @room_user = @entries.where(user_id: :room_id)
     else
       redirect_back(fallback_location: root_path)
     end

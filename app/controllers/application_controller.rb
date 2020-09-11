@@ -20,12 +20,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # 違うユーザー同士のDM進入対策
+  #  違うユーザー同士のDM進入対策
     def dm_user?
-      @user1 = current_user
-      @user2 = User.find(params[:user_id])
-      
-      if
+      user1 = User.find(params[:user_id])
+      user2 = current_user
+      entry = Entry.where(room_id: params[:id])
+      # 
+      unless entry[1].user_id == user2.id && entry[1].room_id == params[:id].to_i
+        redirect_to user_path(current_user)
+      end
+      unless params[:user_id].to_i == user2.id || entry.find_by(user_id: params[:user_id].to_i)
         redirect_to user_path(current_user)
       end
     end
@@ -39,11 +43,6 @@ class ApplicationController < ActionController::Base
         root_path
     end
   end
-
-  # 新規会員登録後はwelcomingページ(homes#welcome)へ飛ぶように
-  # def after_sign_up_path_for(resource)
-  #     welcoming_path
-  # end
 
   def after_sign_out_path_for(resource)
       case resource

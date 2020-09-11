@@ -9,6 +9,7 @@
 
 <div class="new-dm">
   <%= form_for(@new_message, url: user_messages_path) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <%= f.text_area :content, placeholder: "メッセージを入力してください", class:"new-dm-area" %>
     <%= f.hidden_field :room_id, value: @room.id %>
     <%= f.hidden_field :user_id, value: @user2.id %>

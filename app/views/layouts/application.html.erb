@@ -93,7 +93,9 @@
             </td>
           </tr>
             <td class="side-bar-contents">
-              <%= link_to 'DM一覧', user_rooms_path(current_user.id) %>
+              <%= link_to user_rooms_path(current_user.id) do %>
+              <i class="far fa-envelope side-dm-index-link"></i>
+              <% end %>
             </td>
           </tr>
           <tr>
