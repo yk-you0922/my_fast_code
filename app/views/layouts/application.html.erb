@@ -78,7 +78,7 @@
               </p>
                 <ul class="side-bar-contents-genre-list">
                   <li class="side-bar-contents-genre-list-title">↓カテゴリー一覧↓</li>
-                  <% @get_genres.each do |genre| %>
+                  <% Genre.all.each do |genre| %>
                     <%= link_to category_posts_path(genre.id) do %>
                       <li>
                         <%= genre.name %>

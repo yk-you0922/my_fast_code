@@ -3,13 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!,:configure_permitted_parameters,
   if: :devise_controller?
 
-  # サイドバー カテゴリーを展開するための変数
-  before_action :get_genres
-  def get_genres
-    @get_genres = Genre.all
-  end
-
-
   # 違うIDへの進入対策
   def current_user?
     user_id = params[:user_id]
@@ -25,7 +18,7 @@ class ApplicationController < ActionController::Base
       user1 = User.find(params[:user_id])
       user2 = current_user
       entry = Entry.where(room_id: params[:id])
-      # 
+      #
       unless entry[1].user_id == user2.id && entry[1].room_id == params[:id].to_i
         redirect_to user_path(current_user)
       end

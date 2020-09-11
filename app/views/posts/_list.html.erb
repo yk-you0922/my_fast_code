@@ -3,7 +3,7 @@
   <div class="posts-title">
     <%= link_to post_path(post.id) do %>
       <h3>
-        タイトル  :  
+        タイトル  :
         <%= post.title %>
       </h3>
     <% end %>
@@ -43,12 +43,12 @@
       </div>
   <% end %>
   <div class="posts-img">
-    <%= attachment_image_tag post, :image, :fill, 200, 200, fallback: "no_image.jpg" , size:'350x200' %>
+    <%= attachment_image_tag post, :image, fallback: "no_image.jpg" %>
   </div>
   <% if check_page('posts', 'index') %>
     <div class="posts-comments">
       <h4>
-        コメント数  :  
+        コメント数  :
         <%= link_to post_path(post.id) do %>
           <%= post.comments.count %>
         <% end %>
