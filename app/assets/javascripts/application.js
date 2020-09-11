@@ -34,7 +34,8 @@ $(function(){
     }
     var fileReader = new FileReader();
     fileReader.onloadend = function() {
-      $('#result').html('<img src="' + fileReader.result + '" width="100%" height="100%">');
+      // $('#result').html('<img src="' + fileReader.result + '" width="100%" height="100%">');
+      $('#result').html('<img src="' + fileReader.result + '" >');
     }
     fileReader.readAsDataURL(file);
   });
@@ -128,5 +129,3 @@ $(function(){
       $(".graydisplay-icon").fadeOut(200);
   });
 });
-
-
