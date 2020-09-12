@@ -125,6 +125,8 @@
 }
 
 
+// index
+
 .dm-index-table {
   width: 100%;
   background: #eee;
@@ -153,4 +155,17 @@
 .dm-index-link {
   font-size: 2em;
   color: blue;
+}
+
+
+.dm-index-no-msg {
+  margin: 5em auto;
+  text-align: center;
+  background: #eee;
+  border-radius: 8px;
+  padding: 3em;
+}
+
+.dm-index-no-msg p {
+  font-size: 2em;
 }
